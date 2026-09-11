@@ -7,6 +7,6 @@
 "007","§1/§2 SYRUP","Cleaning End","parametro 1: 2 caratteri; parametro 2: 2 caratteri"
 "008","Hot H2O filling ","in clean tank"
 "009","Clean. Solution ","through syr.tube"
-"010","Inst module","version §1.§2.§3","parametro 1: 2 caratteri; parametro 2: 2 caratteri; parametro 3: 2 caratteri"
-"011","Syrup module","version §1.§2.§3","parametro 1: 2 caratteri; parametro 2: 2 caratteri; parametro 3: 2 caratteri"
+"010","Inst module","version §1.§2.§3","parametro 1: 1 caratteri; parametro 2: 1 caratteri; parametro 3: 1 caratteri"
+"011","Syrup module","version §1.§2.§3","parametro 1: 1 caratteri; parametro 2: 1 caratteri; parametro 3: 1 caratteri"
 "012","§1 EXT Mix §2","rinsing","parametro 1: 5 caratteri; parametro 2: 1 caratteri"

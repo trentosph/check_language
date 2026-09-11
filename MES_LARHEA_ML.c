@@ -805,9 +805,10 @@ const u8 __far ML_MSA_1[MAX_MSA][32] = {
     /* MSA n. 182 */        "@A236           "                      // "NEED GRINDER CALIBRATION"
                             "                ",
 			        
-    /* MSA n. 183 */        "@A237          "	                    // "Refill   cups   "
+    /* MSA n. 183 */        "@A237           "	                    // "Refill   cups   "
                             "                ",				        
-    /* MSA n. 184 */        "@A238          "                       // "Use own cups    "
+    
+    /* MSA n. 184 */        "@A238           "                       // "Use own cups    "
                             "                ",				        
 };
 
@@ -1992,7 +1993,7 @@ const u8 __far ML_MS_NOME_PRESEL_1[MAX_NOME_PRESEL][16] = {
 };
 #else
 
-const u8 __far ML_MS_NOME_PRESEL_1[13][7] = { //@FT controllare l'excel per il multilingua perchè si e' disallineato
+const u8 __far ML_MS_NOME_PRESEL_1[MAX_NOME_PRESEL][7] = { //@FT controllare l'excel per il multilingua perchè si e' disallineato
     /* 00 */      	  "@D014  ",                                //"DECAF. ",//st- presel per + 10 selezioni dirette  (sel 11-20) ( presel Nr 0 - mes 162 ) / ( presel 0 + 7 = sel 31-40 )  servomat     
     /* 01 */          "@D015  ",                                //"BARLEY ",          
     /* 02 */          "@D016  ",                                //"NO CUP ",         

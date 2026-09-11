@@ -1225,7 +1225,7 @@ const u8 __far ML_MSAP_1[MAX_MSAP][32] = {
                            "                ",                          //"             \7.\x08",
 
     #ifdef CUSTOMER_NESTLE
-    /* MSP n. 95 */        "@B124�\x08         "                        //"decimal number  " "Nombre d�cimaux "
+    /* MSP n. 96 */        "@B124�\x08         "                        //"decimal number  " "Nombre d�cimaux "
                            "                ",                          //"               \x08", "               \x08",
      #else
     /* MSP n. 96 */        "@B344�\x08         "                        //"decimal number  " "Nombre d�cimale "

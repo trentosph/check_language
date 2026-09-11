@@ -12,6 +12,7 @@ Verifica:
 3. Placeholder (escape slot 0..15) a parità di indice reale nell'array
    - stesso numero e stessi slot (\\0..\\7, \\x08..\\x0F) tra GB e ML
    - stessi raggruppamenti in parametri (run consecutive separate da testo/§/…)
+   - anche '^' e ')' contano come placeholder monocarattere (larghezza 1)
 4. Placeholder duplicati nello stesso messaggio
    - lo stesso slot non può comparire più di una volta (anche non consecutivi:
      es. \\5\\5\\6\\7 e \\5\\6\\7\\5 sono entrambi errori)
@@ -257,15 +258,18 @@ def extract_msg_id_prefix(literals: list[str]) -> Optional[str]:
 # Slot placeholder firmware: byte 0..15 scritti come escape ottale/hex
 # (es. \1\2, \x08\x0A). Non conta \n/\t/% letterale.
 PLACEHOLDER_MAX = 15
+# Placeholder monocarattere nel testo C (equivalgono a §N da 1 carattere nel CSV)
+PLACEHOLDER_CARET = -1  # '^'
+PLACEHOLDER_PAREN = -2  # ')'
 
 
 def extract_placeholder_slots(literal: str) -> list[int]:
     """
-    Estrae gli slot placeholder (0..15) da un letterale C \"...\".
+    Estrae gli slot placeholder (0..15 e sentinelle ^ / )) da un letterale C \"...\".
 
-    Conta solo escape ottali/hex che producono un byte 0..15
-    (\\0..\\7, \\10..\\17, \\x00..\\x0F). Gli altri escape (\\n, \\\\, …)
-    non sono slot di inserimento firmware.
+    Conta escape ottali/hex che producono un byte 0..15
+    (\\0..\\7, \\10..\\17, \\x00..\\x0F) più i caratteri '^' e ')'.
+    Gli altri escape (\\n, \\\\, …) non sono slot di inserimento firmware.
     """
     groups = extract_placeholder_groups([literal])
     return [s for g in groups for s in g]
@@ -280,10 +284,14 @@ def extract_placeholder_groups(
     Un parametro è una sequenza ininterrotta di escape 0..15; qualsiasi altro
     contenuto (spazio, testo, '§', ':', escape non-slot, …) spezza il gruppo.
 
-    Esempi:
-      "ciao \\1\\2 \\3\\4"     -> ((1,2), (3,4))   lunghezze 2+2
-      "@A123§\\1§\\2\\3\\4"   -> ((1,), (2,3,4))  lunghezze 1+3
-      "ora \\5\\6:\\7\\x08"   -> ((5,6), (7,8))
+    Inoltre '^' e ')' sono placeholder monocarattere (larghezza 1): ciascuno
+    forma un parametro a sé, allineato ai §N da 1 carattere nel CSV ML.
+    Esempio: \"@A169§^§)§\\7\\x08\" → ((CARET,), (PAREN,), (7, 8)) → lunghezze 1+1+2
+
+    Esempi escape:
+      \"ciao \\1\\2 \\3\\4\"     -> ((1,2), (3,4))   lunghezze 2+2
+      \"@A123§\\1§\\2\\3\\4\"   -> ((1,), (2,3,4))  lunghezze 1+3
+      \"ora \\5\\6:\\7\\x08\"   -> ((5,6), (7,8))
     """
     groups: list[tuple[int, ...]] = []
     current: list[int] = []
@@ -299,7 +307,20 @@ def extract_placeholder_groups(
         inner = lit[1:-1]
         i = 0
         while i < len(inner):
-            if inner[i] == "\\":
+            ch = inner[i]
+            # Placeholder monocarattere firmware: chiudono il run corrente
+            # e valgono come parametro di lunghezza 1 (come §N: 1 carattere).
+            if ch == "^":
+                flush()
+                groups.append((PLACEHOLDER_CARET,))
+                i += 1
+                continue
+            if ch == ")":
+                flush()
+                groups.append((PLACEHOLDER_PAREN,))
+                i += 1
+                continue
+            if ch == "\\":
                 m = RE_HEX_ESC.match(inner, i)
                 if m:
                     val = int(m.group(0)[2:], 16)
@@ -330,17 +351,24 @@ def extract_placeholder_groups(
     return tuple(groups)
 
 
+def _format_one_slot(s: int) -> str:
+    """Una rappresentazione leggibile di uno slot (escape, ^ o ))."""
+    if s == PLACEHOLDER_CARET:
+        return "^"
+    if s == PLACEHOLDER_PAREN:
+        return ")"
+    if 0 <= s <= 7:
+        return f"\\{s}"
+    if 0 <= s <= PLACEHOLDER_MAX:
+        return f"\\x{s:02X}"
+    return f"?{s}"
+
+
 def format_placeholders(slots: tuple[int, ...] | list[int]) -> str:
-    """Rappresentazione leggibile degli slot: \\0,\\1,\\x08,…"""
+    """Rappresentazione leggibile degli slot: \\0,\\1,\\x08,^,…)"""
     if not slots:
         return "(nessuno)"
-    parts: list[str] = []
-    for s in slots:
-        if s <= 7:
-            parts.append(f"\\{s}")
-        else:
-            parts.append(f"\\x{s:02X}")
-    return ",".join(parts)
+    return ",".join(_format_one_slot(s) for s in slots)
 
 
 def format_param_groups(
@@ -348,16 +376,14 @@ def format_param_groups(
 ) -> str:
     """
     Rappresentazione leggibile dei parametri con lunghezze.
-    es. [2]=\\1\\2 + [2]=\\3\\4
+    es. [2]=\\1\\2 + [1]=^ + [2]=\\3\\4
     """
     if not groups:
         return "(nessun parametro)"
     parts: list[str] = []
     for g in groups:
         # Senza virgole tra slot dello stesso parametro: riflette i caratteri contigui
-        body = "".join(
-            f"\\{s}" if s <= 7 else f"\\x{s:02X}" for s in g
-        )
+        body = "".join(_format_one_slot(s) for s in g)
         parts.append(f"[{len(g)}]={body}")
     return " + ".join(parts)
 

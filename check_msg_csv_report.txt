@@ -1,44 +1,11 @@
 === check_msg_csv report ===
-Data (UTC): 2026-09-11 14:38:07
-Esito: FAIL
+Data (UTC): 2026-09-11 15:18:59
+Esito: OK
 
 Nota: errori CSV in MSG/ (cartella/file/confronto ML) e cross-check ID @Xnnn / placeholder verso MES_LARHEA_ML.c.
 
 ----------
 
-[ERROR] HU-MSGZ-uni.csv:5: SIZE ERROR DETECTED IN: index 005 - (+1) in Message 2
-[ERROR] IT-MSGZ-uni.csv:5: SIZE ERROR DETECTED IN: index 005 - (+1) in Message 2
-[ERROR] MES_LARHEA_ML.c:663: ML_MSA_1: @A159 placeholder C=[] vs CSV INFO=[1] (index CSV 159)
-[ERROR] MES_LARHEA_ML.c:675: ML_MSA_1: @A163 placeholder C=[] vs CSV INFO=[1, 1] (index CSV 163)
-[ERROR] MES_LARHEA_ML.c:693: ML_MSA_1: @A169 placeholder C=[2] vs CSV INFO=[1, 1, 2] (index CSV 169)
-[ERROR] MES_LARHEA_ML.c:899: ML_MSAP_1: @B026 placeholder C=[2, 2, 1] vs CSV INFO=[2, 1, 1] (index CSV 026)
-[ERROR] MES_LARHEA_ML.c:908: ML_MSAP_1: @B029 placeholder C=[16] vs CSV INFO=[1, 1, 16] (index CSV 029)
-[ERROR] MES_LARHEA_ML.c:924: ML_MSAP_1: @B339 placeholder C=[5, 2, 2] vs CSV INFO=[2, 2, 1] (index CSV 339) ramo='if defined(CUSTOMER_NESTLE)'
-[ERROR] MES_LARHEA_ML.c:1080: ML_MSAP_1: @B079 placeholder C=[2, 9] vs CSV INFO=[1, 2, 9] (index CSV 079) ramo='if defined(COMPILO_4_LISTE_PREZZI)'
-[ERROR] MES_LARHEA_ML.c:1143: ML_MSAP_1: @B098 placeholder C=[] vs CSV INFO=[1] (index CSV 098) ramo='if defined(COMPILO_4_LISTE_PREZZI)'
-[ERROR] MES_LARHEA_ML.c:1164: ML_MSAP_1: @B105 placeholder C=[] vs CSV INFO=[1] (index CSV 105) ramo='if defined(COMPILO_4_LISTE_PREZZI)'
-[ERROR] MES_LARHEA_ML.c:1250: ML_MSAP_1: @B129 placeholder C=[3] vs CSV INFO=[1] (index CSV 129) ramo='if defined(ABIL_DELTA_TEMPERATURA)'
-[ERROR] MES_LARHEA_ML.c:1314: ML_MSAP_1: @B148 placeholder C=[2] vs CSV INFO=[1] (index CSV 148)
-[ERROR] MES_LARHEA_ML.c:1364: ML_MSAP_1: @B164 placeholder C=[2, 3, 1, 2, 2, 2, 2, 2] vs CSV INFO=[2, 2, 1, 2, 2, 2, 2, 2] (index CSV 164)
-[ERROR] MES_LARHEA_ML.c:1566: ML_MSAP_1: @B224 placeholder C=[4] vs CSV INFO=[3] (index CSV 224) ramo='if defined(MODELLO_ESPRESSO)'
-[ERROR] MES_LARHEA_ML.c:1582: ML_MSAP_1: @B229 placeholder C=[9] vs CSV INFO=[8] (index CSV 229)
-[ERROR] MES_LARHEA_ML.c:1585: ML_MSAP_1: @B230 placeholder C=[9] vs CSV INFO=[8] (index CSV 230)
-[ERROR] MES_LARHEA_ML.c:1588: ML_MSAP_1: @B231 placeholder C=[9] vs CSV INFO=[8] (index CSV 231)
-[ERROR] MES_LARHEA_ML.c:1756: ML_MSAP_1: @B284 placeholder C=[3] vs CSV INFO=[1] (index CSV 284)
-[ERROR] MES_LARHEA_ML.c:1789: ML_MSAP_1: @B294 placeholder C=[8] vs CSV INFO=[1] (index CSV 294) ramo='if defined(PROGRAMMABLE_PRESEL_MSG)'
-[ERROR] MES_LARHEA_ML.c:1796: ML_MSAP_1: @B296 placeholder C=[1] vs CSV INFO=[8] (index CSV 296)
-[ERROR] MES_LARHEA_ML.c:1815: ML_MSAP_1: @B302 placeholder C=[] vs CSV INFO=[1] (index CSV 302)
-[ERROR] MES_LARHEA_ML.c:1835: ML_MSAP_1: @B309 placeholder C=[5] vs CSV INFO=[1, 1, 5] (index CSV 309)
-[ERROR] MES_LARHEA_ML.c:2209: ML_MSG_LAV_GRUPPO: @M030 placeholder C=[1, 2, 1, 2] vs CSV INFO=[2, 1, 1, 2] (index CSV 030)
-[ERROR] MES_LARHEA_ML.c:2343: ML_MSAP_PAR_MACINA_MOT: @Q001 placeholder C=[3] vs CSV INFO=[1, 3] (index CSV 001)
-[ERROR] MES_LARHEA_ML.c:2345: ML_MSAP_PAR_MACINA_MOT: @Q002 placeholder C=[2] vs CSV INFO=[1, 2] (index CSV 002)
-[ERROR] MES_LARHEA_ML.c:2347: ML_MSAP_PAR_MACINA_MOT: @Q003 placeholder C=[1] vs CSV INFO=[1, 1] (index CSV 003)
-[ERROR] MES_LARHEA_ML.c:2349: ML_MSAP_PAR_MACINA_MOT: @Q004 placeholder C=[2, 2] vs CSV INFO=[1, 2, 2] (index CSV 004)
-[ERROR] MES_LARHEA_ML.c:2351: ML_MSAP_PAR_MACINA_MOT: @Q005 placeholder C=[4] vs CSV INFO=[1, 4] (index CSV 005)
-[ERROR] MES_LARHEA_ML.c:2353: ML_MSAP_PAR_MACINA_MOT: @Q006 placeholder C=[3] vs CSV INFO=[1, 3] (index CSV 006)
-[ERROR] MES_LARHEA_ML.c:2355: ML_MSAP_PAR_MACINA_MOT: @Q007 placeholder C=[3] vs CSV INFO=[1, 3] (index CSV 007)
-[ERROR] MES_LARHEA_ML.c:2580: ML_MS_MODULI_EST: @Z010 placeholder C=[1, 1, 1] vs CSV INFO=[2, 2, 2] (index CSV 010)
-[ERROR] MES_LARHEA_ML.c:2583: ML_MS_MODULI_EST: @Z011 placeholder C=[1, 1, 1] vs CSV INFO=[2, 2, 2] (index CSV 011)
 
-Riepilogo CSV: 33 errori, 0 warning
-FAIL
+Riepilogo CSV: 0 errori, 0 warning
+OK

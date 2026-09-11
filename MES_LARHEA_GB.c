@@ -12,7 +12,7 @@
 #ifdef LANGUAGE_GB
 
 #ifdef ABIL_PROGRAMMAZIONE_PARZIALE
-const u8 __far GB_MS_PROG_ESTESA[16] = {"TOTAL           ",};
+const u8 __far GB_MS_PROG_ESTESA[16] = {"TOTAL            ",};
 const u8 __far GB_MS_PROG_RIDOTTA[16] = {"PARTIAL         ",};
 #endif
 
@@ -1850,8 +1850,7 @@ const u8 __far GB_MSAP_1[MAX_MSAP][32] = {
     /* MSP n. 229 */       "   not  used    "
                            "                ",
     #endif
-    /* MSP n.230  */   	   "PROGRAMMING ----"
-                           "  VARIGRIND 2   ",
+
 
     /* MSP n.231  */   	   "PRESEL. NUM ^)  " 		// PP1 (PP101) presel number
                            "           \4\5\6\7\x08",
@@ -1938,7 +1937,7 @@ const u8 __far GB_MSAP_1[MAX_MSAP][32] = {
                             "Push PROG   \5\6\7\x08",
 
     /* MSP n. 253*/         "Calibrate Cof  4"
-                            "Push PROG   \5\6\7\x08",
+                            "Push PROG   \5\6\7",
 
     /* MSP n. 254 */        "coffee repeat   "
                             "0=disabled     \x08",
@@ -1966,7 +1965,7 @@ const u8 __far GB_MS_NOME_SELEZ_1[MAX_NOME_SELEZ][16] = {
     /* 13 */          "White Coffee    ",
     /* 14 */          "Cortado         ",
     /* 15 */          "Hot Water       ",
-    /* 16 */          "Tea             ",
+    /* 16 */          "Tea              ",
     /* 17 */          "Chococcino      ",
     /* 18 */          "Milk Chocolate  ",
     /* 19 */          "Dark Chocolate  ",

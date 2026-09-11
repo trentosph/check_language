@@ -6,7 +6,7 @@
  *  \date
  *  \version
  ***********************************************************************/
-#include "config.h" 
+#include "config.h"  
 #include "LANG_DEF.H"
 
 #ifdef LANGUAGE_GB

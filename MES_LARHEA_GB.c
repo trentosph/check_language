@@ -7,7 +7,7 @@
  *  \version
  ***********************************************************************/
 #include "config.h"  
-#include "LANG_DEF.H"
+#include "LANG_DEF.H" 
 
 #ifdef LANGUAGE_GB
 

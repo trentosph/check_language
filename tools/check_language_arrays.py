@@ -20,6 +20,9 @@ Verifica:
    - ID unico su tutto il file (anche tra rami #ifdef diversi)
    - elementi fatti solo di macro (es. NOME_MACCHINA_1) esclusi dal controllo
    - eccezione: messaggio fisso "language:" / "Multilanguage" (senza @Xnnn)
+6. Commento indice vs indice reale nell'array (GB e ML)
+   - es. /* MSP n. 96 */ deve coincidere con la posizione reale nell'array (96)
+   - indipendente dall'ID catalogo @Xnnn (es. @B124 su MSP n. 96 è ok)
 
 Uso:
   python tools/check_language_arrays.py
@@ -27,7 +30,6 @@ Uso:
 
 Exit code 0 = OK, 1 = errori (o warning se --warnings-as-errors).
 """
-
 from __future__ import annotations
 
 import argparse
@@ -112,7 +114,8 @@ class MessageElement:
     Un elemento dell'array messaggi (stringhe C concatenate fino alla virgola).
 
     logical_index è l'indice reale nell'array C: i rami #if/#else alternativi
-    condividono gli stessi indici (non si usano i commenti /* MSA n. N */).
+    condividono gli stessi indici. I commenti /* MSA n. N */ non lo calcolano:
+    vengono solo confrontati con logical_index (check coerenza commento).
     """
 
     logical_index: int
@@ -129,7 +132,9 @@ class MessageElement:
     is_macro_only: bool = False
     # Primi 5 byte del messaggio (None se macro-only o stringa troppo corta)
     msg_id_prefix: Optional[str] = None
-
+    # Numero letto dal commento indice sulla stessa riga (/* MSP n. 96 */, /* 09 */, …)
+    # None se assente o riga commentata con //
+    comment_index: Optional[int] = None
 
 @dataclass
 class ArrayDecl:
@@ -490,6 +495,23 @@ def _blank_comments(text: str) -> str:
 
 
 @dataclass
+class _PendingClosedIf:
+    """
+    #if/#ifdef chiuso ma non ancora sommato al parent.
+
+    Serve per fondere come alternative:
+    - condizioni complementari consecutive (defined(X) poi !defined(X))
+    - blocchi distinti con la stessa sequenza di commenti indice
+      (es. #ifdef MODELLO_ESPRESSO … #ifdef MODELLO_SOLUBILE entrambi /* n. 210 */)
+    """
+
+    condition: str
+    base_index: int
+    contributed: int
+    comment_seq: tuple[int, ...]
+
+
+@dataclass
 class _BranchFrame:
     """Frame dello stack preprocessore durante il conteggio bilanciato."""
 
@@ -505,6 +527,12 @@ class _BranchFrame:
     base_index: int = 0
     # Etichette dei rami per il path (ramo 0 = condizione, poi else/elif)
     branch_labels: list[str] = field(default_factory=list)
+    # #if figlio appena chiuso in attesa di un eventuale complemento/alternativa
+    pending_closed: Optional[_PendingClosedIf] = None
+    # Commenti indice raccolti per ramo (per riconoscere alternative consecutive)
+    comments_in_branch: list[list[int]] = field(default_factory=lambda: [[]])
+    # Indice in `elements` all'apertura del frame (per rinumerare tutto il sottoalbero)
+    elements_start: int = 0
 
 
 def _normalize_ifdef_cond(cond: str) -> str:
@@ -525,26 +553,104 @@ def _normalize_ifdef_cond(cond: str) -> str:
     return cond
 
 
+def _condition_predicate(cond: str) -> Optional[str]:
+    """
+    Estrae il predicato booleano normalizzato da una direttiva #if/#ifdef/#ifndef.
+
+    Esempi:
+      ifdef FOO              -> defined(FOO)
+      ifndef FOO             -> !defined(FOO)
+      if defined(FOO)        -> defined(FOO)
+      if !defined(FOO)       -> !defined(FOO)
+      if defined(A) && B     -> None (troppo complesso per il complemento automatico)
+    """
+    norm = _normalize_ifdef_cond(cond)
+    # Toglie il prefisso "if "
+    if norm.startswith("if "):
+        pred = norm[3:].strip()
+    else:
+        pred = norm
+    # Solo predicati semplici defined / !defined: niente && || …
+    if re.fullmatch(r"!?defined\(\w+\)", pred):
+        return pred
+    return None
+
+
+def _is_complement_condition(a: str, b: str) -> bool:
+    """
+    True se a e b sono negazioni l'una dell'altra (defined(X) vs !defined(X)).
+
+    Contesto tabelle: spesso si scrive
+      #if defined(FOO) … #endif
+      #if !defined(FOO) … #endif
+    invece di un unico #if/#else; i due blocchi condividono gli stessi indici array.
+    """
+    pa, pb = _condition_predicate(a), _condition_predicate(b)
+    if pa is None or pb is None:
+        return False
+    if pa.startswith("!") and pa[1:] == pb:
+        return True
+    if pb.startswith("!") and pb[1:] == pa:
+        return True
+    return False
+
+
 RE_INDEX_COMMENT = re.compile(
     r"/\*\s*(?:"
     r"(?:MSA|MSP|MSAP)\s*n\.\s*(\d+)"  # /* MSA n. 12 */
-    r"|n\.\s*(\d+)"  # /* n. 12 */
+    r"|n\.\s*(\d+)"  # /* n. 12 */ oppure /*  n. 0   */
     r"|(\d+)"  # /* 12 */ oppure /* 01 */
     r")\s*\*/",
     re.IGNORECASE,
 )
 
 
+def _index_from_comment_match(m: re.Match) -> int:
+    """Estrae l'intero dall'unico gruppo catturato di RE_INDEX_COMMENT."""
+    for g in m.groups():
+        if g is not None:
+            return int(g)
+    raise ValueError("RE_INDEX_COMMENT senza gruppo numerico")
+
+
+def _is_block_comment_line_disabled(body: str, match_start: int) -> bool:
+    """
+    True se /* ... */ è disattivato da un // sulla stessa riga (es. ///* MSP n. 98 */).
+
+    Contesto: nei .c spesso si lascia il vecchio messaggio come commento di riga;
+    quel numero non deve entrare nel check né nel conteggio indici.
+    """
+    line_start = body.rfind("\n", 0, match_start) + 1
+    before = body[line_start:match_start]
+    return "//" in before
+
+
 def extract_index_comments(body: str) -> list[int]:
     """Estrae gli indici numerici dai commenti tipo /* MSA n. 3 */ o /* 01 */."""
     idxs: list[int] = []
     for m in RE_INDEX_COMMENT.finditer(body):
-        for g in m.groups():
-            if g is not None:
-                idxs.append(int(g))
-                break
+        if _is_block_comment_line_disabled(body, m.start()):
+            continue
+        idxs.append(_index_from_comment_match(m))
     return idxs
 
+
+def extract_index_comments_by_line(
+    body: str, base_line: int
+) -> dict[int, list[int]]:
+    """
+    Mappa riga assoluta del file -> lista di indici nei commenti su quella riga.
+
+    Usata per associare /* MSP n. 96 */ all'elemento che inizia sulla stessa riga
+    e confrontarlo con logical_index (non con @B124 / ID catalogo).
+    """
+    by_line: dict[int, list[int]] = {}
+    for m in RE_INDEX_COMMENT.finditer(body):
+        if _is_block_comment_line_disabled(body, m.start()):
+            continue
+        abs_line = base_line + body.count("\n", 0, m.start())
+        by_line.setdefault(abs_line, []).append(_index_from_comment_match(m))
+    return by_line
 
 def analyze_body(
     body: str,
@@ -570,9 +676,13 @@ def analyze_body(
 
     Per la lunghezza: ogni elemento deve sommare width byte (se width nota),
     salvo elementi fatti solo di macro esterne (NOME_MACCHINA_1, ...).
+
+    Per i commenti indice: sul body grezzo si costruisce la mappa riga→numero
+    (/* MSP n. 96 */, /* 09 */, …); a flush si confronta con logical_index.
     """
+    # Commenti indice dal body grezzo (prima di blankare /* */), per riga assoluta
+    comments_by_line = extract_index_comments_by_line(body, base_line)
     clean = _blank_comments(body)
-    lines = clean.splitlines(keepends=True)
 
     # Stack di frame condizionali; counts[0] del frame root = totale
     root = _BranchFrame(
@@ -609,12 +719,47 @@ def analyze_body(
             parts.append(label)
         return " / ".join(parts)
 
+    def flush_pending(fr: _BranchFrame) -> None:
+        """Somma al ramo attivo un #if figlio tenuto in sospeso (niente complemento dopo)."""
+        if fr.pending_closed is not None:
+            fr.counts[fr.active] += fr.pending_closed.contributed
+            fr.pending_closed = None
+
+    def comment_seq_of(fr: _BranchFrame) -> tuple[int, ...]:
+        """
+        Sequenza commenti del ramo più ricco (o del primo a parità).
+
+        Usata per riconoscere #ifdef consecutivi che ripetono gli stessi n.
+        (tipicamente modelli mutualmente esclusivi scritti come ifdef separati).
+        """
+        if not fr.comments_in_branch:
+            return ()
+        # Preferisci un ramo che ha commenti; a parità prendi quello con più elementi
+        best = max(
+            range(len(fr.comments_in_branch)),
+            key=lambda i: (
+                len(fr.comments_in_branch[i]),
+                fr.counts[i] if i < len(fr.counts) else 0,
+            ),
+        )
+        return tuple(fr.comments_in_branch[best])
+
+    def renumber_frame_elements(fr: _BranchFrame, delta: int) -> None:
+        """Sposta gli logical_index di tutto il sottoalbero del frame di -delta."""
+        if delta == 0:
+            return
+        # Dal push del frame a ora: tutti gli elementi (anche in #if annidati)
+        for ei in range(fr.elements_start, len(elements)):
+            elements[ei].logical_index -= delta
+
     def flush_element() -> None:
         nonlocal cur_strings, cur_idents, cur_line
         if not cur_strings and not cur_idents:
             return
 
         fr = active_frame()
+        # Eventuale #if figlio sospeso non ha avuto complemento: consolidalo prima
+        flush_pending(fr)
         # Indice reale nell'array: base del frame + elementi già visti in questo ramo
         logical_idx = fr.base_index + fr.counts[fr.active]
 
@@ -633,13 +778,20 @@ def analyze_body(
             None if is_macro_only else extract_msg_id_prefix(cur_strings)
         )
 
+        # Commento indice sulla stessa riga dell'inizio elemento (/* MSP n. 96 */)
+        # Non è l'ID @Xnnn: il confronto col logical_index avviene a fine analisi
+        # (dopo eventuali rinumerazioni per #ifdef complementari/alternativi).
+        comment_idxs = comments_by_line.get(cur_line, [])
+        comment_index = comment_idxs[0] if comment_idxs else None
+
+        branch = current_branch_path()
+        branch_txt = f" ramo='{branch}'" if branch else ""
+
         # Stesso slot più di una volta nello stesso messaggio = errore
         # (vale anche se non consecutivi: \5\6\7\5)
         slot_counts = Counter(slots)
         duplicated = sorted(s for s, n in slot_counts.items() if n > 1)
         if duplicated:
-            branch = current_branch_path()
-            branch_txt = f" ramo='{branch}'" if branch else ""
             dup_detail = ", ".join(
                 f"{format_placeholders([s])} x{slot_counts[s]}" for s in duplicated
             )
@@ -661,11 +813,16 @@ def analyze_body(
                 placeholders=tuple(slots),
                 param_groups=param_groups,
                 preview=preview,
-                branch_path=current_branch_path(),
+                branch_path=branch,
                 is_macro_only=is_macro_only,
                 msg_id_prefix=msg_id_prefix,
+                comment_index=comment_index,
             )
         )
+
+        # Traccia commenti del ramo attivo (per fondere #ifdef alternativi)
+        if comment_index is not None:
+            fr.comments_in_branch[fr.active].append(comment_index)
 
         add_row(1)
 
@@ -725,8 +882,20 @@ def analyze_body(
                     norm = _normalize_ifdef_cond(cond)
                     ifdef_sig.append(f"{indent}IF({norm})")
                     parent = active_frame()
-                    # Il nuovo frame parte dall'indice dove il parent sta scrivendo ora
-                    child_base = parent.base_index + parent.counts[parent.active]
+                    # Complemento formale del #if sospeso: stessi indici (come #else)
+                    if parent.pending_closed and _is_complement_condition(
+                        parent.pending_closed.condition, cond
+                    ):
+                        child_base = parent.pending_closed.base_index
+                    elif parent.pending_closed:
+                        # Ipotesi sequenziale: parte dopo il blocco sospeso.
+                        # Se a #endif i commenti coincidono, rinumeriamo come alternativa.
+                        child_base = (
+                            parent.pending_closed.base_index
+                            + parent.pending_closed.contributed
+                        )
+                    else:
+                        child_base = parent.base_index + parent.counts[parent.active]
                     stack.append(
                         _BranchFrame(
                             kind=directive,
@@ -736,6 +905,7 @@ def analyze_body(
                             line=abs_line,
                             base_index=child_base,
                             branch_labels=[norm],
+                            elements_start=len(elements),
                         )
                     )
                 elif directive == "elif":
@@ -750,12 +920,14 @@ def analyze_body(
                             )
                         )
                     else:
+                        flush_pending(fr)
                         indent = "  " * (len(stack) - 2)
                         elif_norm = _normalize_ifdef_cond(f"if {rest}")
                         ifdef_sig.append(f"{indent}ELIF({elif_norm})")
                         fr.counts.append(0)
                         fr.active = len(fr.counts) - 1
                         fr.branch_labels.append(f"ELIF({elif_norm})")
+                        fr.comments_in_branch.append([])
                 elif directive == "else":
                     fr = active_frame()
                     if fr.kind == "root":
@@ -768,11 +940,13 @@ def analyze_body(
                             )
                         )
                     else:
+                        flush_pending(fr)
                         indent = "  " * (len(stack) - 2)
                         ifdef_sig.append(f"{indent}ELSE")
                         fr.counts.append(0)
                         fr.active = len(fr.counts) - 1
                         fr.branch_labels.append(f"ELSE({fr.condition})")
+                        fr.comments_in_branch.append([])
                 elif directive == "endif":
                     fr = stack.pop()
                     if fr.kind == "root":
@@ -786,6 +960,7 @@ def analyze_body(
                             )
                         )
                     else:
+                        flush_pending(fr)
                         indent = "  " * (len(stack) - 1)
                         ifdef_sig.append(f"{indent}ENDIF")
                         # Tutti i rami devono avere lo stesso numero di elementi
@@ -804,7 +979,46 @@ def analyze_body(
                                         )
                                     )
                         contributed = max(fr.counts) if fr.counts else 0
-                        add_row(contributed)
+                        seq = comment_seq_of(fr)
+                        parent = active_frame()
+                        pending = parent.pending_closed
+
+                        if pending and _is_complement_condition(
+                            pending.condition, fr.condition
+                        ):
+                            # defined(X) / !defined(X): stessa base, max contributi
+                            parent.pending_closed = _PendingClosedIf(
+                                condition=pending.condition,
+                                base_index=pending.base_index,
+                                contributed=max(pending.contributed, contributed),
+                                comment_seq=pending.comment_seq or seq,
+                            )
+                        elif (
+                            pending
+                            and seq
+                            and pending.comment_seq
+                            and seq == pending.comment_seq
+                        ):
+                            # Stessa sequenza di commenti: alternativa (es. ESPRESSO/SOLUBILE).
+                            # Gli elementi erano numerati in sequenza → riporta alla base comune.
+                            overshoot = fr.base_index - pending.base_index
+                            renumber_frame_elements(fr, overshoot)
+                            parent.pending_closed = _PendingClosedIf(
+                                condition=pending.condition,
+                                base_index=pending.base_index,
+                                contributed=max(pending.contributed, contributed),
+                                comment_seq=pending.comment_seq,
+                            )
+                        else:
+                            # Blocco indipendente: consolida l'eventuale pending precedente
+                            if pending is not None:
+                                parent.counts[parent.active] += pending.contributed
+                            parent.pending_closed = _PendingClosedIf(
+                                condition=fr.condition,
+                                base_index=fr.base_index,
+                                contributed=contributed,
+                                comment_seq=seq,
+                            )
 
                 pos = (nl + 1) if nl >= 0 else text_len
                 continue
@@ -852,6 +1066,7 @@ def analyze_body(
     # Chiudi eventuali #if rimasti aperti (file malformato)
     while len(stack) > 1:
         fr = stack.pop()
+        flush_pending(fr)
         issues.append(
             Issue(
                 "error",
@@ -861,7 +1076,13 @@ def analyze_body(
             )
         )
         contributed = max(fr.counts) if fr.counts else 0
+        parent = active_frame()
+        if parent.pending_closed is not None:
+            parent.counts[parent.active] += parent.pending_closed.contributed
+            parent.pending_closed = None
         add_row(contributed)
+
+    flush_pending(root)
 
     row_count = root.counts[0]
 
@@ -869,8 +1090,59 @@ def analyze_body(
     if is_one_d and row_count == 0 and cur_strings:
         row_count = 1
 
+    # Dopo rinumerazioni: commento /* MSP n. N */ deve coincidere con logical_index
+    _check_comment_vs_logical_index(
+        elements,
+        comments_by_line,
+        is_one_d,
+        array_name,
+        file_name,
+        issues,
+    )
+
     return row_count, ifdef_sig, elements
 
+
+def _check_comment_vs_logical_index(
+    elements: list[MessageElement],
+    comments_by_line: dict[int, list[int]],
+    is_one_d: bool,
+    array_name: str,
+    file_name: str,
+    issues: list[Issue],
+) -> None:
+    """
+    Verifica che /* MSP n. 96 */ (o /* 09 */, /* n. 3 */, …) == indice reale array.
+
+    Indipendente dall'ID catalogo @Xnnn: @B124 su MSP n. 96 è corretto.
+    """
+    if is_one_d:
+        return
+
+    for el in elements:
+        branch_txt = f" ramo='{el.branch_path}'" if el.branch_path else ""
+        if el.comment_index is not None and el.comment_index != el.logical_index:
+            issues.append(
+                Issue(
+                    "error",
+                    file_name,
+                    el.line,
+                    f"{array_name}[{el.logical_index}]: commento indice={el.comment_index} "
+                    f"!= indice reale={el.logical_index}{branch_txt} "
+                    f'(anteprima: "{el.preview}")',
+                )
+            )
+        elif el.comment_index is None and comments_by_line:
+            issues.append(
+                Issue(
+                    "warning",
+                    file_name,
+                    el.line,
+                    f"{array_name}[{el.logical_index}]: manca commento indice "
+                    f"(atteso n. {el.logical_index}){branch_txt} "
+                    f'(anteprima: "{el.preview}")',
+                )
+            )
 
 # ---------------------------------------------------------------------------
 # Analisi file / allineamento
@@ -1408,7 +1680,8 @@ def main(argv: Optional[list[str]] = None) -> int:
     parser = argparse.ArgumentParser(
         description=(
             "Verifica dimensionamento, allineamento, placeholder "
-            "(\\0..\\x0F) e ID messaggio ML (@ + A-Z + 3 cifre) "
+            "(\\0..\\x0F), ID messaggio ML (@ + A-Z + 3 cifre) "
+            "e coerenza commento indice (/* MSP n. N */) vs indice reale "
             "delle tabelle MES_LARHEA_*.c"
         ),
     )
@@ -1506,7 +1779,8 @@ def _write_report(path: Path, lines: list[str], failed: bool) -> None:
         f"Esito: {'FAIL' if failed else 'OK'}",
         "",
         "Nota: questo file elenca gli errori delle tabelle MES_LARHEA "
-        "(dimensioni/allineamento/placeholder/ID ML @Xnnn).",
+        "(dimensioni/allineamento/placeholder/ID ML @Xnnn/"
+        "commento indice vs indice reale).",
         "Se SourceTree rifiuta il push con GH013 / 'pull request' / 'status check',",
         "quello e' il ruleset GitHub (serve una PR), non necessariamente un errore di questo elenco.",
         "",

@@ -12,7 +12,7 @@
 #ifdef LANGUAGE_GB
 
 #ifdef ABIL_PROGRAMMAZIONE_PARZIALE
-const u8 __far GB_MS_PROG_ESTESA[16] = {"TOTAL            ",};
+const u8 __far GB_MS_PROG_ESTESA[16] = {"TOTAL           ",};
 const u8 __far GB_MS_PROG_RIDOTTA[16] = {"PARTIAL         ",};
 #endif
 
@@ -1850,7 +1850,8 @@ const u8 __far GB_MSAP_1[MAX_MSAP][32] = {
     /* MSP n. 229 */       "   not  used    "
                            "                ",
     #endif
-
+    /* MSP n.230  */       "PROGRAMMING ----"
+                           "  VARIGRIND 2   ",
 
     /* MSP n.231  */   	   "PRESEL. NUM ^)  " 		// PP1 (PP101) presel number
                            "           \4\5\6\7\x08",

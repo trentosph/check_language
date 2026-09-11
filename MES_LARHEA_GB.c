@@ -1938,7 +1938,7 @@ const u8 __far GB_MSAP_1[MAX_MSAP][32] = {
                             "Push PROG   \5\6\7\x08",
 
     /* MSP n. 253*/         "Calibrate Cof  4"
-                            "Push PROG   \5\6\7",
+                            "Push PROG   \5\6\7\x08",
 
     /* MSP n. 254 */        "coffee repeat   "
                             "0=disabled     \x08",
@@ -1966,7 +1966,7 @@ const u8 __far GB_MS_NOME_SELEZ_1[MAX_NOME_SELEZ][16] = {
     /* 13 */          "White Coffee    ",
     /* 14 */          "Cortado         ",
     /* 15 */          "Hot Water       ",
-    /* 16 */          "Tea              ",
+    /* 16 */          "Tea             ",
     /* 17 */          "Chococcino      ",
     /* 18 */          "Milk Chocolate  ",
     /* 19 */          "Dark Chocolate  ",

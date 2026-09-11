@@ -2010,6 +2010,7 @@ const u8 __far ML_MS_NOME_PRESEL_1[MAX_NOME_PRESEL][7] = { //@FT controllare l'e
             #endif
     /* 11 */          "@D026  ",                                //"LONG   ",  
     /* 12 */          "@D027  ",                                //"JUG    ",//st- presel caraffa usata anche per la KP    
+    /* 13 */          "@D028  ",                                //"fake    ",
 };
 #endif
 
@@ -2539,7 +2540,7 @@ const u8 __far  ML_MSAP_CAPPUCCINATORE[MAX_CAPPUCCINATORE][32] = {
 #endif  	
 #endif //ABIL_CAPPUCCINATORE	
 
-const u8 __far ML_MS_TIPO_PALETTA[4][16] =			//ezio 11/05/2015
+const u8 __far ML_MS_TIPO_PALETTA[MAX_TIPO_PALETTA][16] =			//ezio 11/05/2015
 {
                     "@T001           ",                                //"stirrers sugar  ",
                     "@T002           ",                                //"stirrers no sug.",
@@ -2547,7 +2548,7 @@ const u8 __far ML_MS_TIPO_PALETTA[4][16] =			//ezio 11/05/2015
                     "@T004           ",                                //"stirrers never  ",
 };
 
-const u8 __far ML_MS_MODULI_EST[30][32] =			
+const u8 __far ML_MS_MODULI_EST[MAX_MSG_SLAVE][32] =			
 {
     /* MSP n. 0 */  "@Z001           "          	// "        use the "
                     "                ",         	// "dispensed cup   "                 

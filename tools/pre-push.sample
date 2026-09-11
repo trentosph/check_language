@@ -1,7 +1,10 @@
 #!/bin/sh
 # Pre-push hook: esegue il checker e scrive check_language_report.txt
 # PRIMA di contattare GitHub. Se ci sono errori, il push viene bloccato in locale.
-# Se i controlli sono OK, genera i file .lng in MSG/ (CSV → LNG).
+#
+# I file .lng NON vengono generati qui: li produce solo GitHub Actions
+# (push su main/master se cambiano LANG_DEF.h / MES_LARHEA_*.c / MSG/*.csv,
+# oppure workflow_dispatch).
 #
 # Installazione (da root repo, una sola volta):
 #   Windows PowerShell:
@@ -26,25 +29,5 @@ if [ "$status" -ne 0 ]; then
   exit "$status"
 fi
 
-# Controlli OK → conversione CSV lingua → .lng in MSG/ (logica MultiLanguage Tool)
-echo "[pre-push] Controlli OK: converto CSV → LNG in MSG/..."
-python tools/convert_csv_to_lng.py
-conv_status=$?
-if [ "$conv_status" -ne 0 ]; then
-  echo "[pre-push] PUSH BLOCCATO: conversione CSV→LNG fallita."
-  exit "$conv_status"
-fi
-
-# Se i .lng sono cambiati rispetto all'indice, avvisa: vanno commitati e ripushati.
-# Contesto: il push corrente non li include se non erano già nel commit.
-if ! git diff --quiet -- MSG/*.lng 2>/dev/null \
-   || [ -n "$(git ls-files --others --exclude-standard -- 'MSG/*.lng')" ]; then
-  echo ""
-  echo "[pre-push] ATTENZIONE: i file .lng in MSG/ sono stati (ri)generati."
-  echo "[pre-push] Aggiungili al commit (git add MSG/*.lng && git commit) e riprova il push."
-  echo "[pre-push] PUSH BLOCCATO finché i .lng non sono allineati nel commit."
-  exit 1
-fi
-
-echo "[pre-push] OK (check + .lng allineati)"
+echo "[pre-push] OK (check superato; .lng gestiti da CI)"
 exit 0

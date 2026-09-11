@@ -1218,7 +1218,7 @@ const u8 __far ML_MSAP_1[MAX_MSAP][32] = {
                            "                ",                          //" 1=after       \x08",  "1=apr�s        \x08",
     #endif
 
-    /* MSP n. 94 */        "@B122�\5\6\7\5      "                     //"fan time        "
+    /* MSP n. 94 */        "@B122�\5\6\7\x08      "                     //"fan time        "
                            "                ",                          //"min.        \5\6\7\x08",
 
     /* MSP n. 95 */        "@B123�\7�\x08       "                       //"Beep time       "

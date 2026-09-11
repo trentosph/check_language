@@ -1,0 +1,15 @@
+#!/bin/sh
+# Pre-push hook locale: esegue il checker prima di ogni `git push`.
+# Installazione (da root repo):
+#   cp tools/pre-push.sample .git/hooks/pre-push
+#   oppure su Windows (Git Bash): cp tools/pre-push.sample .git/hooks/pre-push && chmod +x .git/hooks/pre-push
+#
+# Nota: i hook locali NON sono versionati in modo automatico per tutti i clone;
+# la protezione ufficiale resta GitHub Actions + branch protection / ruleset.
+
+set -e
+ROOT="$(git rev-parse --show-toplevel)"
+cd "$ROOT"
+echo "[pre-push] Eseguo check tabelle MES_LARHEA..."
+python tools/check_language_arrays.py
+echo "[pre-push] OK"

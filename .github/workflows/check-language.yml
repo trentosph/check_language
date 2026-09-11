@@ -1,0 +1,31 @@
+# Verifica tabelle messaggi MES_LARHEA (GB/ML)
+#
+# Blocca push/PR se dimensionamento o allineamento non sono coerenti
+# con LANG_DEF.h. Solo Python standard library (nessuna dipendenza pip).
+
+name: check-language
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+  # Permette di rilanciare a mano da Actions → "Run workflow"
+  workflow_dispatch:
+
+jobs:
+  check-arrays:
+    name: Check MES_LARHEA array sizes & alignment
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Run language array checker
+        # Exit code != 0 → job rosso → con branch protection il push/merge è bloccato
+        run: python tools/check_language_arrays.py

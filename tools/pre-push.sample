@@ -11,10 +11,11 @@
 ROOT="$(git rev-parse --show-toplevel)"
 cd "$ROOT" || exit 1
 
-echo "[pre-push] Eseguo check tabelle MES_LARHEA..."
+echo "[pre-push] Eseguo check tabelle MES_LARHEA + CSV MSG/..."
 echo "[pre-push] Report: $ROOT/check_language_report.txt"
 
 # Non usiamo set -e: vogliamo comunque lasciare il report anche in caso di FAIL
+# check_language_arrays.py richiama anche tools/check_msg_csv.py
 python tools/check_language_arrays.py
 status=$?
 

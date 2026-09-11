@@ -17,6 +17,10 @@ Lo script [`tools/check_language_arrays.py`](tools/check_language_arrays.py) con
    - stesse tabelle / dimensioni
    - stessa struttura di macro condizionali (`#ifdef` / `#if defined` normalizzati)
    - uso di letterali al posto delle macro (es. `[13]` invece di `MAX_NOME_PRESEL`)
+3. **CSV in `MSG/`** (via [`tools/check_msg_csv.py`](tools/check_msg_csv.py))
+   - regole MultiLanguage Tool (cartella / file / confronto lingue vs ML)
+   - ogni `@Xnnn` in `MES_LARHEA_ML.c` deve esistere in `ML-MSGX.csv` con gli stessi parametri
+   - il CSV può avere indici non usati nel `.c`; tabella Z obbligatoria solo se referenziata nel `.c`
 
 Nessuna dipendenza pip: serve solo **Python 3.10+**.
 
@@ -171,4 +175,4 @@ Sono **diff reali** nei sorgenti: finché non li correggi, CI resta rossa (e con
 
 - Non compila il firmware (mancano `config.h` / `rhea_mapping.h` e le define di prodotto).
 - Non valuta un solo set di `#define` cliente: confronta la **struttura** dei branch e gli indici documentati.
-- Non traduce / non valida il significato degli ID `@A001` rispetto all’Excel multilingua.
+- Non traduce i testi: valida struttura CSV, placeholder e presenza degli ID `@Xnnn` rispetto al catalogo ML.

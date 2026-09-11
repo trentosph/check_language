@@ -23,6 +23,9 @@ Verifica:
 6. Commento indice vs indice reale nell'array (GB e ML)
    - es. /* MSP n. 96 */ deve coincidere con la posizione reale nell'array (96)
    - indipendente dall'ID catalogo @Xnnn (es. @B124 su MSP n. 96 è ok)
+7. CSV in MSG/ + cross-check (delega a check_msg_csv.py)
+   - regole MultiLanguage Tool su cartella/file/confronto vs ML
+   - ogni @Xnnn del .c deve esistere in ML-MSGX.csv con stessi parametri
 
 Uso:
   python tools/check_language_arrays.py
@@ -1757,6 +1760,41 @@ def main(argv: Optional[list[str]] = None) -> int:
     failed = bool(errors or (args.warnings_as_errors and warnings))
     out("FAIL" if failed else "OK")
 
+    # --- CSV MSG/ + cross-check @Xnnn (stesso entry-point) ---
+    # Contesto: le regole MultiLanguage Tool vivono in check_msg_csv.py;
+    # le richiamiamo qui così pre-push/CI restano un solo comando.
+    csv_failed = False
+    try:
+        import check_msg_csv as csv_check  # noqa: WPS433
+
+        out()
+        out("========== MSG CSV + cross-check MES_LARHEA_ML.c ==========")
+        csv_issues = csv_check.run_checks(root)
+        csv_errors = [i for i in csv_issues if i.severity == "error"]
+        csv_warnings = [i for i in csv_issues if i.severity == "warning"]
+        max_print = 200
+        for i, issue in enumerate(csv_issues):
+            if i >= max_print:
+                out(
+                    f"... altri {len(csv_issues) - max_print} problemi CSV "
+                    f"omessi in console (vedi report)"
+                )
+                break
+            out(issue.format())
+        out()
+        out(
+            f"Riepilogo CSV: {len(csv_errors)} errori, "
+            f"{len(csv_warnings)} warning"
+        )
+        csv_failed = bool(csv_errors)
+        out("FAIL" if csv_failed else "OK")
+        # Accumula anche nel report unificato
+        failed = failed or csv_failed
+    except Exception as exc:  # noqa: BLE001
+        out(f"[ERROR] check_msg_csv non eseguito: {exc}")
+        failed = True
+        csv_failed = True
+
     if not args.no_report:
         _write_report(report_path, lines, failed=failed)
         print(f"\nReport scritto in: {report_path}")
@@ -1776,9 +1814,9 @@ def _write_report(path: Path, lines: list[str], failed: bool) -> None:
         f"Data (UTC): {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S')}",
         f"Esito: {'FAIL' if failed else 'OK'}",
         "",
-        "Nota: questo file elenca gli errori delle tabelle MES_LARHEA "
-        "(dimensioni/allineamento/placeholder/ID ML @Xnnn/"
-        "commento indice vs indice reale).",
+        "Nota: errori tabelle MES_LARHEA (dimensioni/allineamento/placeholder/"
+        "ID ML @Xnnn/commento indice) e, se eseguito, check CSV in MSG/ + "
+        "cross-check verso MES_LARHEA_ML.c.",
         "Se SourceTree rifiuta il push con GH013 / 'pull request' / 'status check',",
         "quello e' il ruleset GitHub (serve una PR), non necessariamente un errore di questo elenco.",
         "",

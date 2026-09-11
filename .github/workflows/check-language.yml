@@ -1,7 +1,8 @@
-# Verifica tabelle messaggi MES_LARHEA (GB/ML)
+# Verifica tabelle messaggi MES_LARHEA (GB/ML) e CSV in MSG/
 #
-# Blocca push/PR se dimensionamento o allineamento non sono coerenti
-# con LANG_DEF.h. Solo Python standard library (nessuna dipendenza pip).
+# Blocca push/PR se dimensionamento/allineamento non sono coerenti
+# con LANG_DEF.h, o se i CSV violano le regole MultiLanguage / cross-check
+# @Xnnn verso MES_LARHEA_ML.c. Solo Python stdlib (nessuna dipendenza pip).
 # Pubblica anche check_language_report.txt come artifact scaricabile.
 
 name: check-language
@@ -15,7 +16,7 @@ on:
 
 jobs:
   check-arrays:
-    name: Check MES_LARHEA array sizes & alignment
+    name: Check MES_LARHEA arrays & MSG CSV
     runs-on: ubuntu-latest
     steps:
       - name: Checkout

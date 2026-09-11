@@ -1731,11 +1731,9 @@ def main(argv: Optional[list[str]] = None) -> int:
     out(f"File: {lang_def.name}, {gb_path.name}, {ml_path.name}")
     out()
 
+    # Le macro MAX_* restano usate internamente per i controlli di dimensione;
+    # non le stampiamo più nel log/report (rumore inutile a ogni esecuzione).
     macros = parse_lang_def(lang_def)
-    out(f"Macro MAX_* ({len(macros)}):")
-    for k in sorted(macros):
-        out(f"  {k} = {macros[k]}")
-    out()
 
     issues: list[Issue] = []
     gb_arrays = analyze_file(gb_path, macros, issues)

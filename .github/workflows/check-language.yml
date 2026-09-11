@@ -4,6 +4,9 @@
 # con LANG_DEF.h, o se i CSV violano le regole MultiLanguage / cross-check
 # @Xnnn verso MES_LARHEA_ML.c. Solo Python stdlib (nessuna dipendenza pip).
 # Pubblica anche check_language_report.txt come artifact scaricabile.
+#
+# Se i controlli sono OK su push a main/master, genera i .lng in MSG/
+# (CSV → LNG) e li committa sul branch se diversi.
 
 name: check-language
 
@@ -14,6 +17,9 @@ on:
     branches: [main, master]
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   check-arrays:
     name: Check MES_LARHEA arrays & MSG CSV
@@ -21,6 +27,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          # Serve token con write per eventuale commit dei .lng
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Setup Python
         uses: actions/setup-python@v5
@@ -46,3 +55,30 @@ jobs:
         run: |
           echo "Checker fallito. Scarica l'artifact 'check-language-report' oppure apri check_language_report.txt nei log."
           exit 1
+
+      # Solo dopo check OK: conversione CSV lingua → .lng in MSG/
+      - name: Convert CSV to LNG
+        id: convert
+        run: python tools/convert_csv_to_lng.py
+
+      - name: Upload LNG files
+        uses: actions/upload-artifact@v4
+        with:
+          name: msg-lng-files
+          path: MSG/*.lng
+          if-no-files-found: warn
+
+      # Su push (non PR): se i .lng sono cambiati, commit + push sul branch
+      # [skip ci] evita un nuovo giro del workflow solo per i binari .lng
+      - name: Commit and push updated LNG files
+        if: github.event_name == 'push'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add MSG/*.lng
+          if git diff --cached --quiet; then
+            echo "Nessuna modifica ai .lng: niente da commitare."
+            exit 0
+          fi
+          git commit -m "chore(MSG): aggiorna file .lng da CSV [skip ci]"
+          git push

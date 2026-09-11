@@ -1,5 +1,5 @@
 === check_msg_csv report ===
-Data (UTC): 2026-09-11 15:18:59
+Data (UTC): 2026-09-11 15:24:30
 Esito: OK
 
 Nota: errori CSV in MSG/ (cartella/file/confronto ML) e cross-check ID @Xnnn / placeholder verso MES_LARHEA_ML.c.

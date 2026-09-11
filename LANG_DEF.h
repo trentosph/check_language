@@ -28,7 +28,13 @@
 #define MAX_MSA 				185	 // Messaggi da 32 caratteri
 #define MAX_MSAP				256 // Messaggi da 32 caratteri
 #define MAX_NOME_SELEZ			21	// Messaggi da 16 caratteri
-#define MAX_NOME_PRESEL			14	// Messaggi da 16 o 7 caratteri (dipende dalla define EASY_PRESEL)
+
+#ifdef EASY_PRESEL // Messaggi da 16 o 7 caratteri (dipende dalla define EASY_PRESEL)
+#define MAX_NOME_PRESEL			14	
+#else
+#define MAX_NOME_PRESEL			13
+#endif
+
 #define MAX_PROG_NOME_PRESEL 	10	// Messaggi da 8 caratteri
 #define MAX_TIPO_SCHIUMA		8	// Messaggi da 16 caratteri
 #define MAX_TIPO_FLUSSO			3	// Messaggi da 8 caratteri

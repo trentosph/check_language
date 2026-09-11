@@ -6,8 +6,8 @@
  *  \date
  *  \version
  ***********************************************************************/
-#include "config.h"  
-#include "LANG_DEF.H" 
+#include "config.h"
+#include "LANG_DEF.H"
 
 #ifdef LANGUAGE_GB
 
@@ -1850,7 +1850,7 @@ const u8 __far GB_MSAP_1[MAX_MSAP][32] = {
     /* MSP n. 229 */       "   not  used    "
                            "                ",
     #endif
-    /* MSP n.230  */       "PROGRAMMING ----"
+    /* MSP n.230  */   	   "PROGRAMMING ----"
                            "  VARIGRIND 2   ",
 
     /* MSP n.231  */   	   "PRESEL. NUM ^)  " 		// PP1 (PP101) presel number
@@ -1959,7 +1959,7 @@ const u8 __far GB_MS_NOME_SELEZ_1[MAX_NOME_SELEZ][16] = {
     /* 06 */          "Babyccino       ",
     /* 07 */          "Hot Chocolate   ",
     /* 08 */          "Mochaccino      ",
-    /* 09 */          "Flat White      ",
+    /* 19 */          "Flat White      ",
     /* 10 */          "Latte Macchiato ",
     /* 11 */          "Cappuccino      ",
     /* 12 */          "Esp. Macchiato  ",
@@ -1982,7 +1982,7 @@ const u8 __far GB_MS_NOME_SELEZ_1[MAX_NOME_SELEZ][16] = {
     /* 06 */          "Espresso Macch. ",
     /* 07 */          "MoccaCino       ",
     /* 08 */          "Chocolate       ",
-    /* 09 */          "Choco-Milk      ",
+    /* 19 */          "Choco-Milk      ",
     /* 10 */          "Hot Water       ",
     /* 11 */          "Milk            ",
     /* 12 */          "Cafe Au Lait    ",
@@ -2001,42 +2001,41 @@ const u8 __far GB_MS_NOME_SELEZ_1[MAX_NOME_SELEZ][16] = {
 #ifdef EASY_PRESEL
 //	nomi preselezioni estesi a 16 caratteri
 const u8 __far GB_MS_NOME_PRESEL_1[MAX_NOME_PRESEL][16] = {
-    /* 00 */      	  "SELECTIONS 25-36",
-    /* 01 */          "BARLEY          ",
-    /* 02 */          "NO CUP          ",
-    /* 03 */          "EXTRA MILK      ",
-    /* 04 */          "ESPRESSO        ",
-    /* 05 */          "NO SUGAR        ",
-    /* 06 */          "EXTRA SUGAR     ",
-    /* 07 */          "WITH CUP        ",
-    /* 08 */          "SUGAR 1         ",
-    /* 09 */          "MORE SUGAR      ",
-    /* 10 */          "SELECTIONS 37-48",
-    /* 11 */          "LONG            ",
-    /* 12 */          "JUG             ",
-    /* 13 */          "SELECTIONS 49-60",
+    /* 01 */      	  "SELECTIONS 25-36",
+    /* 02 */          "BARLEY          ",
+    /* 03 */          "NO CUP          ",
+    /* 04 */          "EXTRA MILK      ",
+    /* 05 */          "ESPRESSO        ",
+    /* 06 */          "NO SUGAR        ",
+    /* 07 */          "EXTRA SUGAR     ",
+    /* 08 */          "WITH CUP        ",
+    /* 09 */          "SUGAR 1         ",
+    /* 10 */          "MORE SUGAR      ",
+    /* 11 */          "SELECTIONS 37-48",
+    /* 12 */          "LONG            ",
+    /* 13 */          "JUG             ",
+    /* 14 */          "SELECTIONS 49-60",
 };
 #else
 
 const u8 __far GB_MS_NOME_PRESEL_1[MAX_NOME_PRESEL][7] = {
-    /* 00 */      	  "DECAF. ",//st- presel per + 10 selezioni dirette  (sel 11-20) ( presel Nr 0 - mes 162 ) / ( presel 0 + 7 = sel 31-40 )  servomat     
-    /* 01 */          "BARLEY ",
-    /* 02 */          "NO CUP ",
-    /* 03 */          "EX-MIL.",
-    /* 04 */          "ESPRES.",
-    /* 05 */          "NO SUG.",
-    /* 06 */          "EX SUG.",
-    /* 07 */          "CUP    ",
-    /* 08 */          "SUGAR 1",
-    /* 09 */          "SUG.++ ",
+    /* 01 */      	  "DECAF. ",//st- presel per + 10 selezioni dirette  (sel 11-20) ( presel Nr 0 - mes 162 ) / ( presel 0 + 7 = sel 31-40 )  servomat     
+    /* 02 */          "BARLEY ",
+    /* 03 */          "NO CUP ",
+    /* 04 */          "EX-MIL.",
+    /* 05 */          "ESPRES.",
+    /* 06 */          "NO SUG.",
+    /* 07 */          "EX SUG.",
+    /* 08 */          "CUP    ",
+    /* 09 */          "SUGAR 1",
+    /* 10 */          "SUG.++ ",
             #ifdef COMP_PREZZO_ECO_BIC
-    /* 10 */          "BIG CUP",//st- presel per + 10 selezioni dirette  (sel 21-30) ( presel Nr 7 - mes 188 ) / ( presel 0 + 7 = sel 31-40 )  
+    /* 11 */          "BIG CUP",//st- presel per + 10 selezioni dirette  (sel 21-30) ( presel Nr 7 - mes 188 ) / ( presel 0 + 7 = sel 31-40 )  
             #else
-    /* 10 */          "       ",
+    /* 11 */          "       ",
             #endif
-    /* 11 */          "LONG   ",
-    /* 12 */          "JUG    ",//st- presel caraffa usata anche per la KP    
-    /* 13 */          "FAKE   ",
+    /* 12 */          "LONG   ",
+    /* 13 */          "JUG    ",//st- presel caraffa usata anche per la KP    
 };
 #endif
 

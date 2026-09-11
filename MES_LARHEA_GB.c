@@ -2001,41 +2001,41 @@ const u8 __far GB_MS_NOME_SELEZ_1[MAX_NOME_SELEZ][16] = {
 #ifdef EASY_PRESEL
 //	nomi preselezioni estesi a 16 caratteri
 const u8 __far GB_MS_NOME_PRESEL_1[MAX_NOME_PRESEL][16] = {
-    /* 01 */      	  "SELECTIONS 25-36",
-    /* 02 */          "BARLEY          ",
-    /* 03 */          "NO CUP          ",
-    /* 04 */          "EXTRA MILK      ",
-    /* 05 */          "ESPRESSO        ",
-    /* 06 */          "NO SUGAR        ",
-    /* 07 */          "EXTRA SUGAR     ",
-    /* 08 */          "WITH CUP        ",
-    /* 09 */          "SUGAR 1         ",
-    /* 10 */          "MORE SUGAR      ",
-    /* 11 */          "SELECTIONS 37-48",
-    /* 12 */          "LONG            ",
-    /* 13 */          "JUG             ",
-    /* 14 */          "SELECTIONS 49-60",
-};
+    /* 00 */      	  "SELECTIONS 25-36",
+    /* 01 */          "BARLEY          ",
+    /* 02 */          "NO CUP          ",
+    /* 03 */          "EXTRA MILK      ",
+    /* 04 */          "ESPRESSO        ",
+    /* 05 */          "NO SUGAR        ",
+    /* 06 */          "EXTRA SUGAR     ",
+    /* 07 */          "WITH CUP        ",
+    /* 08 */          "SUGAR 1         ",
+    /* 09 */          "MORE SUGAR      ",
+    /* 10 */          "SELECTIONS 37-48",
+    /* 11 */          "LONG            ",
+    /* 12 */          "JUG             ",
+    /* 13 */          "SELECTIONS 49-60",
+}
 #else
 
 const u8 __far GB_MS_NOME_PRESEL_1[MAX_NOME_PRESEL][7] = {
-    /* 01 */      	  "DECAF. ",//st- presel per + 10 selezioni dirette  (sel 11-20) ( presel Nr 0 - mes 162 ) / ( presel 0 + 7 = sel 31-40 )  servomat     
-    /* 02 */          "BARLEY ",
-    /* 03 */          "NO CUP ",
-    /* 04 */          "EX-MIL.",
-    /* 05 */          "ESPRES.",
-    /* 06 */          "NO SUG.",
-    /* 07 */          "EX SUG.",
-    /* 08 */          "CUP    ",
-    /* 09 */          "SUGAR 1",
-    /* 10 */          "SUG.++ ",
+    /* 00 */      	  "DECAF. ",//st- presel per + 10 selezioni dirette  (sel 11-20) ( presel Nr 0 - mes 162 ) / ( presel 0 + 7 = sel 31-40 )  servomat     
+    /* 01 */          "BARLEY ",
+    /* 02 */          "NO CUP ",
+    /* 03 */          "EX-MIL.",
+    /* 04 */          "ESPRES.",
+    /* 05 */          "NO SUG.",
+    /* 06 */          "EX SUG.",
+    /* 07 */          "CUP    ",
+    /* 08 */          "SUGAR 1",
+    /* 09 */          "SUG.++ ",
             #ifdef COMP_PREZZO_ECO_BIC
-    /* 11 */          "BIG CUP",//st- presel per + 10 selezioni dirette  (sel 21-30) ( presel Nr 7 - mes 188 ) / ( presel 0 + 7 = sel 31-40 )  
+    /* 10 */          "BIG CUP",//st- presel per + 10 selezioni dirette  (sel 21-30) ( presel Nr 7 - mes 188 ) / ( presel 0 + 7 = sel 31-40 )  
             #else
-    /* 11 */          "       ",
+    /* 10 */          "       ",
             #endif
-    /* 12 */          "LONG   ",
-    /* 13 */          "JUG    ",//st- presel caraffa usata anche per la KP    
+    /* 11 */          "LONG   ",
+    /* 12 */          "JUG    ",//st- presel caraffa usata anche per la KP    
 };
 #endif
 
@@ -2104,20 +2104,20 @@ const u8 __far GB_MS_TIPO_SCHIUMA[MAX_TIPO_SCHIUMA][16] = {
 
 const u8 __far GB_MS_TIPO_FLUSSO_1[MAX_TIPO_FLUSSO][8] = {
 
-    /* 01 */          "     low",
-    /* 02 */          "  medium",
-    /* 03 */          "    high",
+    /* 00 */          "     low",
+    /* 01 */          "  medium",
+    /* 02 */          "    high",
 };
 
 const u8 __far GB_MS_NOME_GIORNO_1[MAX_NOME_GIORNO][5] = {
 
-    /* 01 */          "Monda",
-    /* 02 */          "Tuesd",
-    /* 03 */          "Wedne",
-    /* 04 */          "Thurs",
-    /* 05 */          "Frida",
-    /* 06 */          "Satur",
-    /* 07 */          "Sunda",
+    /* 00 */          "Monda",
+    /* 01 */          "Tuesd",
+    /* 02 */          "Wedne",
+    /* 03 */          "Thurs",
+    /* 04 */          "Frida",
+    /* 05 */          "Satur",
+    /* 06 */          "Sunda",
 };
 
 const u8 __far GB_MS_SI_1[5] = {" YES ",};
@@ -2319,54 +2319,54 @@ const u8 __far GB_MES_ERRORI_AGGIUNTI[MAX_MES_ERRORI_AGGIUNTI][32] = {
 const u8 __far  GB_MSAP_ParGrEspresso[MAX_ParGrEspresso][32] = {
 
 #ifdef ENABLE_BREWER_VARIFLEX
-    /* MSA n. 1  */        "BREWER SIZE     "  				//"BREWER DIAMETER "
+    /* MSA n. 0  */        "BREWER SIZE     "  				//"BREWER DIAMETER "
                            "0=36   1=45  \6\7\x08",
 #else /* gruppo micro */
-    /* MSA n. 1  */        "BREWER SIZE     "  				//"BREWER DIAMETER "
+    /* MSA n. 0  */        "BREWER SIZE     "  				//"BREWER DIAMETER "
                            "0=36   1=40  \6\7\x08",
 #endif
-    /* MSA n. 2 */         "BREWER POSITION "				//"POSIT. STAND BY "
+    /* MSA n. 1 */         "BREWER POSITION "				//"POSIT. STAND BY "
                            "0=CLOSE 1=OP. \7\x08",
 #ifdef ENABLE_BREWER_VARIFLEX
-    /* MSA n. 3  */        "AUTOM.ADJUSTMENT"            	//"abil calib tempo"
+    /* MSA n. 2  */        "AUTOM.ADJUSTMENT"            	//"abil calib tempo"
                            "F.TUNING  1=yes\x08",
-    /* MSA n. 4  */        "    ENCODER     "          		//"imp. per grammo "
+    /* MSA n. 3  */        "    ENCODER     "          		//"imp. per grammo "
                            "IMPULSE/GR. \6.\7\x08",
 #else
-    /* MSA n. 3  */        "  OFF9  Grinder "          		//Non usato
+    /* MSA n. 2  */        "  OFF9  Grinder "          		//Non usato
                            "  Speed \6\7\x08     ",
-    /* MSA n. 4  */        "    NOT USED    "          		//Non usato
+    /* MSA n. 3  */        "    NOT USED    "          		//Non usato
                            "                ",
 #endif
-    /* MSA n. 5  */         "  TAB DISSOLVE  "          		//st tempo scioglimento pastiglia  provvisorio
+    /* MSA n. 4  */         "  TAB DISSOLVE  "          		//st tempo scioglimento pastiglia  provvisorio
                            "PAUSE  SEC.  \6\7\x08",
-    /* MSA n. 6  */        "ENCODER  GRIND 2"          		//"imp. per grammo "
+    /* MSA n. 5  */        "ENCODER  GRIND 2"          		//"imp. per grammo "
                            "IMPULSE/GR. \6.\7\x08",
-    /* MSA n. 7  */        "GRINDER FUNCTION"          		//Modalità funzionamento macina:
+    /* MSA n. 6  */        "GRINDER FUNCTION"          		//Modalità funzionamento macina:
                            "IM EN/GR 1=yes \x08", 			//0--> GR/SEC 1--> IMP/GR
-    /* MSA n. 8  */        "    NOT USED    "          		//Non usato
+    /* MSA n. 7  */        "    NOT USED    "          		//Non usato
                            "                ",
-    /* MSA n. 9  */        "GRIND 2 FUNCTION"          		//Modalità funzionamento seconda macina:
+    /* MSA n. 8  */        "GRIND 2 FUNCTION"          		//Modalità funzionamento seconda macina:
                            "IM EN/GR 1=yes \x08", 			//0--> GR/SEC 1--> IMP/GR
 #ifdef ENABLE_BREWER_VARIFLEX
-    /* MSA n. 10 */        "DELIVERY   PHASE"          		//Anticipa fine erogazione:
+    /* MSA n. 9 */        "DELIVERY   PHASE"          		//Anticipa fine erogazione:
                            "FASTER   1=yes \x08", 			//0--> NO 1--> SI
 #else /* gruppo micro */
-    /* MSA n. 10  */       "    NOT USED    "          		//Non usato
+    /* MSA n. 9  */       "    NOT USED    "          		//Non usato
                            "                ",
 #endif
 
-    /* MSA n. 11  */		"ENCODER  GRIND 3"          			//"imp. per grammo "
+    /* MSA n. 10  */		"ENCODER  GRIND 3"          			//"imp. per grammo "
                             "IMPULSE/GR. \6.\7\x08",
-    /* MSA n. 12  */		"GRIND 3 FUNCTION"						//Modalità funzionamento macina 3:
+    /* MSA n. 11  */		"GRIND 3 FUNCTION"						//Modalità funzionamento macina 3:
                             "IM EN/GR 1=yes \x08",					//0--> GR/SEC 1--> IMP/GR
-    /* MSA n. 13  */		"ENCODER  GRIND 4"          			//"imp. per grammo "
+    /* MSA n. 12  */		"ENCODER  GRIND 4"          			//"imp. per grammo "
                             "IMPULSE/GR. \6.\7\x08",
-    /* MSA n. 14  */		"GRIND 4 FUNCTION"						//Modalità funzionamento macina 4:
+    /* MSA n. 13  */		"GRIND 4 FUNCTION"						//Modalità funzionamento macina 4:
                             "IM EN/GR 1=yes \x08",					//0--> GR/SEC 1--> IMP/GR
-    /* MSA n. 15 */         "RESET GROUP IN  "          		//autorestart gruppo in errore
+    /* MSA n. 14 */         "RESET GROUP IN  "          		//autorestart gruppo in errore
                             "ERROR    1=yes \x08", 			//1--> si 0--> no
-    /* MSA n. 16 */         "RINSE AFTER DOWN"          		//periodo di iniezione acqua
+    /* MSA n. 15 */         "RINSE AFTER DOWN"          		//periodo di iniezione acqua
                             "TIME 0=NO \7\x08HOUR", 			//0-->  NO 6, 12, 24 ore	
 };
 
@@ -2394,10 +2394,10 @@ const u8 __far  GB_MSAP_PAR_MACINA_MOT[MAX_PAR_MACINA_MOT][32] = {
 
 const u8 __far GB_MS_TIPO_GRANULOMETRIA[MAX_TIPO_GRANULOMETRIA][16] =			//ezio 11/05/2015
 {
-"   disabled     ",
-"     fine       ",
-"    referring   ",
-"    roughly     ",
+    /* MSP n. 0 */      "   disabled     ",
+    /* MSP n. 1 */      "     fine       ",
+    /* MSP n. 2 */      "    referring   ",
+    /* MSP n. 3 */      "    roughly     ",
 
 };
 #endif 
@@ -2575,10 +2575,10 @@ const u8 __far  GB_MSAP_CAPPUCCINATORE[MAX_CAPPUCCINATORE][32] = {
 
 const u8 __far GB_MS_TIPO_PALETTA[MAX_TIPO_PALETTA][16] =			//ezio 11/05/2015
 {
-"stirrers sugar  ",
-"stirrers no sug.",
-"stirrers always ",
-"stirrers never  ",
+    /* MSP n. 0 */      "stirrers sugar  ",
+    /* MSP n. 1 */      "stirrers no sug.",
+    /* MSP n. 2 */      "stirrers always ",
+    /* MSP n. 3 */      "stirrers never  ",
 };
 
 const u8 __far GB_MS_MODULI_EST[MAX_MSG_SLAVE][32] =			

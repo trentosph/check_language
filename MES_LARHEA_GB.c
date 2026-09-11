@@ -228,8 +228,8 @@ const u8 __far GB_MSA_1[MAX_MSA][32] = {
                            "----------------",
 
     #else
-    /*MSA n. 40*/         "t.c \x0A\x0B\x0C  t.s \6\7\x08"
-                          "t.h \x0E\x0F          ",
+    /*MSA n. 40*/          "t.c \x0A\x0B\x0C  t.s \6\7\x08"
+                           "t.h \x0E\x0F          ",
 
     #endif
     /* MSA n. 41 */        "  Card Reader   "
@@ -295,19 +295,19 @@ const u8 __far GB_MSA_1[MAX_MSA][32] = {
  #if defined(MODELLO_ESPRESSO) 
   #ifdef ABIL_DESCALING
     #ifdef ENABLE_GRINDER_CLEANING
-    /* MSA n. 54 */     "1-4=Mx M:5=C 6=D" 			//5=Cleaning Milk Module 6=descaling Milk Circuit
-                        "7=Gr 8=BC 9=Desc",
+    /* MSA n. 54 */        "1-4=Mx M:5=C 6=D" 			//5=Cleaning Milk Module 6=descaling Milk Circuit
+                           "7=Gr 8=BC 9=Desc",
     #else 
-    /* MSA n. 54 */     "1-4=Mix 5=MilkMd" 
-                        "6=DeM 8=BC 9=Des",
+    /* MSA n. 54 */        "1-4=Mix 5=MilkMd" 
+                           "6=DeM 8=BC 9=Des",
     #endif
   #else  //#ifdef ABIL_DESCALING
     #ifdef ENABLE_GRINDER_CLEANING
-    /* MSA n. 54 */     "1-4=Rinse 5=Milk" 
-                        "6=D.M 7=Gr. 8=BC",
+    /* MSA n. 54 */        "1-4=Rinse 5=Milk" 
+                           "6=D.M 7=Gr. 8=BC",
     #else
-    /* MSA n. 54 */     "1-4=Rinse 5=Milk" 
-                        "6=Desc.Milk 8=BC",
+    /* MSA n. 54 */        "1-4=Rinse 5=Milk" 
+                           "6=Desc.Milk 8=BC",
     #endif
   #endif  //#ifdef ABIL_DESCALING
  #endif	  //#if defined(MODELLO_ESPRESSO) 
@@ -317,45 +317,45 @@ const u8 __far GB_MSA_1[MAX_MSA][32] = {
 #if defined(MODELLO_ESPRESSO) 
 #if defined(ABIL_CAPPUCCINATORE) && defined(ABIL_DESCALING)
 #ifdef ENABLE_GRINDER_CLEANING
-    /* MSA n. 54 */     "1-4=Mix 5=MilkMd"
-                        "7=Gr 8=BC 9=Desc",
+    /* MSA n. 54 */        "1-4=Mix 5=MilkMd"
+                           "7=Gr 8=BC 9=Desc",
 #else
-    /* MSA n. 54 */     "1-4=Mix 5=MilkMd"
-                        "  8=BC 9=Desc   ",
+    /* MSA n. 54 */        "1-4=Mix 5=MilkMd"
+                           "  8=BC 9=Desc   ",
 #endif
 
 #elif defined(ABIL_DESCALING) && !defined(ABIL_CAPPUCCINATORE)
 #ifdef ENABLE_GRINDER_CLEANING
-    /* MSA n. 54 */     "   1-4=Rinse    "
-                        "7=Gr 8=BC 9=Desc",
+    /* MSA n. 54 */        "   1-4=Rinse    "
+                           "7=Gr 8=BC 9=Desc",
 #else
-    /* MSA n. 54 */     "   1-4=Rinse    "
-                        "   8=BC 9=Desc  ",
+    /* MSA n. 54 */        "   1-4=Rinse    "
+                           "   8=BC 9=Desc  ",
 #endif
 
 #elif !defined(ABIL_DESCALING) && defined(ABIL_CAPPUCCINATORE)
 #ifdef ENABLE_GRINDER_CLEANING
-    /* MSA n. 54 */     "1-4=Rinse 5=Milk"
-                        " 7=grinder 8=BC ",
-#else
-    /* MSA n. 54 */     "1-4=Rinse 5=Milk"
-                        "      8=BC      ",
+    /* MSA n. 54 */        "1-4=Rinse 5=Milk"
+                           " 7=grinder 8=BC ",
+#else                      
+    /* MSA n. 54 */        "1-4=Rinse 5=Milk"
+                           "      8=BC      ",
 #endif
 
 #else
 
 #ifdef ENABLE_GRINDER_CLEANING
-    /* MSA n. 54 */     "    1-4=Rinse   "
-                        " 7=grinder 8=BC ",
-#else
-    /* MSA n. 54 */     "    1-4=Rinse   "
-                        "      8=BC      ",
+    /* MSA n. 54 */        "    1-4=Rinse   "
+                           " 7=grinder 8=BC ",
+#else                      
+    /* MSA n. 54 */        "    1-4=Rinse   "
+                           "      8=BC      ",
 #endif
 
 #endif  
 #else 
-    /* MSA n. 54 */     "    1-4=Rinse   "
-                        "                ",
+    /* MSA n. 54 */        "    1-4=Rinse   "
+                           "                ",
 #endif 
 #endif  //#if !defined(ABIL_MILKER_DESCALING)
 
@@ -415,154 +415,154 @@ const u8 __far GB_MSA_1[MAX_MSA][32] = {
     /* MSA n. 69 */        "-  S U G A R   +"
                            "                ",
 
-    /* MSA n. 70 */       "    make a      "
-                          "  selection     ",
+    /* MSA n. 70 */        "    make a      "
+                           "  selection     ",
 
-    /* MSA n. 71 */       "door  module    "
-                          "        vers. \0\1",
+    /* MSA n. 71 */        "door  module    "
+                           "        vers. \0\1",
 
-    /* MSA n. 72 */       "espresso module "
-                          "        vers. \0\1",
+    /* MSA n. 72 */        "espresso module "
+                           "        vers. \0\1",
+                          
+    /* MSA n. 73 */        "  Milk module   "
+                           " version    \0\1  ",
 
-    /* MSA n. 73 */       "  Milk module   "
-                          " version    \0\1  ",
+    /* MSA n. 74 */        " Periodic rinse "
+                           "  in \0 seconds  ",
 
-    /* MSA n. 74 */       	" Periodic rinse "
-                            "  in \0 seconds  ",
-
-    /* MSA n. 75 */       "                "
-                          "       OFF \x09\x0A  \x0B",
-
-    /* MSA n. 76 */       "      Remove Cup"
-                          "Please          ",
-
-    /* MSA n. 77 */       "  wait charging "
-                          " steam boiler   ",
-
-    /* MSA n. 78 */       "invalid customer"
-                          "   card code    ",
-
-    /* MSA n. 79 */       "invalid machine "
-                          "   card code    ",
-
-    /* MSA n. 80 */       "    lucky       "
-                          "  selection     ",
-
-    /* MSA n. 81 */       "TOKEN           "
-                          "                ",
-
-    /* MSA n. 82 */       "  wait please   "
-                          "steam temperat. ",
-
-    /* MSA n. 83 */       "Price :    \x0B\x0C\x0D\x0E\x0F"
-                          "Credit: \1\2\3\4\5\6\7\x08",
-
-    /* MSA n. 84 */       "First coffee    " //libero disponibile 
-                          "in progress     ",
-
-    /* MSA n. 85 */       "emptying        "
-                          "coffee grounds  ",
-
-    #ifdef CUSTOMER_NESTLE
-
-    /* MSA n. 86 */       "     remove     "
-                          "    driptray    ",
-
-    /* MSA n. 87 */       "     insert     "
-                          "    driptray    ",
-
-    #else
-
-    /* MSA n. 86 */       "     remove     "
-                          "    driptray    ",
-
-    /* MSA n. 87 */       "     insert     "
-                          "    driptray    ",
-
-    #endif
-
-    /* MSA n. 88 */       "steam flushing  "
-                          "        10=START",
-
-    /* MSA n. 89 */       "fill detergent  "//lavaggio vapore con detergente
-                          "        10=START",
+    /* MSA n. 75 */        "                "
+                           "       OFF \x09\x0A  \x0B",
+                           
+    /* MSA n. 76 */        "      Remove Cup"
+                           "Please          ",
+                           
+    /* MSA n. 77 */        "  wait charging "
+                           " steam boiler   ",
+                           
+    /* MSA n. 78 */        "invalid customer"
+                           "   card code    ",
+                           
+    /* MSA n. 79 */        "invalid machine "
+                           "   card code    ",
+                           
+    /* MSA n. 80 */        "    lucky       "
+                           "  selection     ",
+                           
+    /* MSA n. 81 */        "TOKEN           "
+                           "                ",
+                           
+    /* MSA n. 82 */        "  wait please   "
+                           "steam temperat. ",
+                           
+    /* MSA n. 83 */        "Price :    \x0B\x0C\x0D\x0E\x0F"
+                           "Credit: \1\2\3\4\5\6\7\x08",
+                           
+    /* MSA n. 84 */        "First coffee    " //libero disponibile 
+                           "in progress     ",
+                           
+    /* MSA n. 85 */        "emptying        "
+                           "coffee grounds  ",
+                           
+    #ifdef CUSTOMER_NESTLE 
+                           
+    /* MSA n. 86 */        "     remove     "
+                           "    driptray    ",
+                           
+    /* MSA n. 87 */        "     insert     "
+                           "    driptray    ",
+                           
+    #else                  
+                           
+    /* MSA n. 86 */        "     remove     "
+                           "    driptray    ",
+                           
+    /* MSA n. 87 */        "     insert     "
+                           "    driptray    ",
+                           
+    #endif                 
+                           
+    /* MSA n. 88 */        "steam flushing  "
+                           "        10=START",
+                           
+    /* MSA n. 89 */        "fill detergent  "//lavaggio vapore con detergente
+                           "        10=START",
 
 #ifdef CAPPUCCINATORE_INDUX
-    /* MSA n. 90 */       "filling water..."
-                          "conduc.=\4\5\6\7\x08 uS",
-#else
-    /* MSA n. 90 */       "fill water      "
-                          "        10=START",
-#endif	
-
-    /* MSA n. 91 */       "warm water      "//lavaggio vapore con detergente
-                          "flush.  10=START",
-
-    /* MSA n. 92 */       "   Milk Module  "
-                          " switching on...",
-
-    /* MSA n. 93 */       "  Milk container"
-                          "empty           ",
-
-    /* MSA n. 94 */       "    S T O P     "
-                          "                ",
-
-    /* MSA n. 95 */       "   RFID Card    "
-                          "    Blocked     ",
+    /* MSA n. 90 */        "filling water..."
+                           "conduc.=\4\5\6\7\x08 uS",
+#else                      
+    /* MSA n. 90 */        "fill water      "
+                           "        10=START",
+#endif	                   
+                           
+    /* MSA n. 91 */        "warm water      "//lavaggio vapore con detergente
+                           "flush.  10=START",
+                           
+    /* MSA n. 92 */        "   Milk Module  "
+                           " switching on...",
+                           
+    /* MSA n. 93 */        "  Milk container"
+                           "empty           ",
+                           
+    /* MSA n. 94 */        "    S T O P     "
+                           "                ",
+                           
+    /* MSA n. 95 */        "   RFID Card    "
+                           "    Blocked     ",
 
     #ifndef TEST_CICLICO
         #ifdef CAPPUCCINATORE_INDUX
-    /* MSA n. 96 */       "  Milk  Module  "
-                          "  Please clean  ",
-        #else
-    /* MSA n. 96 */       "  Milk  Module  "
-                          "  Please clean  ",
-        #endif
-
-    /* MSA n. 97 */       "      clean with"//lavaggio vapore con detergente     
-                          "deterg. 10=START",
-    #else
-    /* MSA n. 96 */       "  Cyclic Test   "
-                          "  round #\4\5\6\7\x08  ",
-
-    /* MSA n. 97 */       "  Cyclic Test   "//lavaggio vapore con detergente     
-                          "  Stopped!!!    ",
-    #endif
-
-    /* MSA n. 98 */       "rinse with cold "//lavaggio vapore con detergente   
-                          "water   10=START",
-
+    /* MSA n. 96 */        "  Milk  Module  "
+                           "  Please clean  ",
+        #else              
+    /* MSA n. 96 */        "  Milk  Module  "
+                           "  Please clean  ",
+        #endif             
+                           
+    /* MSA n. 97 */        "      clean with"//lavaggio vapore con detergente     
+                           "deterg. 10=START",
+    #else                  
+    /* MSA n. 96 */        "  Cyclic Test   "
+                           "  round #\4\5\6\7\x08  ",
+                           
+    /* MSA n. 97 */        "  Cyclic Test   "//lavaggio vapore con detergente     
+                           "  Stopped!!!    ",
+    #endif                 
+                           
+    /* MSA n. 98 */        "rinse with cold "//lavaggio vapore con detergente   
+                           "water   10=START",
+                           
 #ifdef CAPPUCCINATORE_INDUX
-    /* MSA n. 99 */       "  END Cleaning  "	//lavaggio vapore con detergente     
-                          " with Detergent ",
-#else
-    /* MSA n. 99 */       "      END       "//lavaggio vapore con detergente     
-                          "steam flushing  ",
-#endif		
+    /* MSA n. 99 */        "  END Cleaning  "	//lavaggio vapore con detergente     
+                           " with Detergent ",
+#else                      
+    /* MSA n. 99 */        "      END       "//lavaggio vapore con detergente     
+                           "steam flushing  ",
+#endif		               
+                           
+    /* MSA n. 100 */       "    wait milk   " //attendere lavaggio cappuccinatore
+                           "  unit cleaning ",
+                           
+    /* MSA n. 101 */       "       Place Cup" //attendere lavaggio cappuccinatore
+                           "please          ",
+                           
+    /* MSA n. 102 */       " setting grinder" //attendere Regolazione della macina. Granulometria della selezione
+                           "  Please wait   ",
+                           
+    /* MSA n. 103 */       "\0\1\2\3\4\5\6\7\x08\x09\x0A\x0B\x0C\x0D\x0E\x0F" // non usato su progetto BL
+                           "   HOT WATER    ",
 
-    /* MSA n. 100 */      "    wait milk   " //attendere lavaggio cappuccinatore
-                          "  unit cleaning ",
+    /* MSA n. 104 */       "Warning products"
+                           "   level   low  ",
 
-    /* MSA n. 101 */      "       Place Cup" //attendere lavaggio cappuccinatore
-                          "please          ",
+    /* MSA n. 105 */       "xxxxxxx         "
+                           "                ",
 
-    /* MSA n. 102 */      " setting grinder" //attendere Regolazione della macina. Granulometria della selezione
-                          "  Please wait   ",
+    /* MSA n. 106 */       "Catch Coffee    " //era in prog 209
+                           "Push PROG Button",
 
-    /* MSA n. 103 */      "\0\1\2\3\4\5\6\7\x08\x09\x0A\x0B\x0C\x0D\x0E\x0F" // non usato su progetto BL
-                          "   HOT WATER    ",
-
-    /* MSA n. 104 */        "Warning products"
-                            "   level   low  ",
-
-    /* MSA n. 105 */        "xxxxxxx         "
-                            "                ",
-
-    /* MSA n. 106 */        "Catch Coffee    " //era in prog 209
-                            "Push PROG Button",
-
-    /* MSA n. 107 */        "                " //era in prog 215
-                            "autom. reset    ",
+    /* MSA n. 107 */       "                " //era in prog 215
+                           "autom. reset    ",
 
     /* MSA n. 108 */       "      End       " //era in prog 219
                            "   uninstall    ",
@@ -574,154 +574,154 @@ const u8 __far GB_MSA_1[MAX_MSA][32] = {
                            " Milker Updated ",
 
     /* MSA n. 111 */       "TEST RUNNING    " //era MSP n.  68 */
-                            "                ",
+                           "                ",
 
-    /* MSA n. 112 */        "confirm partial " // era in /* MSP n. 97 */ 
-                            "reset  press P10",
+    /* MSA n. 112 */       "confirm partial " // era in /* MSP n. 97 */ 
+                           "reset  press P10",
 
-    /* MSA n. 113 */        " Starting Test  "
-                            "4=start PROG=end",
+    /* MSA n. 113 */       " Starting Test  "
+                           "4=start PROG=end",
 
-    /* MSA n. 114 */        "TEST MOTOR - \x0A\x0B "
-                            "sx \x0C\x0D\x0E\x0F  dx \5\6\7\x08",
+    /* MSA n. 114 */       "TEST MOTOR - \x0A\x0B "
+                           "sx \x0C\x0D\x0E\x0F  dx \5\6\7\x08",
 
-    /* MSA n. 115 */        "TEST - \x0A\x0B  Tp: \3"
-                            "up \x0C\x0D\x0E\x0F  dn \5\6\7\x08",
+    /* MSA n. 115 */       "TEST - \x0A\x0B  Tp: \3"
+                           "up \x0C\x0D\x0E\x0F  dn \5\6\7\x08",
 
-    /* MSA n. 116 */        "  Final Result  "
-                            "    TEST - \x0A\x0B   ",
+    /* MSA n. 116 */       "  Final Result  "
+                           "    TEST - \x0A\x0B   ",
 
 #ifdef RESET_SANITARY_WASH
-    /* MSA n. 117*/         " System halted  "
-                            " Please restart!",
+    /* MSA n. 117*/        " System halted  "
+                           " Please restart!",
 #else
-    /* MSA n. 117 */      	"Empty the waste "						//20201007 (104)
-                            "liquid tank     ",						//20201007
+    /* MSA n. 117 */       "Empty the waste "						//20201007 (104)
+                           "liquid tank     ",						//20201007
 #endif 
 
-    /* MSA n. 118 */      	"Insert the waste"						//20201007 (103)
-                            "liquid tank     ",						//20201007					  
+    /* MSA n. 118 */       "Insert the waste"						//20201007 (103)
+                           "liquid tank     ",						//20201007					  
 
-    /* MSA n. 119 */        "rinsing \0\1   \6\7\x08" 						//20201007 (105)
-                            "........uS=\x09\x0A\x0B\x0C\x0D",       					//20201007								  
+    /* MSA n. 119 */       "rinsing \0\1   \6\7\x08" 						//20201007 (105)
+                           "........uS=\x09\x0A\x0B\x0C\x0D",       					//20201007								  
 
 #ifdef MODELLO_TS
-    /* MSA n. 120 */      	"Have you done   "						//20201106 
-                            "checks?>START/10",						//20201106	
+    /* MSA n. 120 */       "Have you done   "						//20201106 
+                           "checks?>START/10",						//20201106	
 #else
-    /* MSA n. 120 */      	"Clean.Deter.type"			//#3876		//"Have you done   "						//20201106 
-                            "10=Tab 12=Liquid",			//#3876		//"checks? 10=start",						//20201106
+    /* MSA n. 120 */       "Clean.Deter.type"			//#3876		//"Have you done   "						//20201106 
+                           "10=Tab 12=Liquid",			//#3876		//"checks? 10=start",						//20201106
 #endif                      	
 
-    /* MSA n. 121 */ 	    "check milk      "						//20201007 (103)
-                            "                ",						//20201007					  
+    /* MSA n. 121 */ 	   "check milk      "						//20201007 (103)
+                           "                ",						//20201007					  
 
-    /* MSA n. 122 */      	"Check Detergent "						//"warning.. troppo"	//20201007 (103)
-                            "of the water mix",						//20201007		
+    /* MSA n. 122 */       "Check Detergent "						//"warning.. troppo"	//20201007 (103)
+                           "of the water mix",						//20201007		
 
-    /* MSA n. 123 */      	"Milk Mod.Clean.:"
-                            "check deter. \x09\x0A\x0B",
+    /* MSA n. 123 */       "Milk Mod.Clean.:"
+                           "check deter. \x09\x0A\x0B",
 
-    /* MSA n. 124 */      	"Cleaning \0\1  \6\7\x08" 				//20201007 
-                            "........uS=\x09\x0A\x0B\x0C\x0D",       	//20201007		
+    /* MSA n. 124 */       "Cleaning \0\1  \6\7\x08" 				//20201007 
+                           "........uS=\x09\x0A\x0B\x0C\x0D",       	//20201007		
 
-    /* MSA n. 125 */      	"   Dissolving   "
-                            "Detergent \0\1 \6\7\x08",
+    /* MSA n. 125 */       "   Dissolving   "
+                           "Detergent \0\1 \6\7\x08",
 
 #ifdef MODELLO_TS
-    /* MSA n. 126 */		"Insert the milk "
-                            "tube.10:now 9:no",
+    /* MSA n. 126 */	   "Insert the milk "
+                           "tube.10:now 9:no",
 #else
-    /* MSA n. 126 */		"Ins. Tube/refill"
-                            "Milk 10:now 9:no",
+    /* MSA n. 126 */	   "Ins. Tube/refill"
+                           "Milk 10:now 9:no",
 #endif
 
-    /* MSA n. 127 */      	"  check milk    "
-                            "   presence     ",
+    /* MSA n. 127 */       "  check milk    "
+                           "   presence     ",
 
-    /* MSA n. 128 */      	"   check milk   "
-                            "    quality     ",
+    /* MSA n. 128 */       "   check milk   "
+                           "    quality     ",
 
-    /* MSA n. 129 */      	"check milk and  "
-                            "make cleaning   ",
+    /* MSA n. 129 */       "check milk and  "
+                           "make cleaning   ",
 
-    /* MSA n. 130 */        "Gest. rhMM1.v+ ?"
-                            "B1=Enable B2=no ",
+    /* MSA n. 130 */       "Gest. rhMM1.v+ ?"
+                           "B1=Enable B2=no ",
 
-    /* MSA n. 131 */      	"Clean. rhMM1.v+ "
-                            "Time \5\6:\7\x08 Ok=P1",
+    /* MSA n. 131 */       "Clean. rhMM1.v+ "
+                           "Time \5\6:\7\x08 Ok=P1",
 
-    /* MSA n. 132 */      	"Milk Mod.Clean.:"        //"rhMM1.v+ Clean.:"
-                            "low deterg. \x09\x0A\x0B ",
+    /* MSA n. 132 */       "Milk Mod.Clean.:"        //"rhMM1.v+ Clean.:"
+                           "low deterg. \x09\x0A\x0B ",
 
-    /* MSA n. 133 */      	"check tank cold "
-                             "milk temperature",
+    /* MSA n. 133 */       "check tank cold "
+                           "milk temperature",
 
-    /* MSA n. 134 */      	"Available       "
-                            "                ",
+    /* MSA n. 134 */       "Available       "
+                           "                ",
 
-    /* MSA n. 135 */       	"  Close  Coffee "   // era 117
-                            "KEY PRESS <PROG>",
+    /* MSA n. 135 */       "  Close  Coffee "   // era 117
+                           "KEY PRESS <PROG>",
 
-    /* MSA n. 136 */       	"  Open   Coffee "   // era 118
-                            "KEY PRESS <PROG>",
+    /* MSA n. 136 */       "  Open   Coffee "   // era 118
+                           "KEY PRESS <PROG>",
 
-    /* MSA n. 137 */       	"1/13 Clean Grin."
-                            "1=Grin1; 2=Grin2",
+    /* MSA n. 137 */       "1/13 Clean Grin."
+                           "1=Grin1; 2=Grin2",
 
-    /* MSA n. 138 */       	"2/13 G^ Close   "
-                            "shutter.  10=ok ",
+    /* MSA n. 138 */       "2/13 G^ Close   "
+                           "shutter.  10=ok ",
 
-    /* MSA n. 139 */       	"3/13 Rem. brewer"
-                            "& bean hop 10=ok",
+    /* MSA n. 139 */       "3/13 Rem. brewer"
+                           "& bean hop 10=ok",
 
-    /* MSA n. 140 */       	"4/13 Inst. clean"
-                            "device.    10=ok",
+    /* MSA n. 140 */       "4/13 Inst. clean"
+                           "device.    10=ok",
 
-    /* MSA n. 141 */       	"5/13 Grinder    "
-                            "clean   10=start",
+    /* MSA n. 141 */       "5/13 Grinder    "
+                           "clean   10=start",
 
-    /* MSA n. 142 */       	"Cycle ^ of )    "
-                            "                ",
+    /* MSA n. 142 */       "Cycle ^ of )    "
+                           "                ",
 
-    /* MSA n. 143 */       	"6/13 Rep. Clean "
-                            "10=Yes; other=NO",
+    /* MSA n. 143 */       "6/13 Rep. Clean "
+                           "10=Yes; other=NO",
 
-    /* MSA n. 144 */       	"7/13 Ref. Clean "
-                            "device.    10=ok",
+    /* MSA n. 144 */       "7/13 Ref. Clean "
+                           "device.    10=ok",
 
-    /* MSA n. 145 */       	"8/13 Put back   "
-                            "bean hop.  10=ok",
+    /* MSA n. 145 */       "8/13 Put back   "
+                           "bean hop.  10=ok",
 
-    /* MSA n. 146 */       	"9/13 Open hopp. "
-                            "shutter.  10=ok ",
+    /* MSA n. 146 */       "9/13 Open hopp. "
+                           "shutter.  10=ok ",
 
-    /* MSA n. 147 */       	"10/13 Coffee    "
-                            "grind.  10=Start",
+    /* MSA n. 147 */       "10/13 Coffee    "
+                           "grind.  10=Start",
 
-    /* MSA n. 148 */       	"Cycle ^ of )    "
-                            "timeout \7\x08 sec  ",
+    /* MSA n. 148 */       "Cycle ^ of )    "
+                           "timeout \7\x08 sec  ",
 
-    /* MSA n. 149 */       	"11/13 Rep. Proc."
-                            "10=Yes; other=NO",
+    /* MSA n. 149 */       "11/13 Rep. Proc."
+                           "10=Yes; other=NO",
 
-    /* MSA n. 150 */       	"12/13 Put back  "
-                            "Brewer.  10 = ok",
+    /* MSA n. 150 */       "12/13 Put back  "
+                           "Brewer.  10 = ok",
 
-    /* MSA n. 151 */       	"13/13 Coffee?   "
-                            "10=Yes; other=NO",
+    /* MSA n. 151 */       "13/13 Coffee?   "
+                           "10=Yes; other=NO",
 
-    /* MSA n. 152 */       	"ESPRESSO        "
-                            "preparing       ",
+    /* MSA n. 152 */       "ESPRESSO        "
+                           "preparing       ",
 
-    /* MSA n. 153 */        "Forthcoming     "
-                            "sched maintenan.",
+    /* MSA n. 153 */       "Forthcoming     "
+                           "sched maintenan.",
 
-    /* MSA n. 154 */        "Maintenance must"
-                            "be performed    ",
+    /* MSA n. 154 */       "Maintenance must"
+                           "be performed    ",
 
-    /* MSA n. 155 */        "  Enter Weight  "
-                            "  1 = Save  \5\6\7\x08",
+    /* MSA n. 155 */       "  Enter Weight  "
+                           "  1 = Save  \5\6\7\x08",
 
     /* MSA n. 156 */       "END PROGRAMMING " //era msp 50
                            "wait..........  ",
@@ -729,53 +729,53 @@ const u8 __far GB_MSA_1[MAX_MSA][32] = {
     /* MSA n. 157 */       "access code     " //era msp 116 mi sembra non sia usato
                            "INHIBITED       ",
 
-    /* MSA n.  158 */       "uninstallation  " //era msp 174
-                            "in progress...  ",
+    /* MSA n.  158 */      "uninstallation  " //era msp 174
+                           "in progress...  ",
 
-    /* MSA n.  159 */       "                " //era msp 47 mi sembra non sia usato
-                            "                ",
+    /* MSA n.  159 */      "                " //era msp 47 mi sembra non sia usato
+                           "                ",
 
-    /* MSA n.  160 */       "CALIBRATION IS  " //era msp 184 mi sembra non sia usato
-                            "NOT POSSIBLE    ",
+    /* MSA n.  160 */      "CALIBRATION IS  " //era msp 184 mi sembra non sia usato
+                           "NOT POSSIBLE    ",
 
-    /* MSA n.  161 */       "Remove Brewer   " //era msp 185
+    /* MSA n.  161 */      "Remove Brewer   " //era msp 185
                            "Push PROG button",
 
-    /* MSA n.  162 */       "Replace Brewer  " //era msp 186
-                            "Push PROG Button",
+    /* MSA n.  162 */      "Replace Brewer  " //era msp 186
+                           "Push PROG Button",
 
-    /* MSA n.  163 */        "Open boiler tap " //era msp 200
-                            "       10=start ",
+    /* MSA n.  163 */      "Open boiler tap " //era msp 200
+                           "       10=start ",
 
-    /* MSA n.  164 */       "   KEY PRESS    " // era msp 187
-                            "     >PROG<     ",
+    /* MSA n.  164 */      "   KEY PRESS    " // era msp 187
+                           "     >PROG<     ",
 
-    /* MSA n.  165 */        " end uninstall  " //era msp 201
+    /* MSA n.  165 */      " end uninstall  " //era msp 201
                            "close boiler tap",
 
-    /* MSA n.  166 */       "Water supply    " //era msp 212    //version E3-E3 servomat
-                             "conn.? Start=10 ",                 //4
+    /* MSA n.  166 */      "Water supply    " //era msp 212    //version E3-E3 servomat
+                           "conn.? Start=10 ",                 //4
 
     #ifdef CUSTOMER_NESTLE
-    /* MSA n.  167 */       "driptray        "  //era msp 213
-                            "inside? 10=START",
+    /* MSA n.  167 */      "driptray        "  //era msp 213
+                           "inside? 10=START",
     #else
-    /* MSA n.  167 */       "driptray        "  //era msp 213
-                            "inside? 10=START",
+    /* MSA n.  167 */      "driptray        "  //era msp 213
+                           "inside? 10=START",
     #endif
 
-    /* MSA n.  168 */       "remove coffee   " // era msp 224
-                            "grounds 10=START",
+    /* MSA n.  168 */      "remove coffee   " // era msp 224
+                           "grounds 10=START",
 
-    /* MSA n.  169 */       "Drip tray       " //era msp 218
-                             "empty? Start=10 ",
+    /* MSA n.  169 */      "Drip tray       " //era msp 218
+                           "empty? Start=10 ",
 
     #ifdef CUSTOMER_NESTLE
-    /* MSA n.  170 */       "REGISTRATION out" //era msp 40
-                            "of service      ",
+    /* MSA n.  170 */      "REGISTRATION out" //era msp 40
+                           "of service      ",
     #else
-    /* MSA n.  170 */       "REGISTRATION out" //era msp 40
-                            "of service      ",
+    /* MSA n.  170 */      "REGISTRATION out" //era msp 40
+                           "of service      ",
     #endif
 
     /* MSA n.  171 */      "PROGRAMMING-----" //era msp 72
@@ -895,11 +895,11 @@ const u8 __far GB_MSAP_1[MAX_MSAP][32] = {
                            "PRODUCT  \x0A\x0B \6\7.\x08",
 
     #ifdef CUSTOMER_NESTLE
-    /* MSP n. 19 */       "breaks number   "
-                          "0-2 15=Max    \7\x08",
-    #else
-    /* MSP n. 19 */       "breaks number   "
-                          "0-2 12=Max -  \7\x08",	//"0 - 2         \7\x08",
+    /* MSP n. 19 */        "breaks number   "
+                           "0-2 15=Max    \7\x08",
+    #else                  
+    /* MSP n. 19 */        "breaks number   "
+                           "0-2 12=Max -  \7\x08",	//"0 - 2         \7\x08",
     #endif
 
     /* MSP n. 20 */        "WATER \x0A\x0B time   "
@@ -1117,8 +1117,8 @@ const u8 __far GB_MSAP_1[MAX_MSAP][32] = {
     /* MSP n.  67 */       "   TEMPERATURE  "
                            "Temp. EV2   \6\7\x08\x09",
     #endif
-    /* MSP n.  68 */		"PL for cash     "									//"TEST RUNNING    " spostato in 111 MSA
-                            "0=PL1 1=PL2    \x08",							//"   
+    /* MSP n.  68 */	   "PL for cash     "									//"TEST RUNNING    " spostato in 111 MSA
+                           "0=PL1 1=PL2    \x08",							//"   
 
     #if (GRINDER_MAX_NUM == 2)
     /* MSP n.  69 */       "select grinder 2"
@@ -1222,8 +1222,8 @@ const u8 __far GB_MSAP_1[MAX_MSAP][32] = {
     /* MSP n. 92 */        "prog menu       "
                            "access code  \6\7\x08",
     #else
-    /* MSP n. 92 */       "not used        "
-                          "                ",
+    /* MSP n. 92 */        "not used        "
+                           "                ",
     #endif
 
     #ifdef CUSTOMER_NESTLE
@@ -1248,8 +1248,8 @@ const u8 __far GB_MSAP_1[MAX_MSAP][32] = {
                            "               \x08",
     #endif
 
-    /* MSP n. 97 */			"PL for cashless "								//"confirm partial " spostato in 112 MSA
-                            "0=PL1 1=PL2    \x08",								//"reset  press P10",
+    /* MSP n. 97 */		   "PL for cashless "								//"confirm partial " spostato in 112 MSA
+                           "0=PL1 1=PL2    \x08",								//"reset  press P10",
 
     /* MSP n. 98 */        "language:       "
 						   "        english ",
@@ -1302,25 +1302,25 @@ const u8 __far GB_MSAP_1[MAX_MSAP][32] = {
     /* MSP n. 105 */       "extra milk      "
                            "quantity    +\7.\x08",
     #ifdef ABIL_MOTORI_VIRTUALI
-    /* MSP n. 106 */        "Latte-Macchiato "
-                            "START BREWER\6\7.\x08",
+    /* MSP n. 106 */       "Latte-Macchiato "
+                           "START BREWER\6\7.\x08",
     #else
-    /* MSP n.106 */         "not used        "
-                            "                ",
+    /* MSP n.106 */        "not used        "
+                           "                ",
     #endif
     #ifdef ABIL_LIMIT_CURRENT
-    /* MSP n. 107 */        "Limiting current"
-                            "10 A            ",
+    /* MSP n. 107 */       "Limiting current"
+                           "10 A            ",
     #else
-    /* MSP n. 107 */        "    Not Used    "
-                            "                ",
+    /* MSP n. 107 */       "    Not Used    "
+                           "                ",
     #endif                        
     #ifdef ABIL_RISCALDATORE
     /* MSP n.  108*/       "   TEMPERATURE  "
                            "heater:      \6\7\x08",
     #else
-    /* MSP n.108 */         "not used        "
-                            "                ",
+    /* MSP n.108 */        "not used        "
+                           "                ",
     #endif
     /* MSP n. 109 */       "coffee grains   "
                            "[\x0A\x0B\x0C\x0D.\x0E]  \4\5\6\7.\x08",
@@ -1513,63 +1513,63 @@ const u8 __far GB_MSAP_1[MAX_MSAP][32] = {
     /* MSP n.158 */        "Bill validator  "
                            "enab=  0;1;2  =\x08",
 
-    /* MSP n.159 */         "PROGRAMMING-----"
-                            "- MDB ----------",
+    /* MSP n.159 */        "PROGRAMMING-----"
+                           "- MDB ----------",
 
-    /* MSP n.  160 */       "Preselection    "
-                            "EXTRA MILK      ",
+    /* MSP n.  160 */      "Preselection    "
+                           "EXTRA MILK      ",
 
-    /* MSP n.  161 */       "Preselection    "
-                            "ESPRESSO        ",
+    /* MSP n.  161 */      "Preselection    "
+                           "ESPRESSO        ",
     #ifdef EASY_PRESEL
-    /* MSP n.  162 */       "Preselection    "
-                            "SELECTIONS 25-36",
+    /* MSP n.  162 */      "Preselection    "
+                           "SELECTIONS 25-36",
     #else
-    /* MSP n.  162 */       "Preselection    "
-                            "DECAFFEINATED   ",
-    #endif                       
+    /* MSP n.  162 */      "Preselection    "
+                           "DECAFFEINATED   ",
+    #endif                      
     #ifdef TIPO_NO_CUP
-    /* MSP n.  163 */       "Preselection    "
-                            "not used        ",
+    /* MSP n.  163 */      "Preselection    "
+                           "not used        ",
     #else
-    /* MSP n.  163 */       "Preselection    "
-                            "NO CUP          ",
+    /* MSP n.  163 */      "Preselection    "
+                           "NO CUP          ",
     #endif
-    /* MSP n.  164 */       "Preselection    "
-                            "BARLEY          ",
+    /* MSP n.  164 */      "Preselection    "
+                           "BARLEY          ",
 
-    /* MSP n.  165 */        "   TEST GROUP   "
-                             "Absorption  sel4",
+    /* MSP n.  165 */      "   TEST GROUP   "
+                           "Absorption  sel4",
 
 
 
 #ifdef BUSINESS_LINE
 	#if !defined(MODELLO_EC) && defined(MODELLO_ESPRESSO)
-    /* MSP n.  166 */       "boiler  cc:     "
-                            "0=400   1=800  \x08",
+    /* MSP n.  166 */      "boiler  cc:     "
+                           "0=400   1=800  \x08",
     #else
-    /* MSP n.  166 */       "not used        "
-                            "                ",
+    /* MSP n.  166 */      "not used        "
+                           "                ",
     #endif
 #else
-    /* MSP n.  166 */       "Power adj. pump "
-                            "0=no 1=yes     \x08",
+    /* MSP n.  166 */      "Power adj. pump "
+                           "0=no 1=yes     \x08",
 #endif	
 	
-    /* MSP n. 167 */		"quick menu      "		/* @AS Issue_#1598: limited access to quick menù functionalities */
-                            "access code  \6\7\x08",
+    /* MSP n. 167 */	   "quick menu      "		/* @AS Issue_#1598: limited access to quick menù functionalities */
+                           "access code  \6\7\x08",
     #ifdef ABIL_CAPPUCCINATORE
     /* MSP n.  168 */      "EV air          "
                            "Fresh-milk  \6\7.\x08",
     #else
-    /* MSP n.  168 */        "not used        "
-                             "                ",
+    /* MSP n.  168 */       "not used        "
+                            "                ",
     #endif
     /* MSP n.  169 */       "TUNING          "
                             "MOTORS          ",
 
-    /* MSP n. 170  */        "Calibrate Coffee"
-                             "Push PROG   \5\6\7\x08",
+    /* MSP n. 170  */       "Calibrate Coffee"
+                            "Push PROG   \5\6\7\x08",
     #ifdef ABIL_LATTE_MACCHIATO
     /* MSP n.  171 */       "LM Milk water   "		//EV virtuale     
                             "Number=        \x08",
@@ -1609,7 +1609,7 @@ const u8 __far GB_MSAP_1[MAX_MSAP][32] = {
     /* MSP n.  179 */       "address VIDTS   "
                             "             \6\7\x08",
     #ifdef  UPD_PROG_EVADTS
-    /* MSP n.  180 */      "Protocol        "
+    /* MSP n.  180 */       "Protocol        "
                             "\0\1\2\3\4\5\6\7\x08\x09\x0A\x0B\x0C\x0D\x0E\x0F",
     #else
     #ifdef SELECT_TYPE_DATA_AUDIT
@@ -1623,34 +1623,34 @@ const u8 __far GB_MSAP_1[MAX_MSAP][32] = {
     /* MSP n.  181 */       "PROGRAMMING-----"
                             "-ID. MACHINE    ",
     #ifdef SUMMERTIME
-    /* MSP n. 182 */       "Summer Time     "
-                           "1=yes          \x08",
-    #else
-    /* MSP n. 182 */       "not used        "
-                           "                ",
+    /* MSP n. 182 */        "Summer Time     "
+                            "1=yes          \x08",
+    #else                   
+    /* MSP n. 182 */        "not used        "
+                            "                ",
     #endif  
 
-    /* MSP n. 183 */       "LOW PRESSURE    "
-                           "                ", //"1=Save  2=Repeat",
-
-    /* MSP n. 184 */       "X9 wait time 3  " //era "CALIBRATION IS  "
-                           "last cof. \7\x08 min", //"NOT POSSIBLE    ",
-
-    /* MSP n. 185 */       "X10 min cof. qty" //era "Remove Brewer   "
-                           "to engage \6\7\x08 cc", //"Push PROG button",
-
-    /* MSP n. 186 */       "A1 PWM Variflex " //era "Replace Brewer  "
-                           "move        \6\7\x08%", //"Push PROG Button",
-
-    /* MSP n. 187 */       "A2 Pump On time " //era "   KEY PRESS    "
-                           "         \6\7.\x08[s]", //"     >PROG<     ",
+    /* MSP n. 183 */        "LOW PRESSURE    "
+                            "                ", //"1=Save  2=Repeat",
+                            
+    /* MSP n. 184 */        "X9 wait time 3  " //era "CALIBRATION IS  "
+                            "last cof. \7\x08 min", //"NOT POSSIBLE    ",
+                            
+    /* MSP n. 185 */        "X10 min cof. qty" //era "Remove Brewer   "
+                            "to engage \6\7\x08 cc", //"Push PROG button",
+                            
+    /* MSP n. 186 */        "A1 PWM Variflex " //era "Replace Brewer  "
+                            "move        \6\7\x08%", //"Push PROG Button",
+                            
+    /* MSP n. 187 */        "A2 Pump On time " //era "   KEY PRESS    "
+                            "         \6\7.\x08[s]", //"     >PROG<     ",
                 #ifdef COMP_PREZZO_ECO_BIC
     #ifdef EASY_PRESEL
     /* MSP n.  188 */       "Preselection    "
                             "SELECTIONS 37-48",
     #else
-    /* MSP n.  188 */        "  Preselection  "
-                             "    BIG CUP     ",
+    /* MSP n.  188 */       "  Preselection  "
+                            "    BIG CUP     ",
     #endif
     #ifdef ABILITAZIONE_SENSORE_CAFFE
     /* MSP n.  189 */       " Coffee Sensor  "
@@ -1668,29 +1668,29 @@ const u8 __far GB_MSAP_1[MAX_MSAP][32] = {
     /* MSP n. 192 */       "PRODUCT         "
                            "percent    +\7\x08 %",
                 #else
-    /* MSP n.  188 */       "not used        "
-                            "                ",
-    /* MSP n.  189 */       " not used       "
-                            "                ",
-    /* MSP n.  190 */       "not used        "
-                            "                ",
-    /* MSP n.  191 */       " not used       "
-                            "                ",
-    /* MSP n.  192 */       "not used        "
-                            "                ",
-                #endif                     
+    /* MSP n.  188 */      "not used        "
+                           "                ",
+    /* MSP n.  189 */      " not used       "
+                           "                ",
+    /* MSP n.  190 */      "not used        "
+                           "                ",
+    /* MSP n.  191 */      " not used       "
+                           "                ",
+    /* MSP n.  192 */      "not used        "
+                           "                ",
+                #endif                    
     /* MSP n. 193 */       "PREINFUSION     "
                            "0=no   sec.:\7\x08  ",
-
+                           
     /* MSP n. 194 */       "JUG             "
                            "0=no        n:\7\x08",
-
+                           
     /* MSP n. 195 */       "preselection    "
                            "SUGAR           ",
-
+                           
     /* MSP n.  196 */      "preselection    "
                            "LONG            ",
-
+                           
     /* MSP n. 197 */       "water           "
                            "LONG       +\7\x08 %",
         #ifdef DAL_HAPPY_HOUR
@@ -1745,43 +1745,43 @@ const u8 __far GB_MSAP_1[MAX_MSAP][32] = {
                            "Absorption  sel4",
 
     #ifdef MODELLO_ESPRESSO
-    /* MSP n. 210 */        "tun. grinder  \x09\x0A"  // sull ´espresso  non c´e´
-                            "         \4 \6\7\x08 %",
+    /* MSP n. 210 */       "tun. grinder  \x09\x0A"  // sull ´espresso  non c´e´
+                           "         \4 \6\7\x08 %",
     #endif
     #ifdef MODELLO_SOLUBILE
     /* MSP n. 210 */       "not used        "
                            "                ",
     #endif
     #ifdef ABILITO_RESET_DECONTATORE_FILTRO
-    /* MSP n. 211 */        "activ.H2o filter"//Frei
-                            "Reset  0=no    \x08",
+    /* MSP n. 211 */       "activ.H2o filter"//Frei
+                           "Reset  0=no    \x08",
     #else
     /* MSP n. 211 */       "not used        "
                            "                ",
     #endif
 
-    /* MSP n.  212 */       "A6 water after  " //era "Water supply    "    //version E3-E3 servomat
-                            "coffee   \6\7\x08[ml]", //"conn.? Start=10 ",   //4
+    /* MSP n.  212 */      "A6 water after  " //era "Water supply    "    //version E3-E3 servomat
+                           "coffee   \6\7\x08[ml]", //"conn.? Start=10 ",   //4
 
     #ifdef CUSTOMER_NESTLE
-    /* MSP n.  213 */       "A7 chamber      " //era "driptray        "
-                            "aperture    \6\7\x08%", //"inside? 10=START",
+    /* MSP n.  213 */      "A7 chamber      " //era "driptray        "
+                           "aperture    \6\7\x08%", //"inside? 10=START",
     #else
-    /* MSP n.  213 */       "A7 chamber      " //era "driptray        "
-                            "aperture    \6\7\x08%", //"inside? 10=START",
+    /* MSP n.  213 */      "A7 chamber      " //era "driptray        "
+                           "aperture    \6\7\x08%", //"inside? 10=START",
     #endif
 
-    /* MSP n.  214 */       "DA rotation     "			// "first install.  " //LIBERO spostato in user 105
-                            "0=auto 1=man.  \x08",		//"starts automat. ",
+    /* MSP n.  214 */      "DA rotation     "			// "first install.  " //LIBERO spostato in user 105
+                           "0=auto 1=man.  \x08",		//"starts automat. ",
 
-    /* MSP n.  215 */		"Set preheating  "						//"                "
-                            "selection \6\7\x08   ",				//"autom. reset    ", spostato in user 107
+    /* MSP n.  215 */	   "Set preheating  "						//"                "
+                           "selection \6\7\x08   ",				//"autom. reset    ", spostato in user 107
 
-    /* MSP n.  216 */       "MDB offset own  "
-                            "cup 0=no 1=yes \x08",
+    /* MSP n.  216 */      "MDB offset own  "
+                           "cup 0=no 1=yes \x08",
     #ifdef VARIGRIND_PRESENCE
-    /* MSP n. 217 */        "granulometry    "  // sull ´espresso  non c´e´
-                            "\0\1\2\3\4\5\6\7\x08\x09\x0A\x0B\x0C\x0D\x0E\x0F",
+    /* MSP n. 217 */       "granulometry    "  // sull ´espresso  non c´e´
+                           "\0\1\2\3\4\5\6\7\x08\x09\x0A\x0B\x0C\x0D\x0E\x0F",
     #else 
     /* MSP n. 217 */       "not used        "
                            "                ",
@@ -1802,15 +1802,15 @@ const u8 __far GB_MSAP_1[MAX_MSAP][32] = {
     /* MSP n. 221 */       "driptray        "
                            "identif. yes=1-\x08",
     #else
-    /* MSP n.  221 */       "not used        "
-                            "                ",
+    /* MSP n.  221 */      "not used        "
+                           "                ",
     #endif
     #ifdef PROGRAMMABLE_PRESEL_MSG
-    /* MSP n.  222*/        "Preselection    "
-                            "name:   \0\1\2\3\4\5\6\7",
+    /* MSP n.  222*/       "Preselection    "
+                           "name:   \0\1\2\3\4\5\6\7",
     #else
-    /* MSP n.  222 */       "not used        "
-                            "                ",
+    /* MSP n.  222 */      "not used        "
+                           "                ",
     #endif
 
     /* MSP n. 223 */       "Cup size        "
@@ -1826,11 +1826,11 @@ const u8 __far GB_MSAP_1[MAX_MSAP][32] = {
     /* MSP n. 226 */       "ev air fresh    "
                            "milk delay  \6\7.\x08",
     #else
-    /* MSP n.  225 */       "   not  used    "
-                            "                ",
+    /* MSP n.  225 */      "   not  used    "
+                           "                ",
 
-    /* MSP n.  226 */       "   not  used    "
-                            "                ",
+    /* MSP n.  226 */      "   not  used    "
+                           "                ",
     #endif
 
     /* MSP n.  227*/       "PROGRAMMING ----"
@@ -1887,7 +1887,7 @@ const u8 __far GB_MSAP_1[MAX_MSAP][32] = {
 
 #elif defined ABIL_GRUPPO_MICRO
     /* MSP n. 239 */       "PROGRAMMING ----"
-                          "   MICRO        ",
+                           "   MICRO        ",
 #else
     /* MSP n. 239 */       "PROGRAMMING ----"
                            "                ",
@@ -1900,51 +1900,51 @@ const u8 __far GB_MSAP_1[MAX_MSAP][32] = {
                            "SELECTIONS 49-60",
 
     /* MSP n. 242 */       "xxxxxx          "		//"coffee time     "
-                            "                ",
+                           "                ",
 
 #ifdef CAPPUCCINATORE_INDUX
-    /* MSP n. 243 */        "not used        " // "Time cleaning   "
-                            "                ", //"rhMM1.v+  \5\6:\7\x08 ",   // nome commerciale MILK module
+    /* MSP n. 243 */       "not used        " // "Time cleaning   "
+                           "                ", //"rhMM1.v+  \5\6:\7\x08 ",   // nome commerciale MILK module
 #else
-    /* MSP n. 243 */ 		"Time cleaning   "
-                            "MILK Mod.  \5\6:\7\x08",
+    /* MSP n. 243 */ 	   "Time cleaning   "
+                           "MILK Mod.  \5\6:\7\x08",
 #endif
 
-    /* MSP n. 244*/        	"F.Milk  Topping-"
-                            "switch  yes=1- \x08",
+    /* MSP n. 244*/        "F.Milk  Topping-"
+                           "switch  yes=1- \x08",
 
-    /* MSP n. 245*/         "Calibrate Cof  2"
-                            "Push PROG   \5\6\7\x08",
+    /* MSP n. 245*/        "Calibrate Cof  2"
+                           "Push PROG   \5\6\7\x08",
 
-    /* MSP n. 246*/         "cup sens.thresh."
-                            "0=dis  \6\7\x08 - \x0A\x0B\x0C",
+    /* MSP n. 246*/        "cup sens.thresh."
+                           "0=dis  \6\7\x08 - \x0A\x0B\x0C",
 
-    /* MSP n. 247*/         "  Set Free Vend "
-                            "Ins hours   \5\6\7\x08",
+    /* MSP n. 247*/        "  Set Free Vend "
+                           "Ins hours   \5\6\7\x08",
 
-    /* MSP n. 248*/        	"Enable dataaudit"
-                            "before  1=yes  \x08",
+    /* MSP n. 248*/        "Enable dataaudit"
+                           "before  1=yes  \x08",
 
-    /* MSP n. 249 */        "Instant Scaling "
-                            "Factor   \4 \6\7\x08 %",
+    /* MSP n. 249 */       "Instant Scaling "
+                           "Factor   \4 \6\7\x08 %",
 
-    /* MSP n. 250 */        "TEST STIRRER    "
-                            "sel 4           ",
+    /* MSP n. 250 */       "TEST STIRRER    "
+                           "sel 4           ",
 
-    /* MSP n. 251 */        " Security Level "
-                            "level 1-4      \x08",
+    /* MSP n. 251 */       " Security Level "
+                           "level 1-4      \x08",
 
-    /* MSP n. 252*/         "Calibrate Cof  3"
-                            "Push PROG   \5\6\7\x08",
+    /* MSP n. 252*/        "Calibrate Cof  3"
+                           "Push PROG   \5\6\7\x08",
 
-    /* MSP n. 253*/         "Calibrate Cof  4"
-                            "Push PROG   \5\6\7\x08",
+    /* MSP n. 253*/        "Calibrate Cof  4"
+                           "Push PROG   \5\6\7\x08",
 
-    /* MSP n. 254 */        "coffee repeat   "
-                            "0=disabled     \x08",
+    /* MSP n. 254 */       "coffee repeat   "
+                           "0=disabled     \x08",
 
-    /* MSP n. 255 */        "Current language"
-                            "\0\1\2\3\4\5\6\7\x08\x09\x0A\x0B\x0C\x0D\x0E\x0F",
+    /* MSP n. 255 */       "Current language"
+                           "\0\1\2\3\4\5\6\7\x08\x09\x0A\x0B\x0C\x0D\x0E\x0F",
 
 };
 
@@ -2176,95 +2176,95 @@ const u8 __far  GB_MSG_LAV_GRUPPO[MAX_LAV_GRUPPO][32] = {
     /* MSA n. 8  */        "11/14 Skip final" 	//richiesta per il caffè di pulizia al termine del lavaggio sanitario
                            "coffee YES=1    ",
 
-    /* MSA n. 9  */         "\4\5/14 Rep. clean"
-                            "\x08/2 YES=10 NO=ot",
+    /* MSA n. 9  */        "\4\5/14 Rep. clean"
+                           "\x08/2 YES=10 NO=ot",
 
-    /* MSA n. 10  */        "1/14 Man. brush "
-                            "  and push 10   ",
+    /* MSA n. 10  */       "1/14 Man. brush "
+                           "  and push 10   ",
 
-    /* MSA n. 11  */        "4/14 Brewer is  "
-                            "     closing    ",
+    /* MSA n. 11  */       "4/14 Brewer is  "
+                           "     closing    ",
 
-    /* MSA n. 12  */        "5/14 2nd diss.  "
-                            "cycle will start",
+    /* MSA n. 12  */       "5/14 2nd diss.  "
+                           "cycle will start",
 
-    /* MSA n. 13  */        "\4\5/14 \0\1\2 Clean."
-                            "   active \x09\x0A\x0B   ",
+    /* MSA n. 13  */       "\4\5/14 \0\1\2 Clean."
+                           "   active \x09\x0A\x0B   ",
 
-    /* MSA n. 14  */        "      Brewer in "
-                            " open position  ",
+    /* MSA n. 14  */       "      Brewer in "
+                           " open position  ",
 
-    /* MSA n. 15  */        "14/14 Brew. Cle."
-                            "Done.    10=Exit",
+    /* MSA n. 15  */       "14/14 Brew. Cle."
+                           "Done.    10=Exit",
 
-    /* MSA n. 16  */        "\4\5\6\7\x08 Mixer \0   "
-                            "rinsing         ",
+    /* MSA n. 16  */       "\4\5\6\7\x08 Mixer \0   "
+                           "rinsing         ",
 
-    /* MSA n. 17  */        "\4\5\6\7\x08 Brewer    "
-                            "Rinsing         ",
+    /* MSA n. 17  */       "\4\5\6\7\x08 Brewer    "
+                           "Rinsing         ",
 
-    /* MSA n. 18  */        "Start procedure?"
-                            "   YES=10 NO=8  ",
+    /* MSA n. 18  */       "Start procedure?"
+                           "   YES=10 NO=8  ",
 
-    /* MSA n. 19  */        "\4\5/14 \0\1\2 Clean."
-                            "   wait please  ",
+    /* MSA n. 19  */       "\4\5/14 \0\1\2 Clean."
+                           "   wait please  ",
 
-    /* MSA n. 20  */        "12/14 Coffee    "
-                            "delivery        ",
+    /* MSA n. 20  */       "12/14 Coffee    "
+                           "delivery        ",
 
-    /* MSA n. 21  */        "\1/\2\3 emptying   "
-                            "in progress     ",
+    /* MSA n. 21  */       "\1/\2\3 emptying   "
+                           "in progress     ",
 
-    /* MSA n. 22  */        "\1/\2\3 conn. desc."
-                            "solution   OK=10",
+    /* MSA n. 22  */       "\1/\2\3 conn. desc."
+                           "solution   OK=10",
 
-    /* MSA n. 23  */        "\1/\2\3 fill. desc."
-                            "sol. in progress",
+    /* MSA n. 23  */       "\1/\2\3 fill. desc."
+                           "sol. in progress",
 
-    /* MSA n. 24  */        "\0\1/\2\3 water     "
-                            "flows?    YES=10",
+    /* MSA n. 24  */       "\0\1/\2\3 water     "
+                           "flows?    YES=10",
 
-    /* MSA n. 25  */        "\0\1/\2\3  descaling"
-                            "solution filling",
+    /* MSA n. 25  */       "\0\1/\2\3  descaling"
+                           "solution filling",
 
-    /* MSA n. 26  */        "\1/\2\3  solution  "
-                            "action=>min \4:\5\6",
+    /* MSA n. 26  */       "\1/\2\3  solution  "
+                           "action=>min \4:\5\6",
 
-    /* MSA n. 27  */        "\0\1/\2\3 desc. sol."
-                            "draining \4/\5    ",
+    /* MSA n. 27  */       "\0\1/\2\3 desc. sol."
+                           "draining \4/\5    ",
 
-    /* MSA n. 28  */        "\0\1/\2\3 result?   "
-                            "OK=10   NO=OTHER",
+    /* MSA n. 28  */       "\0\1/\2\3 result?   "
+                           "OK=10   NO=OTHER",
 
-    /* MSA n. 29  */        "\0\1/\2\3 connect   "
-                            "water      OK=10",
+    /* MSA n. 29  */       "\0\1/\2\3 connect   "
+                           "water      OK=10",
 
-    /* MSA n. 30  */        "\0\1/\2\3 filling   "
-                            "water in progr. ",
+    /* MSA n. 30  */       "\0\1/\2\3 filling   "
+                           "water in progr. ",
 
-    /* MSA n. 31  */        "\0\1/\2\3 rinsing   "
-                            "with water      ",
+    /* MSA n. 31  */       "\0\1/\2\3 rinsing   "
+                           "with water      ",
 
-    /* MSA n. 32  */        "\0\1/\2\3 disp. and "
-                            "test water  Y=10",
+    /* MSA n. 32  */       "\0\1/\2\3 disp. and "
+                           "test water  Y=10",
 
-    /* MSA n. 33  */        "\0\1/\2\3 catch     "
-                            "water to test   ",
+    /* MSA n. 33  */       "\0\1/\2\3 catch     "
+                           "water to test   ",
 
-    /* MSA n. 34  */        "\0\1/\2\3 descaling "
-                            "done. EXIT=10   ",
+    /* MSA n. 34  */       "\0\1/\2\3 descaling "
+                           "done. EXIT=10   ",
 
-    /* MSA n. 35  */        "\0\1/\2\3 open      "
-                            "boiler tap Y=10 ",
+    /* MSA n. 35  */       "\0\1/\2\3 open      "
+                           "boiler tap Y=10 ",
 
-    /* MSA n. 36  */        "\0\1/\2\3 close     "
-                            "boiler tap Y=10 ",
+    /* MSA n. 36  */       "\0\1/\2\3 close     "
+                           "boiler tap Y=10 ",
 
-    /* MSA n. 37 */       	"  auto rinsing  "
-                            "   in progress  ",
+    /* MSA n. 37 */       "  auto rinsing  "
+                           "   in progress  ",
 
-    /* MSA n. 38 */       	" Periodic rinse "
-                            "  in \0 seconds  ",
+    /* MSA n. 38 */       " Periodic rinse "
+                           "  in \0 seconds  ",
 
 };
 
@@ -2411,13 +2411,13 @@ const u8 __far  GB_MSAP_CAPPUCCINATORE[MAX_CAPPUCCINATORE][32] = {
                          "steam        \6\7\x08",
 
     /* MSP n. 1 */       "Rinsing period  "//periodo risciacq
-                           " min.        \6\7\x08",
+                         " min.        \6\7\x08",
 
     /* MSP n. 2 */       "Rinse MILK MOD  "//risciacquo
-                           "   1=enable    \x08",
+                         "   1=enable    \x08",
 
     /* MSP n. 3 */       "Rinse MILK MOD  "//rit. risciacquo.
-                           "delay  sec:\6\7.\x08 ",
+                         "delay  sec:\6\7.\x08 ",
 
     /* MSP n. 4 */   	 "  Milk Sensor   "         //"rins. fresh milk"//tempo risciacquo
                          "1=Enable       \x08",
@@ -2555,7 +2555,7 @@ const u8 __far  GB_MSAP_CAPPUCCINATORE[MAX_CAPPUCCINATORE][32] = {
                          "Seconds:     \6\7\x08",
 
     /* MSP n.27 */   	 "Check Tank Milk "
-                          "Temper. 1=yes  \x08",
+                         "Temper. 1=yes  \x08",
 
     /* MSP n.28 */       "Hot No Foam     "
                          "sped pump  \6\7\x08 %",
@@ -2610,14 +2610,14 @@ const u8 __far GB_MS_MODULI_EST[MAX_MSG_SLAVE][32] =
     /* MSA n. 8 */      "Water/Clen.Sol. "				//#4660
                         "through syr.tube",				//#4660			
 
-    /* MSA n. 9 */       "  Inst module   "
-                         " version  \0.\1.\2 ",
+    /* MSA n. 9 */      "  Inst module   "
+                        " version  \0.\1.\2 ",
 
-    /* MSA n. 10 */       "  Syrup module  "
-                          " version  \0.\1.\2 ",
+    /* MSA n. 10 */     "  Syrup module  "
+                        " version  \0.\1.\2 ",
 
-    /* MSA n. 11  */        "\4\5\6\7\x08 EXT Mix \0 "
-                            "rinsing         ",
+    /* MSA n. 11  */    "\4\5\6\7\x08 EXT Mix \0 "
+                        "rinsing         ",
 };
 
 #endif

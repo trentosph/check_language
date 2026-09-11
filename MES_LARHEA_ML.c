@@ -60,14 +60,14 @@ const u8 __far ML_MSA_1[MAX_MSA][32] = {
     /* MSA n.  4 */        "@A008           " 							//"      remove cup" "  Boisson servie"
                            "                ",							//"Please          " "enlever tasse   ",
     #else					   
-    /* MSA n.  4 */        "@A177           "							//"      remove cup" "  Boisson prï¿½te "
+    /* MSA n.  4 */        "@A177           "							//"      remove cup" "  Boisson prête "
                            "                ",							//"Please          " "enlever tasse   ",
     #endif	 
 
-    /* MSA n.  5 */        "@A009ï¿½\1\2        "							//"  preparing     "
+    /* MSA n.  5 */        "@A009§\1\2        "							//"  preparing     "
                            "                ",							//"drink nr. \1\2    "
 
-    /* MSA n.  6 */        "@A010ï¿½\0\1\2\3\4\5\6\7\x08\x09"				//"\0\1\2\3\4\5\6\7\x08\x09\x0A\x0B\x0C\x0D\x0E\x0F"
+    /* MSA n.  6 */        "@A010§\0\1\2\3\4\5\6\7\x08\x09"				//"\0\1\2\3\4\5\6\7\x08\x09\x0A\x0B\x0C\x0D\x0E\x0F"
                            "\x0A\x0B\x0C\x0D\x0E\x0F          ",	//"  preparing     "
 
     #ifdef CUSTOMER_NESTLE
@@ -80,7 +80,7 @@ const u8 __far ML_MSA_1[MAX_MSA][32] = {
 
    #ifdef CUSTOMER_NESTLE
     /* MSA n.  8 */        "@A012           "							//"    check coffee"  "       Verifique"
-                           "                ",							//"brewer          "  "molinillo cafï¿½  ",
+                           "                ",							//"brewer          "  "molinillo café  ",
     #else					   
     /* MSA n.  8 */        "@A186           "							//"      remove cup" " Control Grupo  "
                            "                ",							//"Please          " "     Cafe'      ",
@@ -101,7 +101,7 @@ const u8 __far ML_MSA_1[MAX_MSA][32] = {
     /* MSA n. 13 */        "@A017           "							//"Programming-----"
                            "                ",							//"RHEA FLASH------"
 
-    /* MSA n. 14 */        "@A018ï¿½\0\1\2\3\4\5\6\7\x08\x09"					//"product reserve "
+    /* MSA n. 14 */        "@A018§\0\1\2\3\4\5\6\7\x08\x09"					//"product reserve "
                            "\x0A\x0B\x0C\x0D\x0E\x0F          ", 	//"\0\1\2\3\4\5\6\7\x08\x09\x0A\x0B\x0C\x0D\x0E\x0F"
 
     /* MSA n. 15 */        "@A019           "							//"  WATER FILTER  "
@@ -126,7 +126,7 @@ const u8 __far ML_MSA_1[MAX_MSA][32] = {
     /* MSA n. 20 */        "@A025           "                           //"                "
                            "                ",                          //"                ",
 
-    /* MSA n. 21 */        "@A026ï¿½\1\2\3\4\5\6\7\x08  "                 //"Credit:         "
+    /* MSA n. 21 */        "@A026§\1\2\3\4\5\6\7\x08  "                 //"Credit:         "
                            "                ",                          //"        \1\2\3\4\5\6\7\x08",
 
     /* MSA n. 22 */        "@A027           "                           //"  Out of service"
@@ -140,7 +140,7 @@ const u8 __far ML_MSA_1[MAX_MSA][32] = {
                            "                ",                          //"clean  brewer   ", " Limpieza Grupo ",	   
     #endif 
 
-    /* MSA n. 24 */        "@A029ï¿½\4\5\6\7\x08     "                    //"price :    \4\5\6\7\x08"
+    /* MSA n. 24 */        "@A029§\4\5\6\7\x08     "                    //"price :    \4\5\6\7\x08"
                            "                ",                          //"                ",
 
     /* MSA n. 25 */        "@A030           "                           //" Out of service "
@@ -158,14 +158,14 @@ const u8 __far ML_MSA_1[MAX_MSA][32] = {
     /* MSA n. 29 */        "@A034           "                           //"            wait"
                            "                ",                          //"temperature     ",	
 
-    /* MSA n. 30 */        "@A035ï¿½\x08\x09\x0Aï¿½\0     "                     //"Out of service  "
+    /* MSA n. 30 */        "@A035§\x08\x09\x0A§\0     "                     //"Out of service  "
                            "                ",                         //"OFF \x08\x09\x0A \0       ",
 
-    /* MSA n. 31 */        "@A036ï¿½\5\6ï¿½\7\x08     "                     //"machine off     "
+    /* MSA n. 31 */        "@A036§\5\6§\7\x08     "                     //"machine off     "
                            "                ",                          //"           \5\6:\7\x08",
 
    #ifdef CUSTOMER_NESTLE
-    /* MSA n. 32 */        "@A037ï¿½\5\6ï¿½\7\x08     "                     //"................"
+    /* MSA n. 32 */        "@A037§\5\6§\7\x08     "                     //"................"
                            "                ",                          //"start at:  \5\6:\7\x08",
 
     /* MSA n. 33 */        "@A038           "                           //"   TEST VEND    "
@@ -190,7 +190,7 @@ const u8 __far ML_MSA_1[MAX_MSA][32] = {
                            "                ",                          //"                ",
 
    #else
-    /* MSA n. 32 */        "@A188ï¿½\5\6ï¿½\7\x08     "                     //"................"  "Encendiendo VMC "
+    /* MSA n. 32 */        "@A188§\5\6§\7\x08     "                     //"................"  "Encendiendo VMC "
                            "                ",                          //"start at:  \5\6:\7\x08",  "a:         \5\6:\7\x08",
 
     /* MSA n. 33 */        "@A189           "                           //"   TEST VEND    "  "  VENTA LIBRE   "
@@ -220,12 +220,12 @@ const u8 __far ML_MSA_1[MAX_MSA][32] = {
     #endif
     #ifdef MODELLO_SOLUBILE
 
-    /* MSA n. 40 */        "@A045ï¿½\6\7\x08       "                      //"t. inst.     \6\7\x08"
+    /* MSA n. 40 */        "@A045§\6\7\x08       "                      //"t. inst.     \6\7\x08"
                            "                ",                          //"----------------",  
 
     #else 
-    /*MSA n. 40*/         "@A046ï¿½\x0A\x0B\x0Cï¿½\6\7\x08ï¿½\x0E\x0F"           //"t.c \x0A\x0B\x0C  t.s \6\7\x08"         
-                          "                ",                        //"t.h \x0E\x0F          ",                          
+    /*MSA n. 40*/          "@A046§\x0A\x0B\x0C§\6\7\x08§\x0E\x0F"           //"t.c \x0A\x0B\x0C  t.s \6\7\x08"         
+                           "                ",                        //"t.h \x0E\x0F          ",                          
 
     #endif
     /* MSA n. 41 */        "@A047           "                           //"  Card Reader   "
@@ -245,16 +245,16 @@ const u8 __far ML_MSA_1[MAX_MSA][32] = {
                            "                ",                          //"your cup        ",
     #endif
 
-    /* MSA n. 45 */        "@A052ï¿½\x09\x0A\x0B       "                  //"  no  selections"
+    /* MSA n. 45 */        "@A052§\x09\x0A\x0B       "                  //"  no  selections"
                            "                ",                          //"F.Milk   OFF \x09\x0A\x0B",
 
     /* MSA n. 46 */        "@A053           "                           //"HAPPY           "
                            "                ",                          //"           HOUR ",       
 
-    /* MSA n. 47 */        "@A054ï¿½\0\1\2\3\4\5\6\7\x08\x09"                //"   FREE VEND    "
+    /* MSA n. 47 */        "@A054§\0\1\2\3\4\5\6\7\x08\x09"                //"   FREE VEND    "
                            "\x0A\x0B\x0C\x0D\x0E\x0F          ",     //"\0\1\2\3\4\5\6\7\x08\x09\x0A\x0B\x0C\x0D\x0E\x0F",
     #ifdef MODELLO_ESPRESSO
-    /* MSA n. 48 */        "@A055ï¿½\x09\x0A\x0B       "                  //"no coffee beans "
+    /* MSA n. 48 */        "@A055§\x09\x0A\x0B       "                  //"no coffee beans "
                            "                ",                          //"         OFF \x09\x0A\x0B",
     #else // MODELLO_SOLUBILE
     /* MSA n. 48 */        "@A056           "                           //"mes 48          "
@@ -283,7 +283,7 @@ const u8 __far ML_MSA_1[MAX_MSA][32] = {
     /* MSA n. 52 */        "@A061           "                           //"SERVICE         "
                            "                ",                          //"                ",
 
-    /* MSA n. 53 */        "@A062ï¿½\x09\x0A        "                     //"error  on KEY   "
+    /* MSA n. 53 */        "@A062§\x09\x0A        "                     //"error  on KEY   "
                            "                ",                          //"code  \x09\x0A        ",
 
 
@@ -291,19 +291,19 @@ const u8 __far ML_MSA_1[MAX_MSA][32] = {
  #if defined(MODELLO_ESPRESSO) 
   #ifdef ABIL_DESCALING
     #ifdef ENABLE_GRINDER_CLEANING
-    /* MSA n. 54 */     "@A229           "		//"1-4=Mx M:5=C 6=D" 			//5=Cleaning Milk Module 6=descaling Milk Circuit
-                        "                ",		//"7=Gr 8=BC 9=Desc",
+    /* MSA n. 54 */        "@A229           "		//"1-4=Mx M:5=C 6=D" 			//5=Cleaning Milk Module 6=descaling Milk Circuit
+                           "                ",		//"7=Gr 8=BC 9=Desc",
     #else 
-    /* MSA n. 54 */     "@A230           "		//"1-4=Mix 5=MilkMd" 
-                        "                ",		//"6=DeM 8=BC 9=Des",
+    /* MSA n. 54 */        "@A230           "		//"1-4=Mix 5=MilkMd" 
+                           "                ",		//"6=DeM 8=BC 9=Des",
     #endif
   #else  //#ifdef ABIL_DESCALING
     #ifdef ENABLE_GRINDER_CLEANING
-    /* MSA n. 54 */     "@A231           "		//"1-4=Rinse 5=Milk" 
-                        "                ",		//"6=D.M 7=Gr. 8=BC",
+    /* MSA n. 54 */        "@A231           "		//"1-4=Rinse 5=Milk" 
+                           "                ",		//"6=D.M 7=Gr. 8=BC",
     #else
-    /* MSA n. 54 */     "@A232           "		//"1-4=Rinse 5=Milk" 
-                        "                ",		//"6=Desc.Milk 8=BC",
+    /* MSA n. 54 */        "@A232           "		//"1-4=Rinse 5=Milk" 
+                           "                ",		//"6=Desc.Milk 8=BC",
     #endif
   #endif  //#ifdef ABIL_DESCALING
  #endif	  //#if defined(MODELLO_ESPRESSO) 
@@ -355,14 +355,14 @@ const u8 __far ML_MSA_1[MAX_MSA][32] = {
 #endif 
 #endif 		//#if !defined(ABIL_MILKER_DESCALING)
 
-    /* MSA n. 55 */        "@A068ï¿½\0\1ï¿½\6\7\x08    "                    //"cleaning  \0\1    "
+    /* MSA n. 55 */        "@A068§\0\1§\6\7\x08    "                    //"cleaning  \0\1    "
                            "                ",                          //"             \6\7\x08",
 
     /* MSA n. 56 */        "@A069           "                           //"RFID reader card"
                            "                ",                          //"connected       ",
     #ifdef SUMMERTIME
-    /* MSA n. 57 */        "@A070ï¿½\0\1\2\x0E\x0Fï¿½\4\5ï¿½\6"                    //Hello      \0\1\2\x0E\x0F"
-                           "\7ï¿½\x08\x09ï¿½\3ï¿½\x0A\x0Bï¿½\x0C\x0D    ",       //"\4\5-\6\7-\x08\x09 \3 \x0A\x0B:\x0C\x0D",
+    /* MSA n. 57 */        "@A070§\0\1\2\x0E\x0F§\4\5§\6"                    //Hello      \0\1\2\x0E\x0F"
+                           "\7§\x08\x09§\3§\x0A\x0B§\x0C\x0D    ",       //"\4\5-\6\7-\x08\x09 \3 \x0A\x0B:\x0C\x0D",
     #else
     /* MSA n. 57 */        "@A071           "                           //" Enter the exact"
                            "                ",                          //" amount         ",
@@ -405,7 +405,7 @@ const u8 __far ML_MSA_1[MAX_MSA][32] = {
     /* MSA n. 67 */        "@A081           "                           //"product reserve "
                            "                ",                          //" REFILL COFFEE  ",
 
-    /* MSA n. 68 */        "@A082ï¿½\0\1\2\3\4\5\6\7\x08\x09"                //"Not available   "
+    /* MSA n. 68 */        "@A082§\0\1\2\3\4\5\6\7\x08\x09"                //"Not available   "
                            "\x0A\x0B\x0C\x0D\x0E\x0F          ",     //"\0\1\2\3\4\5\6\7\x08\x09\x0A\x0B\x0C\x0D\x0E\x0F",
 
     /* MSA n. 69 */        "@A083           "                           //"-  S U G A R   +"
@@ -414,19 +414,19 @@ const u8 __far ML_MSA_1[MAX_MSA][32] = {
     /* MSA n. 70 */        "@A084           "                           //"    make a      "
                            "                ",                          //"  selection     ",
 
-    /* MSA n. 71 */        "@A085ï¿½\0\1        "                         //"door  module    "
+    /* MSA n. 71 */        "@A085§\0\1        "                         //"door  module    "
                            "                ",                          //"        vers. \0\1",
 
-    /* MSA n. 72 */        "@A086ï¿½\0\1        "                         //"espresso module "
+    /* MSA n. 72 */        "@A086§\0\1        "                         //"espresso module "
                            "                ",                          //"        vers. \0\1",
 
-    /* MSA n. 73 */        "@A087ï¿½\0\1        "                         //"  Milk module   "
+    /* MSA n. 73 */        "@A087§\0\1        "                         //"  Milk module   "
                            "                ",                          //" version    \0\1  ",
 
-    /* MSA n. 74 */        "@A088ï¿½\0         "                         //" Periodic rinse "
+    /* MSA n. 74 */        "@A088§\0         "                         //" Periodic rinse "
                            "                ",                          //"  in \0 seconds  ",
 
-    /* MSA n. 75 */        "@A089ï¿½\x09\x0Aï¿½\x0B      "                  //"                "
+    /* MSA n. 75 */        "@A089§\x09\x0A§\x0B      "                  //"                "
                            "                ",                          //"       OFF \x09\x0A  \x0B",
 
     /* MSA n. 76 */        "@A090           "                           //"      Remove Cup" 
@@ -450,7 +450,7 @@ const u8 __far ML_MSA_1[MAX_MSA][32] = {
     /* MSA n. 82 */        "@A096           "                           //"  wait please   " 
                            "                ",                          //"steam temperat. ",
 
-    /* MSA n. 83 */        "@A097ï¿½\x0B\x0C\x0D\x0E\x0Fï¿½\1\2\3\4"        //"Price :    \x0B\x0C\x0D\x0E\x0F"
+    /* MSA n. 83 */        "@A097§\x0B\x0C\x0D\x0E\x0F§\1\2\3\4"        //"Price :    \x0B\x0C\x0D\x0E\x0F"
                            "\5\6\7\x08            ",                    //"Credit: \1\2\3\4\5\6\7\x08",
 
     /* MSA n. 84 */        "@A098           "                           //libero disponibile "                "		
@@ -467,10 +467,10 @@ const u8 __far ML_MSA_1[MAX_MSA][32] = {
                            "                ",                          //"    driptray    ",
     #else
     /* MSA n. 86 */        "@A180           "							//"  Enlever le bac"
-                           "                ",							//"des eaux usï¿½es  ",
+                           "                ",							//"des eaux usées  ",
 
     /* MSA n. 87 */        "@A181           "							//"  Mettre le bac "
-                           "                ",							//"des eaux usï¿½es  ",
+                           "                ",							//"des eaux usées  ",
     #endif	
 
     /* MSA n. 88 */        "@A102           "                           //"steam flushing  "
@@ -480,11 +480,11 @@ const u8 __far ML_MSA_1[MAX_MSA][32] = {
                            "                ",                          //"        10=START",
 
 #ifdef CAPPUCCINATORE_INDUX
-    /* MSA n. 90 */       "@A104ï¿½\4\5\6\7\x08     "                     //"filling water..."
-                          "                ",                          //"conduc.=\4\5\6\7\x08 uS",
-#else
-    /* MSA n. 90 */       "@A105           "                           //"fill water      "//lavaggio vapore con detergente
-                          "                ",                          //"        10=START",
+    /* MSA n. 90 */        "@A104§\4\5\6\7\x08     "                     //"filling water..."
+                           "                ",                          //"conduc.=\4\5\6\7\x08 uS",
+#else                      
+    /* MSA n. 90 */        "@A105           "                           //"fill water      "//lavaggio vapore con detergente
+                           "                ",                          //"        10=START",
 #endif	
 
     /* MSA n. 91 */        "@A106           "                           //"warm water      "//lavaggio vapore con detergente
@@ -514,11 +514,11 @@ const u8 __far ML_MSA_1[MAX_MSA][32] = {
     /* MSA n. 97 */        "@A112           "                           //"      clean with"//lavaggio vapore con detergente 
                            "                ",                          //"deterg. 10=START",
     #else
-    /* MSA n. 96 */       "@A113ï¿½\4\5\6\7\x08     "                     //"  Cyclic Test   "
-                          "                ",                           //"  round #\4\5\6\7\x08  ",
-
-    /* MSA n. 97 */       "@A114           "                            //"  Cyclic Test   "//lavaggio vapore con detergente     
-                          "                ",                           //"  Stopped!!!    ",
+    /* MSA n. 96 */        "@A113§\4\5\6\7\x08     "                     //"  Cyclic Test   "
+                           "                ",                           //"  round #\4\5\6\7\x08  ",
+                           
+    /* MSA n. 97 */        "@A114           "                            //"  Cyclic Test   "//lavaggio vapore con detergente     
+                           "                ",                           //"  Stopped!!!    ",
     #endif 
 
     /* MSA n. 98 */        "@A115           "                           //"rinse with cold "//lavaggio vapore con detergente   
@@ -541,8 +541,8 @@ const u8 __far ML_MSA_1[MAX_MSA][32] = {
     /* MSA n. 102 */       "@A120           "                           //" setting grinder" //attendere Regolazione della macina. Granulometria della selezione
                            "                ",                          //"  Please wait   ",	
 
-    /* MSA n. 103 */      "@A121ï¿½\0\1\2\3\4\5\6\7\x08\x09" // non usato su progetto BL HOT WATER 
-                          "\x0A\x0B\x0C\x0D\x0E\x0F          ",
+    /* MSA n. 103 */       "@A121§\0\1\2\3\4\5\6\7\x08\x09" // non usato su progetto BL HOT WATER 
+                           "\x0A\x0B\x0C\x0D\x0E\x0F          ",
 
     /* MSA n. 104 */       "@A122           "                           //"Warning products"
                            "                ",                          //"   level   low  ",
@@ -559,11 +559,11 @@ const u8 __far ML_MSA_1[MAX_MSA][32] = {
     /* MSA n. 108 */       "@A126           "                          //"      End       " //era in prog 219
                            "                ",                         //"   uninstall    ",	
 
-    /* MSA n. 109 */	   "@A127ï¿½\6\7\x08       "					   //"Final Result:\6\7\x08"	//Risulta finale test vuoto macina
+    /* MSA n. 109 */	   "@A127§\6\7\x08       "					   //"Final Result:\6\7\x08"	//Risulta finale test vuoto macina
                            "                ",						   //"KEY PRESS <PROG>",
 
-    /* MSA n. 110 */		"@A128           "						// " Rinsing   Time " //ricetta errata
-                            "                ",						//" Milker Updated ",
+    /* MSA n. 110 */	   "@A128           "						// " Rinsing   Time " //ricetta errata
+                           "                ",						//" Milker Updated ",
 
     /* MSA n. 111 */       "@A129           "						//"TEST RUNNING    " //era MSP n.  68 */
                             "                ",						//"                ",
@@ -574,13 +574,13 @@ const u8 __far ML_MSA_1[MAX_MSA][32] = {
     /* MSA n. 113 */        "@A131           "                      //" Starting Test  "
                             "                ",                     //"4=start PROG=end",
 
-    /* MSA n. 114 */        "@A132ï¿½\x0A\x0Bï¿½\x0C\x0D\x0E\x0Fï¿½\5\6"  //"TEST MOTOR - \x0A\x0B "
+    /* MSA n. 114 */        "@A132§\x0A\x0B§\x0C\x0D\x0E\x0F§\5\6"  //"TEST MOTOR - \x0A\x0B "
                             "\7\x08              ",                 //"sx \x0C\x0D\x0E\x0F  dx \5\6\7\x08",
 
-    /* MSA n. 115 */        "@A133ï¿½\x0A\x0Bï¿½\3ï¿½\x0C\x0D\x0E\x0Fï¿½"   //"TEST - \x0A\x0B  Tp: \3"
+    /* MSA n. 115 */        "@A133§\x0A\x0B§\3§\x0C\x0D\x0E\x0F§"   //"TEST - \x0A\x0B  Tp: \3"
                             "\5\6\7\x08            ",                           // "up \x0C\x0D\x0E\x0F  dn \5\6\7\x08",
 
-    /* MSA n. 116 */        "@A134ï¿½\x0A\x0B        "                //"  Final Result  "
+    /* MSA n. 116 */        "@A134§\x0A\x0B        "                //"  Final Result  "
                             "                ",                     //"    TEST -    ",
 
 #ifdef RESET_SANITARY_WASH
@@ -594,7 +594,7 @@ const u8 __far ML_MSA_1[MAX_MSA][32] = {
     /* MSA n. 118 */   		"@A137           "						//"Insert the tank "						//20201007 (103)
                             "                ",						//"waste milk/water",						//20201007					  
 
-    /* MSA n. 119 */        "@A138ï¿½\0\1ï¿½\6\7\x08ï¿½\x09\x0A\x0B"		//"rinsing \0\1  \6\7\x08" 						//20201007 (105)
+    /* MSA n. 119 */        "@A138§\0\1§\6\7\x08§\x09\x0A\x0B"		//"rinsing \0\1  \6\7\x08" 						//20201007 (105)
                             "\x0C\x0D              ",       		//"........uS=\x09\x0A\x0B\x0C\x0D",			//20201007								  
 
 #ifdef MODELLO_TS
@@ -611,13 +611,13 @@ const u8 __far ML_MSA_1[MAX_MSA][32] = {
     /* MSA n. 122 */      	"@A142           "						//"Check Detergent "						//"warning.. troppo"	//20201007 (103)
                             "                ",						//"of the water mix",						//20201007		
 
-    /* MSA n. 123 */      	"@A143ï¿½\x09\x0A\x0B       "				//"Check the milk  "						//20201007 (103)
+    /* MSA n. 123 */      	"@A143§\x09\x0A\x0B       "				//"Check the milk  "						//20201007 (103)
                             "                ",						//"quality         ",						//20201007					  
 
-    /* MSA n. 124 */      	"@A144ï¿½\0\1ï¿½\6\7\x08ï¿½\x09\x0A\x0B"		//"Cleaning \0\1  \6\7\x08" 				//20201007 
+    /* MSA n. 124 */      	"@A144§\0\1§\6\7\x08§\x09\x0A\x0B"		//"Cleaning \0\1  \6\7\x08" 				//20201007 
                             "\x0C\x0D              ",				//"........uS=\x09\x0A\x0B\x0C\x0D",       	//20201007		
 
-    /* MSA n. 125 */      	"@A145ï¿½\0\1ï¿½\6\7\x08    "				//"   Dissolving   "
+    /* MSA n. 125 */      	"@A145§\0\1§\6\7\x08    "				//"   Dissolving   "
                             "                ",						//"Detergent \0\1 \6\7\x08",
 
 #ifdef MODELLO_TS
@@ -639,10 +639,10 @@ const u8 __far ML_MSA_1[MAX_MSA][32] = {
     /* MSA n. 130 */        "@A151           "						//"Gest. rhMM1.v+ ?"
                             "                ",						//"B1=Enable B2=no ",
 
-    /* MSA n. 131 */      	"@A152ï¿½\5\6ï¿½\7\x08     "				//"Clean. rhMM1.v+ "
+    /* MSA n. 131 */      	"@A152§\5\6§\7\x08     "				//"Clean. rhMM1.v+ "
                             "                ",						//"Time \5\6:\7\x08 Ok=P1",
 
-    /* MSA n. 132 */      	"@A153ï¿½\x09\x0A\x0B       "				//"Milk Mod.Clean.:"        //"rhMM1.v+ Clean.:"
+    /* MSA n. 132 */      	"@A153§\x09\x0A\x0B       "				//"Milk Mod.Clean.:"        //"rhMM1.v+ Clean.:"
                             "                ",						//"low deterg. \x09\x0A\x0B ",
 
     /* MSA n. 133 */      	"@A154           "						//"check tank cold "
@@ -660,7 +660,7 @@ const u8 __far ML_MSA_1[MAX_MSA][32] = {
     /* MSA n. 137 */       	"@A158           "						//"1/13 Clean Grin."
                             "                ",						//"1=Grin1; 2=Grin2",
 
-    /* MSA n. 138 */       	"@A159ï¿½^         "						//"2/13 G^ Close   "
+    /* MSA n. 138 */       	"@A159§^         "						//"2/13 G^ Close   "
                             "                ",						//"shutter.  10=ok ",
 
     /* MSA n. 139 */       	"@A160           "						//"3/13 Rem. brewer"
@@ -672,7 +672,7 @@ const u8 __far ML_MSA_1[MAX_MSA][32] = {
     /* MSA n. 141 */       	"@A162           "						//"5/13 Grinder    "
                             "                ",						//"clean   10=start",
 
-    /* MSA n. 142 */       	"@A163ï¿½^ï¿½)       "						//"Cycle ^ of )    "
+    /* MSA n. 142 */       	"@A163§^§)       "						//"Cycle ^ of )    "
                             "                ",						//"                ",
 
     /* MSA n. 143 */       	"@A164           "						//"6/13 Rep. Clean "
@@ -690,7 +690,7 @@ const u8 __far ML_MSA_1[MAX_MSA][32] = {
     /* MSA n. 147 */       	"@A168           "						//"10/13 Coffee    "
                             "                ",						//"grind.  10=Start",
 
-    /* MSA n. 148 */       	"@A169ï¿½^ï¿½)ï¿½\7\x08    "					//"Cycle ^ of )    "
+    /* MSA n. 148 */       	"@A169§^§)§\7\x08    "					//"Cycle ^ of )    "
                             "                ",						//"timeout \7\x08 sec  ",
 
     /* MSA n. 149 */       	"@A170           "						//"11/13 Rep. Proc."
@@ -711,7 +711,7 @@ const u8 __far ML_MSA_1[MAX_MSA][32] = {
     /* MSA n. 154 */        "@A175           "						//"Maintenance must"
                             "                ",						//"be performed    ",
 
-    /* MSA n. 155 */        "@A176ï¿½\5\6\7\x08      "				//"  Enter Weight  "
+    /* MSA n. 155 */        "@A176§\5\6\7\x08      "				//"  Enter Weight  "
                             "                ",						//"  1 = Save  \5\6\7\x08",
 
     /* MSA n. 156 */        "@A198           "						//"END PROGRAMMING "
@@ -751,7 +751,7 @@ const u8 __far ML_MSA_1[MAX_MSA][32] = {
     /* MSA n. 167 */        "@A209           "						//"driptray        "   "Bac de liquides "
                             "                ",						//"inside? 10=START",  "insere? 10=Avant",  
 #else
-    /* MSA n. 167 */        "@A210           "						//"driptray        "   "Bac  eaux usï¿½es "
+    /* MSA n. 167 */        "@A210           "						//"driptray        "   "Bac  eaux usées "
                             "                ",						 //"inside? 10=START",  "insere? 10=Avant",     
 #endif
 
@@ -775,16 +775,16 @@ const u8 __far ML_MSA_1[MAX_MSA][32] = {
     /* MSA n. 172 */        "@A216           "						//"Preselection    "
                             "                ",						//"not used        ",
 
-    /* MSA n. 173 */        "@A217ï¿½\x0A\x0Bï¿½\6\7ï¿½\x08   "			//"PRODUCT  \x0A\x0B     "
+    /* MSA n. 173 */        "@A217§\x0A\x0B§\6\7§\x08   "			//"PRODUCT  \x0A\x0B     "
                             "                ",						//"0=inhib.    \6\7.\x08",
 
-    /* MSA n. 174 */        "@A219ï¿½\6\7ï¿½\x08      "					//"coffee time     "
+    /* MSA n. 174 */        "@A219§\6\7§\x08      "					//"coffee time     "
                             "                ",						//"grinder     \6\7.\x08",
 
-    /* MSA n. 175 */        "@A220ï¿½\5\6\7\x08      "				//"Ent. Weight \5\6\7\x08"
+    /* MSA n. 175 */        "@A220§\5\6\7\x08      "				//"Ent. Weight \5\6\7\x08"
                             "                ",						//"1=Save  2=Repeat",
 
-    /* MSA n. 176 */        "@A221ï¿½\6\7\x08       "					//"Ent. ML of water"				//#1885
+    /* MSA n. 176 */        "@A221§\6\7\x08       "					//"Ent. ML of water"				//#1885
                             "                ",						//"1=Save 2=rep \6\7\x08",			//#1885
 
     /* MSA n. 177 */        "@A222           "						//"Empties test jug"				//#1885
@@ -819,34 +819,34 @@ const u8 __far ML_MSAP_1[MAX_MSAP][32] = {
     /* MSP n.  0 */        "@B001           "                           //"                "
                            "                ",                          //"                ",
 
-    /* MSP n. 1 */         "@B002ï¿½\6\7\x08       "                      //"insert code     "
+    /* MSP n. 1 */         "@B002§\6\7\x08       "                      //"insert code     "
                            "                ",                          //"             \6\7\x08",
 
-    /* MSP n.  2 */        "@B003ï¿½\5\6ï¿½\7\x08     "                     //"START F1:       "
+    /* MSP n.  2 */        "@B003§\5\6§\7\x08     "                     //"START F1:       "
                            "                ",                          //"HAPPY HOUR \5\6:\7\x08",
 
-    /* MSP n.  3 */        "@B004ï¿½\5\6ï¿½\7\x08     "                     //"END F1:         "
+    /* MSP n.  3 */        "@B004§\5\6§\7\x08     "                     //"END F1:         "
                            "                ",                          //"HAPPY HOUR \5\6:\7\x08",
 
-    /* MSP n.  4 */        "@B005ï¿½\5\6ï¿½\7\x08     "                     //"START F2:       "
+    /* MSP n.  4 */        "@B005§\5\6§\7\x08     "                     //"START F2:       "
                            "                ",                          //"HAPPY HOUR \5\6:\7\x08",
 
-    /* MSP n.  5 */        "@B006ï¿½\5\6ï¿½\7\x08     "                     //"END F2:         "
+    /* MSP n.  5 */        "@B006§\5\6§\7\x08     "                     //"END F2:         "
                            "                ",                          //"HAPPY HOUR \5\6:\7\x08",
 
-    /* MSP n.  6 */        "@B007ï¿½\5\6ï¿½\7\x08     "                     //"START F3:       "
+    /* MSP n.  6 */        "@B007§\5\6§\7\x08     "                     //"START F3:       "
                            "                ",                          //"HAPPY HOUR \5\6:\7\x08",
 
-    /* MSP n.  7 */        "@B008ï¿½\5\6ï¿½\7\x08     "                     //"END F3:         "
+    /* MSP n.  7 */        "@B008§\5\6§\7\x08     "                     //"END F3:         "
                            "                ",                          //"HAPPY HOUR \5\6:\7\x08",
 
-    /* MSP n.  8 */        "@B009ï¿½\x0Aï¿½\x08       "                     //"coin        \x0A  \x08"
+    /* MSP n.  8 */        "@B009§\x0A§\x08       "                     //"coin        \x0A  \x08"
                            "                ",                          //"card      0=acc.",
 
-    /* MSP n.  9 */        "@B010ï¿½\x0Aï¿½\x08       "                     //"coin        \x0A  \x08"
+    /* MSP n.  9 */        "@B010§\x0A§\x08       "                     //"coin        \x0A  \x08"
                            "                ",                          //"no card   0=acc.",
 
-    /* MSP n. 10 */        "@B011ï¿½\1\2\3\4\5\6\7\x08  "                 //"max. credit card"
+    /* MSP n. 10 */        "@B011§\1\2\3\4\5\6\7\x08  "                 //"max. credit card"
                            "                ",                          //"        \1\2\3\4\5\6\7\x08",
     #ifdef ABIL_MANUTENZIONE
     /* MSP n. 11 */        "@B012           "                           //"1=PROGRAMMING   "
@@ -860,10 +860,10 @@ const u8 __far ML_MSAP_1[MAX_MSAP][32] = {
     /* MSP n. 12 */        "@B015           "                           //"1=PROGR  2=DATA "
                            "                ",                          //"3=TEST   4=CLEAN",
     #endif
-    /* MSP n. 13 */        "@B016ï¿½\7\x08        "                       //"discount        "
+    /* MSP n. 13 */        "@B016§\7\x08        "                       //"discount        "
                            "                ",                          //"card     -  \7\x08 %",
 
-    /* MSP n. 14 */        "@B017ï¿½\x0Aï¿½\6\7\x08     "                           //"COLD            "
+    /* MSP n. 14 */        "@B017§\x0A§\6\7\x08     "                           //"COLD            "
                            "                ",                          //"                ",
 
     /* MSP n. 15 */        "@B018           "                           //"FUNCTIONING     "
@@ -872,111 +872,111 @@ const u8 __far ML_MSAP_1[MAX_MSAP][32] = {
     /* MSP n. 16 */        "@B019           "                           //"not used        "
                            "                ",                          //"                ",
     #ifdef DISABILITA_CONVERSIONE_GRAMMI
-    /* MSP n. 17 */        "@B020ï¿½\x0A\x0Bï¿½\6\7ï¿½\x08   "                //"PRODUCT  \x0A\x0B     "
+    /* MSP n. 17 */        "@B020§\x0A\x0B§\6\7§\x08   "                //"PRODUCT  \x0A\x0B     "
                            "                ",                          //"0=inhib.    \6\7.\x08",
     #else
-    /* MSP n. 17 */        "@B021ï¿½\x0A\x0Bï¿½\6\7ï¿½\x08   "                //"DOSAGE grams    "
+    /* MSP n. 17 */        "@B021§\x0A\x0B§\6\7§\x08   "                //"DOSAGE grams    "
                            "                ",                          //"PRODUCT \x0A\x0B  \6\7.\x08",
     #endif
 
-    /* MSP n. 18 */        "@B022ï¿½\x0A\x0Bï¿½\6\7ï¿½\x08   "                //"start delay     "
+    /* MSP n. 18 */        "@B022§\x0A\x0B§\6\7§\x08   "                //"start delay     "
                            "                ",                          //"PRODUCT  \x0A\x0B \6\7.\x08",
 
     #ifdef CUSTOMER_NESTLE
-    /* MSP n. 19 */        "@B023ï¿½\7\x08        "                       //"breaks number   "       
+    /* MSP n. 19 */        "@B023§\7\x08        "                       //"breaks number   "       
                            "                ",                          //"0 - 15        \7\x08",
     #else
-    /* MSP n. 19 */        "@B348ï¿½\7\x08        "                       //"breaks number   "       
+    /* MSP n. 19 */        "@B348§\7\x08        "                       //"breaks number   "       
                            "                ",                          //"0 - 15        \7\x08",
     #endif
 
-    /* MSP n. 20 */        "@B024ï¿½\x0A\x0Bï¿½\6\7ï¿½\x08   "                //"WATER \x0A\x0B time   "
+    /* MSP n. 20 */        "@B024§\x0A\x0B§\6\7§\x08   "                //"WATER \x0A\x0B time   "
                            "                ",                          //"0=inhib.    \6\7.\x08",
 
-    /* MSP n. 21 */        "@B025ï¿½\x0A\x0Bï¿½\6\7ï¿½\x08   "                //"start delay     "
+    /* MSP n. 21 */        "@B025§\x0A\x0B§\6\7§\x08   "                //"start delay     "
                            "                ",                          //"WATER \x0A\x0B    \6\7.\x08",
 
-    /* MSP n. 22 */        "@B026ï¿½\x0A\x0Bï¿½\6\7ï¿½\x08   "                //"MIXER \x0A\x0B        "
+    /* MSP n. 22 */        "@B026§\x0A\x0B§\6\7§\x08   "                //"MIXER \x0A\x0B        "
                            "                ",                          //"0=inhib.    \6\7.\x08",
 
-    /* MSP n. 23 */        "@B027ï¿½\x0A\x0Bï¿½\6\7ï¿½\x08   "                //"start delay     "
+    /* MSP n. 23 */        "@B027§\x0A\x0B§\6\7§\x08   "                //"start delay     "
                            "                ",                          //"MIXER \x0A\x0B    \6\7.\x08",
 
-    /* MSP n. 24 */        "@B028ï¿½\x0A\x0Bï¿½\0\1\2\3\4\5\6"                           //"water flow  : \x0A\x0B"
+    /* MSP n. 24 */        "@B028§\x0A\x0B§\0\1\2\3\4\5\6"                           //"water flow  : \x0A\x0B"
                            "\7               ",                        //"        \0\1\2\3\4\5\6\7",
 
-    /* MSP n. 25 */        "@B029ï¿½)ï¿½^ï¿½\0\1\2\3\4\5"                  //"selection name)^"
+    /* MSP n. 25 */        "@B029§)§^§\0\1\2\3\4\5"                  //"selection name)^"
                            "\6\7\x08\x09\x0A\x0B\x0C\x0D\x0E\x0F      ", //"\0\1\2\3\4\5\6\7\x08\x09\x0A\x0B\x0C\x0D\x0E\x0F",
 
-    /* MSP n. 26 */        "@B030ï¿½\6\7ï¿½\x08      "                      //"delay station   "								//ezio 11/05/2015
+    /* MSP n. 26 */        "@B030§\6\7§\x08      "                      //"delay station   "								//ezio 11/05/2015
                            "                ",                          //"            \6\7.\x08",
 
-    /* MSP n. 27 */        "@B031ï¿½\0\1\2\3\4\5\6\7\x08\x09"                //"Programming:    "
+    /* MSP n. 27 */        "@B031§\0\1\2\3\4\5\6\7\x08\x09"                //"Programming:    "
                            "\x0A\x0B\x0C\x0D\x0E\x0F          ",      //"\0\1\2\3\4\5\6\7\x08\x09\x0A\x0B\x0C\x0D\x0E\x0F",  /* estesa-ridotta */
 
-    /* MSP n. 28 */        "@B032ï¿½\x0A\x0Bï¿½\0\1\2\3\4\5\6"               //"MIXER speed   \x0A\x0B"
+    /* MSP n. 28 */        "@B032§\x0A\x0B§\0\1\2\3\4\5\6"               //"MIXER speed   \x0A\x0B"
                            "\7               ",                        //"        \0\1\2\3\4\5\6\7",
 
-    /* MSP n. 29 */        "@B033ï¿½\0\1\2\3\4     "                      //"day of week     "
+    /* MSP n. 29 */        "@B033§\0\1\2\3\4     "                      //"day of week     "
                            "                ",                          //"\0\1\2\3\4.          ",
 
    #ifdef CUSTOMER_NESTLE
-    /* MSP n. 30 */        "@B339ï¿½\0\1\2\3\4ï¿½\5\6ï¿½\7"					//"Heure Allumage  "
+    /* MSP n. 30 */        "@B339§\0\1\2\3\4§\5\6§\7"					//"Heure Allumage  "
                            "\x08               ",						//"\0\1\2\3\4.     \5\6:\7\x08",
     #else
-    /* MSP n. 30 */        "@B034ï¿½\0\1\2\3\4ï¿½\5\6ï¿½\7"                    //"SWITCHING ON:   "
+    /* MSP n. 30 */        "@B034§\0\1\2\3\4§\5\6§\7"                    //"SWITCHING ON:   "
                            "\x08               ",                      //"\0\1\2\3\4.     \5\6:\7\x08",
     #endif
 
-    /* MSP n. 31 */        "@B035ï¿½\0\1\2\3\4ï¿½\5\6ï¿½\7"                    //"SWITCHING OFF:  "
+    /* MSP n. 31 */        "@B035§\0\1\2\3\4§\5\6§\7"                    //"SWITCHING OFF:  "
                            "\x08               ",                      //"\0\1\2\3\4.     \5\6:\7\x08",
 
-    /* MSP n. 32 */        "@B036ï¿½\5\6ï¿½\7\x08     "                     //"RINSING:        "
+    /* MSP n. 32 */        "@B036§\5\6§\7\x08     "                     //"RINSING:        "
                            "                ",                          //"           \5\6:\7\x08",
 
-    /* MSP n. 33 */        "@B037ï¿½\5\6ï¿½\7\x08     "                     //"HOUR:           "
+    /* MSP n. 33 */        "@B037§\5\6§\7\x08     "                     //"HOUR:           "
                            "                ",                          //"           \5\6:\7\x08",
 
-    /* MSP n. 34 */        "@B038ï¿½\7\x08        "                       //"DAY:            "
+    /* MSP n. 34 */        "@B038§\7\x08        "                       //"DAY:            "
                            "                ",                          //"              \7\x08",
 
-    /* MSP n. 35 */        "@B039ï¿½\7\x08        "                       //"MONTH:          "
+    /* MSP n. 35 */        "@B039§\7\x08        "                       //"MONTH:          "
                            "                ",                          //"              \7\x08",
 
-    /* MSP n. 36 */        "@B040ï¿½\7\x08        "                       //"YEAR :          "
+    /* MSP n. 36 */        "@B040§\7\x08        "                       //"YEAR :          "
                            "                ",                          //"              \7\x08",
 
-    /* MSP n. 37 */        "@B041ï¿½\6\7\x08       "                      //"COFFEE WATER    "
+    /* MSP n. 37 */        "@B041§\6\7\x08       "                      //"COFFEE WATER    "
                            "                ",                          //"0=inhib.  cc:\6\7\x08",
 
-    /* MSP n. 38 */        "@B042ï¿½\x08         "                        //"COFFEE SEQUENCE "
+    /* MSP n. 38 */        "@B042§\x08         "                        //"COFFEE SEQUENCE "
                            "                ",                          //"1=cof. before  \x08",
 
-    /* MSP n. 39 */        "@B043ï¿½\0\1\2\3\4\5\6\7ï¿½\x08"                //"Kilowatt hours  "
+    /* MSP n. 39 */        "@B043§\0\1\2\3\4\5\6\7§\x08"                //"Kilowatt hours  "
                            "                ",                          //"      \0\1\2\3\4\5\6\7.\x08",
     #ifdef CUSTOMER_NESTLE
-    /* MSP n.  40 */       "@B044ï¿½\6\7\x08       "                           //"X4 rinse 2 wat. "
+    /* MSP n.  40 */       "@B044§\6\7\x08       "                           //"X4 rinse 2 wat. "
                            "                ",                          //"in brewer  \6\7\x08ml"
     #else
-    /* MSP n.  40 */       "@B340ï¿½\6\7\x08       "							//"X4 rinse 2 wat. "
+    /* MSP n.  40 */       "@B340§\6\7\x08       "							//"X4 rinse 2 wat. "
                            "                ",							//"in brewer  \6\7\x08ml"
     #endif
 
-    /* MSP n. 41 */        "@B045ï¿½\x08         "                        //"first installat."      
+    /* MSP n. 41 */        "@B045§\x08         "                        //"first installat."      
                            "                ",                          //" 0=first       \x08", 
     #ifndef CAPPUCCINATORE_INDUX
     /* MSP n. 42 */        "@B046           "                           //"not used        "
                            "                ",                          //"                ",
     #else
-    /* MSP n. 42 */        "@B047ï¿½\0\1\2\3\4\5\6\7\x08\x09"             //"Fresh Milk      "
+    /* MSP n. 42 */        "@B047§\0\1\2\3\4\5\6\7\x08\x09"             //"Fresh Milk      "
                            "\x0A\x0B              ",                    //"    \0\1\2\3\4\5\6\7\x08\x09\x0A\x0B",
     #endif   
 
     #ifdef CUSTOMER_NESTLE
-    /* MSP n. 43 */        "@B048ï¿½\6\7ï¿½\x08      "                      //"VOLTAGE         "
+    /* MSP n. 43 */        "@B048§\6\7§\x08      "                      //"VOLTAGE         "
                            "                ",                          //"volt:       \6\7.\x08",
     #else
-    /* MSP n. 43 */        "@B341ï¿½\6\7ï¿½\x08      "						//"VOLTAGE         "       "     Tension    "
+    /* MSP n. 43 */        "@B341§\6\7§\x08      "						//"VOLTAGE         "       "     Tension    "
                            "                ",							//"volt:       \6\7.\x08", "Volt:       \6\7.\x08",
     #endif
 
@@ -993,61 +993,61 @@ const u8 __far ML_MSAP_1[MAX_MSAP][32] = {
     /* MSP n. 46 */        "@B052           "                           //"INHIBITED       "
                            "                ",                          //"----------------",
 
-    /* MSP n. 47 */        "@B053ï¿½\6\7ï¿½\x08      "                           //"X5 wait time 2  "
+    /* MSP n. 47 */        "@B053§\6\7§\x08      "                           //"X5 wait time 2  "
                            "                ",                          //"wat. brew. \6\7.\x08s",
 
-    /* MSP n. 48 */        "@B054ï¿½\x0Aï¿½\6\7\x08     "					//"Def. Vibr. mot. " 		//VIBR_MOT_SPEED_GRINDER_1, 2, 3, 4
+    /* MSP n. 48 */        "@B054§\x0A§\6\7\x08     "					//"Def. Vibr. mot. " 		//VIBR_MOT_SPEED_GRINDER_1, 2, 3, 4
                            "                ",							//"Speed gr. \x0A  \6\7\x08",
 
-    /* MSP n. 49 */        "@B055ï¿½\x08         "                        //"ENABLE DISPLAY  "
+    /* MSP n. 49 */        "@B055§\x08         "                        //"ENABLE DISPLAY  "
                            "                ",                          //"TEMPERA. 1=YES \x08",
 
-    /* MSP n. 50 */        "@B056ï¿½\6\7ï¿½\x08      "                      //"X6 wait time 3  "
+    /* MSP n. 50 */        "@B056§\6\7§\x08      "                      //"X6 wait time 3  "
                            "                ",                          //"empty wat. \6\7.\x08s",
 
-    /* MSP n.  51 */       "@B057ï¿½\0\1\2\3\4\5\6\7\x08 "                //"TOTAL SELECTIONS"
+    /* MSP n.  51 */       "@B057§\0\1\2\3\4\5\6\7\x08 "                //"TOTAL SELECTIONS"
                            "                ",                          //"       \0\1\2\3\4\5\6\7\x08",
 
-    /* MSP n.  52 */       "@B058ï¿½\0\1\2\3\4\5\6\7\x08 "                //"PART. SELECTIONS"
+    /* MSP n.  52 */       "@B058§\0\1\2\3\4\5\6\7\x08 "                //"PART. SELECTIONS"
                            "                ",                          //"       \0\1\2\3\4\5\6\7\x08",
 
-    /* MSP n.  53 */       "@B059ï¿½\0\1\2\3\4\5\6\7\x08 "                //"TOTAL  MONEY    "
+    /* MSP n.  53 */       "@B059§\0\1\2\3\4\5\6\7\x08 "                //"TOTAL  MONEY    "
                            "                ",                          //"       \0\1\2\3\4\5\6\7\x08",
 
-    /* MSP n.  54 */       "@B060ï¿½\0\1\2\3\4\5\6\7\x08 "                //"PARTIAL MONEY   "
+    /* MSP n.  54 */       "@B060§\0\1\2\3\4\5\6\7\x08 "                //"PARTIAL MONEY   "
                            "                ",                          //"       \0\1\2\3\4\5\6\7\x08",                       
 
-    /* MSP n.  55 */       "@B061ï¿½\0\1\2\3\4\5\6\7\x08 "                //"TOTAL TESTS     "
+    /* MSP n.  55 */       "@B061§\0\1\2\3\4\5\6\7\x08 "                //"TOTAL TESTS     "
                            "                ",                          //"       \0\1\2\3\4\5\6\7\x08",
 
-    /* MSP n.  56 */       "@B062ï¿½\0\1\2\3\4\5\6\7\x08 "                //"PARTIAL TESTS   "
+    /* MSP n.  56 */       "@B062§\0\1\2\3\4\5\6\7\x08 "                //"PARTIAL TESTS   "
                            "                ",                          //"       \0\1\2\3\4\5\6\7\x08",                     
     #ifdef COMPILO_DB_CASHLESS
-    /* MSP n.  57 */       "@B063ï¿½\x0Cï¿½\0\1\2\3\4\5\6\7"                 //"total loaded on "
+    /* MSP n.  57 */       "@B063§\x0C§\0\1\2\3\4\5\6\7"                 //"total loaded on "
                            "\x08               ",                      //"card\x0C  \0\1\2\3\4\5\6\7\x08",
 
-    /* MSP n.  58 */       "@B064ï¿½\x0Cï¿½\0\1\2\3\4\5\6\7"                 //"part. loaded on "
+    /* MSP n.  58 */       "@B064§\x0C§\0\1\2\3\4\5\6\7"                 //"part. loaded on "
                            "\x08               ",                      //"card\x0C  \0\1\2\3\4\5\6\7\x08",                       
 
-    /* MSP n.  59 */       "@B065ï¿½\x0Cï¿½\0\1\2\3\4\5\6\7"                 //"total unloaded  "
+    /* MSP n.  59 */       "@B065§\x0C§\0\1\2\3\4\5\6\7"                 //"total unloaded  "
                            "\x08               ",                      //"card\x0C  \0\1\2\3\4\5\6\7\x08",
 
-    /* MSP n.  60 */       "@B066ï¿½\x0Cï¿½\0\1\2\3\4\5\6\7"                 //"part. unloaded  "
+    /* MSP n.  60 */       "@B066§\x0C§\0\1\2\3\4\5\6\7"                 //"part. unloaded  "
                            "\x08               ",                      //"card\x0C  \0\1\2\3\4\5\6\7\x08",
     #endif
     #ifndef COMPILO_DB_CASHLESS
     #ifdef ABIL_RFID                     
     #ifdef ABIL_CREDIT_RFID
-    /* MSP n.  57 */       "@B067ï¿½\0\1\2\3\4\5\6\7\x08 "                //"total loaded on "
+    /* MSP n.  57 */       "@B067§\0\1\2\3\4\5\6\7\x08 "                //"total loaded on "
                            "                ",                          //"card   \0\1\2\3\4\5\6\7\x08",
 
-    /* MSP n.  58 */       "@B068ï¿½\0\1\2\3\4\5\6\7\x08 "                //"part. loaded on "
+    /* MSP n.  58 */       "@B068§\0\1\2\3\4\5\6\7\x08 "                //"part. loaded on "
                            "                ",                          //"card   \0\1\2\3\4\5\6\7\x08",                       
 
-    /* MSP n.  59 */       "@B069ï¿½\0\1\2\3\4\5\6\7\x08 "                //"total unloaded  "
+    /* MSP n.  59 */       "@B069§\0\1\2\3\4\5\6\7\x08 "                //"total unloaded  "
                            "                ",                          //"card   \0\1\2\3\4\5\6\7\x08",
 
-    /* MSP n.  60 */       "@B070ï¿½\0\1\2\3\4\5\6\7\x08 "                //"part. unloaded  "
+    /* MSP n.  60 */       "@B070§\0\1\2\3\4\5\6\7\x08 "                //"part. unloaded  "
                            "                ",                          //"card   \0\1\2\3\4\5\6\7\x08",
     #else
     /* MSP n.  57 */       "@B071           "                           //" not used       "
@@ -1077,37 +1077,37 @@ const u8 __far ML_MSAP_1[MAX_MSAP][32] = {
     #endif
     #endif
         #ifdef COMPILO_4_LISTE_PREZZI 
-    /* MSP n.  61 */       "@B079ï¿½^ï¿½\x0A\x0Bï¿½\0\1\2\3\4"               //"PART. ^ SEL.  \x0A\x0B"
+    /* MSP n.  61 */       "@B079§^§\x0A\x0B§\0\1\2\3\4"               //"PART. ^ SEL.  \x0A\x0B"
                            "\5\6\7\x08            ",                     //"       \0\1\2\3\4\5\6\7\x08",
         #else
-    /* MSP n.  61 */       "@B080ï¿½\x0A\x0Bï¿½\0\1\2\3\4\5\6"               //"PART.  SEL.  \x0A\x0B "
+    /* MSP n.  61 */       "@B080§\x0A\x0B§\0\1\2\3\4\5\6"               //"PART.  SEL.  \x0A\x0B "
                            "\7\x08              ",                     //"       \0\1\2\3\4\5\6\7\x08",
         #endif
-    /* MSP n.  62 */       "@B081ï¿½\x0A\x0Bï¿½\0\1\2\3\4\5\6"               //"PART.  SEL.  \x0A\x0B "
+    /* MSP n.  62 */       "@B081§\x0A\x0B§\0\1\2\3\4\5\6"               //"PART.  SEL.  \x0A\x0B "
                            "\7\x08              ",                     //"HAPPY  \0\1\2\3\4\5\6\7\x08",
 
-    /* MSP n.  63 */       "@B082ï¿½\x0A\x0Bï¿½\0\1\2\3\4\5\6"               //"PART.  SEL.  \x0A\x0B "
+    /* MSP n.  63 */       "@B082§\x0A\x0B§\0\1\2\3\4\5\6"               //"PART.  SEL.  \x0A\x0B "
                            "\7\x08              ",                     //"FRE.JUG\0\1\2\3\4\5\6\7\x08",
 
-    /* MSP n.  64 */       "@B083ï¿½\x0Aï¿½\3\4\5\6\7\x08  "                //"COIN   \x0A        "
+    /* MSP n.  64 */       "@B083§\x0A§\3\4\5\6\7\x08  "                //"COIN   \x0A        "
                            "                ",                          //"          \3\4\5\6\7\x08",
 
-    /* MSP n.  65 */       "@B084ï¿½\x0A\x0Bï¿½\3\4\5\6\7\x08 "             //"PRICE  \x0A\x0B       "
+    /* MSP n.  65 */       "@B084§\x0A\x0B§\3\4\5\6\7\x08 "             //"PRICE  \x0A\x0B       "
                            "                ",                          //"          \3\4\5\6\7\x08",
 
-    /* MSP n.  66 */       "@B085ï¿½\6\7\x08\x09      "                     //"   TEMPERATURE  "
+    /* MSP n.  66 */       "@B085§\6\7\x08\x09      "                     //"   TEMPERATURE  "
                            "                ",                          //"Temp. EV1    \6\7\x08",
     #ifdef BUSINESS_LINE
-    /* MSP n.  67 */       "@B086ï¿½\6\7\x08       "                     //"   DEFINITION   "
+    /* MSP n.  67 */       "@B086§\6\7\x08       "                     //"   DEFINITION   "
                            "                ",                          //"first coffee \6\7\x08",
     #else
-    /* MSP n.  67 */       "@B087ï¿½\6\7\x08\x09      "                     //"   TEMPERATURE  "
+    /* MSP n.  67 */       "@B087§\6\7\x08\x09      "                     //"   TEMPERATURE  "
                            "                ",                          //"Temp. EV2    \6\7\x08",
     #endif
-    /* MSP n.  68 */       "@B088ï¿½\x08         "					//"PL for cash     "        //"TEST RUNNING    "
+    /* MSP n.  68 */       "@B088§\x08         "					//"PL for cash     "        //"TEST RUNNING    "
                            "                ",						//"0=PL1 1=PL2    \x08",         //"                ",
     #if (GRINDER_MAX_NUM == 2)
-    /* MSP n.  69 */       "@B089ï¿½\x08         "                        //"select grinder 2"
+    /* MSP n.  69 */       "@B089§\x08         "                        //"select grinder 2"
                            "                ",                          //"1=yes          \x08",
     #else 
     /* MSP n.  69 */       "@B090           "                           //"  not used      "
@@ -1124,23 +1124,23 @@ const u8 __far ML_MSAP_1[MAX_MSAP][32] = {
                            "                ",                          //"-OUT OF SERVICE ", " -HORS SERVICE- ",
     #endif
 
-    /* MSP n.  72 */       "@B093ï¿½\7\x08        "                       //"Selection repeat"        
+    /* MSP n.  72 */       "@B093§\7\x08        "                       //"Selection repeat"        
                            "                ",                          //"              \7\x08",
 
     #ifdef BUSINESS_LINE
-    /* MSP n.  73 */       "@B094ï¿½\6\7ï¿½\x08      "                      //"heating time    "
+    /* MSP n.  73 */       "@B094§\6\7§\x08      "                      //"heating time    "
                            "                ",                          //"      sec.: \6\7.\x08",
     #else
-    /* MSP n.  73 */       "@B095ï¿½\6\7\x08\x09      "                      //"   TEMPERATURE  "
+    /* MSP n.  73 */       "@B095§\6\7\x08\x09      "                      //"   TEMPERATURE  "
                            "                ",                          //"Temp. EV3    \6\7\x08",        
     #endif
-    /* MSP n.  74 */       "@B096ï¿½\x0A\x0B        "                     //"PROGRAMMING-----"
+    /* MSP n.  74 */       "@B096§\x0A\x0B        "                     //"PROGRAMMING-----"
                            "                ",                          //"-BUTTON \x0A\x0B------",
 
     /* MSP n.  75 */       "@B097           "                           //"PROGRAMMING-----"
                            "                ",                          //"-CLOCK----------",
             #ifdef COMPILO_4_LISTE_PREZZI 
-    /* MSP n.  76 */       "@B098ï¿½^         "                           //"PROGRAMMING-----"
+    /* MSP n.  76 */       "@B098§^         "                           //"PROGRAMMING-----"
                            "                ",                          //" PRICES       ^ ",
             #else
     /* MSP n.  76 */       "@B099           "                           //"PROGRAMMING-----"
@@ -1161,7 +1161,7 @@ const u8 __far ML_MSAP_1[MAX_MSAP][32] = {
     /* MSP n.  81 */       "@B104           "                           //"SALES AUDIT-----"
                            "                ",                          //"----------------",
             #ifdef COMPILO_4_LISTE_PREZZI 
-    /* MSP n.  82 */       "@B105ï¿½^         "                           //"PROGRAMMING-----"
+    /* MSP n.  82 */       "@B105§^         "                           //"PROGRAMMING-----"
                            "                ",                          //" HAPPY PRICE=^  ",
             #else
     /* MSP n.  82 */       "@B106           "                           //"PROGRAMMING-----"
@@ -1179,31 +1179,31 @@ const u8 __far ML_MSAP_1[MAX_MSAP][32] = {
     /* MSP n.  86 */       "@B110           "                           //"TEST MOV. SUGAR "
                            "                ",                          //"sel 4           ",
 
-    /* MSP n.  87 */       "@B111ï¿½\7\x08        "                       //"Tea Bag         "
+    /* MSP n.  87 */       "@B111§\7\x08        "                       //"Tea Bag         "
                            "                ",                          //"0=inhibit     \7\x08",  
     #ifdef TEST_CICLICO
-    /* MSP n. 88 */        "@B112ï¿½\4\5\6\7\x08     "                    //"numero cicli    "
+    /* MSP n. 88 */        "@B112§\4\5\6\7\x08     "                    //"numero cicli    "
                            "                ",                          //"           \4\5\6\7\x08",
 
-    /* MSP n. 89 */        "@B113ï¿½\4\5\6\7\x08     "                    //"pausa ciclico   "
+    /* MSP n. 89 */        "@B113§\4\5\6\7\x08     "                    //"pausa ciclico   "
                            "                ",                          //"sec:       \4\5\6\7\x08",
 
-    /* MSP n. 90 */        "@B114ï¿½\x08         "                        //"selez. ciclico  "
+    /* MSP n. 90 */        "@B114§\x08         "                        //"selez. ciclico  "
                            "                ",                          //"0=fissa        \x08",                       
     #else
-    /* MSP n. 88 */        "@B115ï¿½\4\5\6\7\x08     "                    //"machine code    "
+    /* MSP n. 88 */        "@B115§\4\5\6\7\x08     "                    //"machine code    "
                            "                ",                          //"  A        \4\5\6\7\x08",
 
-    /* MSP n. 89 */        "@B116ï¿½\4\5\6\7\x08     "                    //"machine code    "
+    /* MSP n. 89 */        "@B116§\4\5\6\7\x08     "                    //"machine code    "
                            "                ",                          //"  B        \4\5\6\7\x08",
 
-    /* MSP n. 90 */        "@B117ï¿½\x08         "                        //"message number  "
+    /* MSP n. 90 */        "@B117§\x08         "                        //"message number  "
                            "                ",                          //"               \x08",
     #endif
-    /* MSP n. 91 */        "@B118ï¿½\0\1\2\3\4\5\6\7\x08\x09"                //"coin-mech type  "
+    /* MSP n. 91 */        "@B118§\0\1\2\3\4\5\6\7\x08\x09"                //"coin-mech type  "
                            "\x0A\x0B\x0C\x0D\x0E\x0F          ",     //"\0\1\2\3\4\5\6\7\x08\x09\x0A\x0B\x0C\x0D\x0E\x0F",
     #ifdef CODICE_ACCESSO_PROG
-    /* MSP n. 92 */        "@B119ï¿½\6\7\x08       "                    //"access code     "
+    /* MSP n. 92 */        "@B119§\6\7\x08       "                    //"access code     "
                            "                ",                          //"           \4\5\6\7\x08",
     #else
     /* MSP n. 92 */        "@B120           "                           //"not used        "
@@ -1211,28 +1211,28 @@ const u8 __far ML_MSAP_1[MAX_MSAP][32] = {
     #endif
 
     #ifdef CUSTOMER_NESTLE
-    /* MSP n. 93 */        "@B121ï¿½\x08         "                        //"stirrer 0=before"      "Palette 0=avant "
-                           "                ",                          //" 1=after       \x08",  "1=aprï¿½s        \x08",
+    /* MSP n. 93 */        "@B121§\x08         "                        //"stirrer 0=before"      "Palette 0=avant "
+                           "                ",                          //" 1=after       \x08",  "1=après        \x08",
     #else
-    /* MSP n. 93 */        "@B343ï¿½\x08         "                        //"stirrer 0=before"      "Spatule  0=avant"
-                           "                ",                          //" 1=after       \x08",  "1=aprï¿½s        \x08",
+    /* MSP n. 93 */        "@B343§\x08         "                        //"stirrer 0=before"      "Spatule  0=avant"
+                           "                ",                          //" 1=after       \x08",  "1=après        \x08",
     #endif
 
-    /* MSP n. 94 */        "@B122ï¿½\5\6\7\x08      "                     //"fan time        "
+    /* MSP n. 94 */        "@B122§\5\6\7\x08      "                     //"fan time        "
                            "                ",                          //"min.        \5\6\7\x08",
 
-    /* MSP n. 95 */        "@B123ï¿½\7ï¿½\x08       "                       //"Beep time       "
+    /* MSP n. 95 */        "@B123§\7§\x08       "                       //"Beep time       "
                            "                ",                          //"             \7.\x08",
 
     #ifdef CUSTOMER_NESTLE
-    /* MSP n. 96 */        "@B124ï¿½\x08         "                        //"decimal number  " "Nombre dï¿½cimaux "
+    /* MSP n. 96 */        "@B124§\x08         "                        //"decimal number  " "Nombre décimaux "
                            "                ",                          //"               \x08", "               \x08",
      #else
-    /* MSP n. 96 */        "@B344ï¿½\x08         "                        //"decimal number  " "Nombre dï¿½cimale "
+    /* MSP n. 96 */        "@B344§\x08         "                        //"decimal number  " "Nombre décimale "
                            "                ",                          //"               \x08", "               \x08",
     #endif
 
-    /* MSP n. 97 */        "@B125ï¿½\x08         "						//"PL for cashless "      //"confirm partial "
+    /* MSP n. 97 */        "@B125§\x08         "						//"PL for cashless "      //"confirm partial "
                            "                ",                          //"0=PL1 1=PL2    \x08",	//"reset  press P10",
 
     ///* MSP n. 98 */        "@B126           "                            //"language:       "
@@ -1240,14 +1240,14 @@ const u8 __far ML_MSAP_1[MAX_MSAP][32] = {
     /* MSP n. 98 */        "language:       "                            //"language:       "
                            "Multilanguage   ",                          //"        english ",
     #ifdef ABIL_TASTO_STOP                        
-    /* MSP n. 99 */        "@B127ï¿½\x08         "                        //"    SEL STOP    "
+    /* MSP n. 99 */        "@B127§\x08         "                        //"    SEL STOP    "
                            "                ",                          //"   no=0 yes=1  \x08",
     #else
     /* MSP n. 99 */        "@B128           "                           //"not used        "
                            "                ",                          //"                ",
     #endif
     #ifdef ABIL_DELTA_TEMPERATURA
-    /* MSP n. 100 */       "@B129ï¿½\6\7\x08       "                      //"   TEMPERATURE  "
+    /* MSP n. 100 */       "@B129§\6\7\x08       "                      //"   TEMPERATURE  "
                            "                ",                          //"Delta        \6\7\x08",
     #else                       
     /* MSP n. 100 */       "@B130           "                           //"not used        "
@@ -1258,21 +1258,21 @@ const u8 __far ML_MSAP_1[MAX_MSAP][32] = {
                            "                ",                          //"                ",
     #endif
     #ifdef MODELLO_SOLUBILE
-    /* MSP n. 101 */       "@B132ï¿½\x09\x0Aï¿½\4ï¿½\6\7\x08  "               //"tuning pump   \x09\x0A"  
+    /* MSP n. 101 */       "@B132§\x09\x0A§\4§\6\7\x08  "               //"tuning pump   \x09\x0A"  
                            "                ",                          //"         \4 \6\7\x08 %",
     #endif
-    /* MSP n.102 */        "@B133ï¿½\x09\x0Aï¿½\4ï¿½\6\7\x08  "               //"tuning motor  \x09\x0A"
+    /* MSP n.102 */        "@B133§\x09\x0A§\4§\6\7\x08  "               //"tuning motor  \x09\x0A"
                            "                ",                          //"         \4 \6\7\x08 %",              
     #ifdef MODELLO_ESPRESSO
         #ifdef DISABILITA_CONVERSIONE_GRAMMI
-    /* MSP n. 103 */       "@B134ï¿½\6\7ï¿½\x08      "                      //"coffee time     "
+    /* MSP n. 103 */       "@B134§\6\7§\x08      "                      //"coffee time     "
                            "                ",                          //"grinder     \6\7.\x08",
         #else
-    /* MSP n. 103 */       "@B135ï¿½\6\7ï¿½\x08      "                      //"coffee grams    "
+    /* MSP n. 103 */       "@B135§\6\7§\x08      "                      //"coffee grams    "
                            "                ",                          //"grinder     \6\7.\x08",
         #endif
         #ifdef ABIL_CALIBRAZIONE_MACINA
-    /* MSP n.104 */        "@B136ï¿½\4ï¿½\6\7\x08     "                     //"tuning grinder  "
+    /* MSP n.104 */        "@B136§\4§\6\7\x08     "                     //"tuning grinder  "
                            "                ",                          //"         \4 \6\7\x08 %",
         #else
     /* MSP n. 104 */       "@B137           "                           //"Preselection    "
@@ -1285,10 +1285,10 @@ const u8 __far ML_MSAP_1[MAX_MSAP][32] = {
     /* MSP n. 104 */       "@B139           "                           //"Preselection    "
                            "                ",                          //"NO SUGAR        ",
     #endif
-    /* MSP n. 105 */       "@B140ï¿½\7ï¿½\x08       "                       //"extra milk      "
+    /* MSP n. 105 */       "@B140§\7§\x08       "                       //"extra milk      "
                            "                ",                          //"quantity    +\7.\x08",
     #ifdef ABIL_MOTORI_VIRTUALI
-    /* MSP n. 106 */       "@B141ï¿½\6\7ï¿½\x08      "                      //"Latte-Macchiato "
+    /* MSP n. 106 */       "@B141§\6\7§\x08      "                      //"Latte-Macchiato "
                            "                ",                          //"START BREWER\6\7.\x08",
     #else
     /* MSP n.106 */        "@B142           "                      		//"not used        "
@@ -1302,39 +1302,39 @@ const u8 __far ML_MSAP_1[MAX_MSAP][32] = {
                            "                ",                          //"                ",
     #endif                        
     #ifdef ABIL_RISCALDATORE
-    /* MSP n.  108*/       "@B145ï¿½\6\7\x08       "                      //"   TEMPERATURE  "
+    /* MSP n.  108*/       "@B145§\6\7\x08       "                      //"   TEMPERATURE  "
                            "                ",                          //"heater:      \6\7\x08",
     #else
     /* MSP n.108 */        "@B146           "							//"not used        "
                            "                ",                          //"                ",
     #endif
-    /* MSP n. 109 */       "@B147ï¿½\x0A\x0B\x0C\x0Dï¿½\x0Eï¿½\4\5\6"          //"coffee grains   "
-                           "\7ï¿½\x08             ",                     //"[\x0A\x0B\x0C\x0D.\x0E]  \4\5\6\7.\x08",
+    /* MSP n. 109 */       "@B147§\x0A\x0B\x0C\x0D§\x0E§\4\5\6"          //"coffee grains   "
+                           "\7§\x08             ",                     //"[\x0A\x0B\x0C\x0D.\x0E]  \4\5\6\7.\x08",
 
-    /* MSP n. 110 */       "@B148ï¿½\7\x08        "                       //"water quantity  "
+    /* MSP n. 110 */       "@B148§\7\x08        "                       //"water quantity  "
                            "                ",                          //"ESPRESSO   -\7\x08 %",
 
-    /* MSP n. 111 */       "@B149ï¿½\x08         "                        //"canister        "
+    /* MSP n. 111 */       "@B149§\x08         "                        //"canister        "
                            "                ",                          //"Cafe 2    n:   \x08",
 
-    /* MSP n. 112 */       "@B150ï¿½\7\x08        "                     //"Cafe 2  price   "
+    /* MSP n. 112 */       "@B150§\7\x08        "                     //"Cafe 2  price   "
                            "                ",                          //"0=+ 1=-       \7\x08",
 
 #if defined(MODELLO_SOLUBILE) && defined(UPDATE_DECAF)
-    /* MSP n. 113 */       "@B346ï¿½\x08         "                      	//"ev-mixer        "
+    /* MSP n. 113 */       "@B346§\x08         "                      	//"ev-mixer        "
                            "                ",                          //"CAFE 2    n:   \x08",
 #else
-    /* MSP n. 113 */       "@B151ï¿½\x08         "                        //"ev-mixer        "
+    /* MSP n. 113 */       "@B151§\x08         "                        //"ev-mixer        "
                            "                ",                          //"CAFE 2    n:   \x08",
 #endif	
 
-    /* MSP n. 114 */       "@B152ï¿½\0\1ï¿½\2\3\4\5\6  "                      //"Enable preselect"
+    /* MSP n. 114 */       "@B152§\0\1§\2\3\4\5\6  "                      //"Enable preselect"
                            "                ",                          //"button    \0\1:\2\3\4",
 
-    /* MSP n. 115 */       "@B153ï¿½\x08         "                        //"canister        "
+    /* MSP n. 115 */       "@B153§\x08         "                        //"canister        "
                            "                ",                          //"SUGAR        n:\x08",
 
-    /* MSP n. 116 */       "@B154ï¿½\6\7\x08       "                      //"X7 rinsing      "
+    /* MSP n. 116 */       "@B154§\6\7\x08       "                      //"X7 rinsing      "
                            "                ",                          //"temperat.  \6\7\x08  ",
 
     /* MSP n. 117 */       "@B155           "                           //"Preselection    "
@@ -1343,67 +1343,67 @@ const u8 __far ML_MSAP_1[MAX_MSAP][32] = {
     /* MSP n. 118 */       "@B157           "                           //"Preselection    "
                            "                ",                          //"EXTRA SUGAR     ",
 
-    /* MSP n. 119 */       "@B158ï¿½\x08         "                        //"PRODUCT         "
+    /* MSP n. 119 */       "@B158§\x08         "                        //"PRODUCT         "
                            "                ",                          //"MILK  LM     n:\x08",
 
-    /* MSP n. 120 */       "@B159ï¿½\x08         "                        //"Enable  counter "
+    /* MSP n. 120 */       "@B159§\x08         "                        //"Enable  counter "
                            "                ",                          //" 0=no  1=yes   \x08",
 
-    /* MSP n. 121 */       "@B160ï¿½\7ï¿½\x08       "                       //"extra sugar     "
+    /* MSP n. 121 */       "@B160§\7§\x08       "                       //"extra sugar     "
                            "                ",                          //"quantity    +\7.\x08",
 
-    /* MSP n. 122 */       "@B161ï¿½\x08         "                        //"canister        "
+    /* MSP n. 122 */       "@B161§\x08         "                        //"canister        "
                            "                ",                          //"BARLEY       n:\x08",
 
-    /* MSP n. 123 */       "@B162ï¿½\x08         "                        //"ev-mixer        "
+    /* MSP n. 123 */       "@B162§\x08         "                        //"ev-mixer        "
                            "                ",                          //"BARLEY       n:\x08",
 
-    /* MSP n. 124 */       "@B163ï¿½\7\x08        "                     //"BARLEY price    "
+    /* MSP n. 124 */       "@B163§\7\x08        "                     //"BARLEY price    "
                            "                ",                          //"0=+ 1=-       \7\x08",
 
-    /* MSP n. 125 */       "@B164ï¿½\x0E\x0Fï¿½\0\1\2ï¿½\3ï¿½\4"             //"n.\x0E\x0F  off \0\1 \2  "
-                           "\5ï¿½\6\7ï¿½\x08\x09ï¿½\x0A\x0Bï¿½\x0C\x0D   ",    //"\3\4:\5\6 \7\x08-\x09\x0A-20\x0B\x0C",
+    /* MSP n. 125 */       "@B164§\x0E\x0F§\0\1\2§\3§\4"             //"n.\x0E\x0F  off \0\1 \2  "
+                           "\5§\6\7§\x08\x09§\x0A\x0B§\x0C\x0D   ",    //"\3\4:\5\6 \7\x08-\x09\x0A-20\x0B\x0C",
 
-    /* MSP n. 126 */       "@B165ï¿½\x0F         "                        //"n.\x0F  NO         "
+    /* MSP n. 126 */       "@B165§\x0F         "                        //"n.\x0F  NO         "
                            "                ",                          //"OUT OF SERVICE  ",
 
     #ifdef CUSTOMER_NESTLE
-    /* MSP n. 127 */       "@B166ï¿½\0\1\2\3\4\5\6\7\x08\x09"             //"stirrer         " "palette         "
+    /* MSP n. 127 */       "@B166§\0\1\2\3\4\5\6\7\x08\x09"             //"stirrer         " "palette         "
                            "\x0A\x0B\x0C\x0D\x0E\x0F          ",           	//"\0\1\2\3\4\5\6\7\x08\x09\x0A\x0B\x0C\x0D\x0E\x0F",
 
-    /* MSP n. 128 */       "@B167ï¿½\x08         "                        //"cup sensor      "  "Capteur tasse   "
+    /* MSP n. 128 */       "@B167§\x08         "                        //"cup sensor      "  "Capteur tasse   "
                            "                ",                          //"1=Enable       \x08", "Gobelet 1=hab. \x08",
     #else
-    /* MSP n. 127 */       "@B156ï¿½\0\1\2\3\4\5\6\7\x08\x09"             //"stirrer         " "Spatule         "
+    /* MSP n. 127 */       "@B156§\0\1\2\3\4\5\6\7\x08\x09"             //"stirrer         " "Spatule         "
                            "\x0A\x0B\x0C\x0D\x0E\x0F          ",           	//"\0\1\2\3\4\5\6\7\x08\x09\x0A\x0B\x0C\x0D\x0E\x0F",
 
-    /* MSP n. 128 */       "@B345ï¿½\x08         "                        //"cup sensor      "  "Dï¿½tecteur tasse   "
+    /* MSP n. 128 */       "@B345§\x08         "                        //"cup sensor      "  "Détecteur tasse   "
                            "                ",                          //"1=Enable       \x08", "Gobelet 1=hab. \x08",
     #endif
 
-    /* MSP n. 129 */       "@B168ï¿½\6\7\x08       "						//"Vibr.mot.       " 	//VIBR_MOT_TIME_GRINDER_1, 2, 3, 4
+    /* MSP n. 129 */       "@B168§\6\7\x08       "						//"Vibr.mot.       " 	//VIBR_MOT_TIME_GRINDER_1, 2, 3, 4
                            "                ",							//"Time gr.     \6\7\x08",
 
-    /* MSP n. 130 */       "@B169ï¿½\6\7\x08       "						//"Vibr. mot.      " 	//VIBR_MOT_SPEED_GRINDER_1, 2, 3, 4
+    /* MSP n. 130 */       "@B169§\6\7\x08       "						//"Vibr. mot.      " 	//VIBR_MOT_SPEED_GRINDER_1, 2, 3, 4
                            "                ",							//"Speed gr.    \6\7\x08",
 
-    /* MSP n. 131*/        "@B170ï¿½\x0A\x0B\x0C       "                           //"PWM Pump        "
+    /* MSP n. 131*/        "@B170§\x0A\x0B\x0C       "                           //"PWM Pump        "
                            "                ",                          //"  \x0A\x0B\x0C%          ",
     #ifdef MODELLO_ESPRESSO
     #ifdef SELECT_TYPE_FREE_VEND
-    /* MSP n. 132*/        "@B171ï¿½\x08         "                        //"FREE VEND enable"
+    /* MSP n. 132*/        "@B171§\x08         "                        //"FREE VEND enable"
                            "                ",                          //"0=no 1=1 2=++  \x08",
     #else
     /* MSP n. 132*/        "@B172           "                           //"not used        "
                            "                ",                          //"                ",
     #endif
-    /* MSP n. 133 */       "@B173ï¿½\x0A\x0B\x0C\x0D\x0Eï¿½\4\5\6\7"         //"dec. cof.grounds"
+    /* MSP n. 133 */       "@B173§\x0A\x0B\x0C\x0D\x0E§\4\5\6\7"         //"dec. cof.grounds"
                            "\x08               ",                      //"[\x0A\x0B\x0C\x0D\x0E]    \4\5\6\7\x08",
     #endif
 
     #ifdef MODELLO_SOLUBILE
       #ifdef SELECT_TYPE_FREE_VEND
-    /* MSP n. 132*/        "@B174ï¿½\x08         "                        //"FREE VEND enable"
+    /* MSP n. 132*/        "@B174§\x08         "                        //"FREE VEND enable"
                            "                ",                          //"0=no 1=1 2=++  \x08",
       #else
     /* MSP n. 132*/        "@B175           "                           //"not used        "
@@ -1413,88 +1413,88 @@ const u8 __far ML_MSAP_1[MAX_MSAP][32] = {
                            "                ",                          //"                ",
     #endif   
 
-    /* MSP n. 134 */       "@B177ï¿½\x0Fï¿½\x0A\x0B\x0C\x0Dï¿½\x0Eï¿½\4"         //"product qty   \x0F "
-                           "\5\6\7ï¿½\x08           ",                   //"[\x0A\x0B\x0C\x0D.\x0E]  \4\5\6\7.\x08",
+    /* MSP n. 134 */       "@B177§\x0F§\x0A\x0B\x0C\x0D§\x0E§\4"         //"product qty   \x0F "
+                           "\5\6\7§\x08           ",                   //"[\x0A\x0B\x0C\x0D.\x0E]  \4\5\6\7.\x08",
 
     /* MSP n. 135 */       "@B178           "                           //"Preselection    "
                            "                ",                          //"JUG             ",
     #ifdef ABIL_CAPPUCCINATORE
-    /* MSP n. 136 */       "@B179ï¿½\6\7ï¿½\x08      "                      //"EV Fresh-milk   "//ev latte fresco
+    /* MSP n. 136 */       "@B179§\6\7§\x08      "                      //"EV Fresh-milk   "//ev latte fresco
                            "                ",                          //"            \6\7.\x08",
     #else
     /* MSP n. 136 */       "@B180           "							//"not used        "
                            "                ",                          //"                ",
     #endif
-    /* MSP n. 137 */       "@B181ï¿½\x0Fï¿½\4\5\6\7ï¿½\x08  "                 //"prod. \x0F warning "
+    /* MSP n. 137 */       "@B181§\x0F§\4\5\6\7§\x08  "                 //"prod. \x0F warning "
                            "                ",                          //"thresold: \4\5\6\7.\x08",
 
-    /* MSP n. 138 */       "@B182ï¿½\x0Fï¿½\x08       "                     //"abil stop prod \x0F"
+    /* MSP n. 138 */       "@B182§\x0F§\x08       "                     //"abil stop prod \x0F"
                            "                ",                          //"1=stop         \x08",
 
-    /* MSP n. 139 */       "@B183ï¿½\0\1\2\3\4\5\6\7\x08 "                //"TOTAL  FREE     "      //VA_302 num. vendite gratuite storico
+    /* MSP n. 139 */       "@B183§\0\1\2\3\4\5\6\7\x08 "                //"TOTAL  FREE     "      //VA_302 num. vendite gratuite storico
                            "                ",                          //"       \0\1\2\3\4\5\6\7\x08",
 
-    /* MSP n. 140 */       "@B184ï¿½\0\1\2\3\4\5\6\7\x08 "                //"PART.    FREE   "      //VA_304 num.vendite gratuite parziale
+    /* MSP n. 140 */       "@B184§\0\1\2\3\4\5\6\7\x08 "                //"PART.    FREE   "      //VA_304 num.vendite gratuite parziale
                            "                ",                          //"       \0\1\2\3\4\5\6\7\x08",
 
-    /* MSP n. 141 */	   "@B185ï¿½\0\1\2\3\4\5\6\7\x08 "                //"TOTAL  CASH     "      //CA_201 valore venduto cash storico
+    /* MSP n. 141 */	   "@B185§\0\1\2\3\4\5\6\7\x08 "                //"TOTAL  CASH     "      //CA_201 valore venduto cash storico
                            "                ",                          //"CASH   \0\1\2\3\4\5\6\7\x08",
 
-    /* MSP n. 142 */       "@B186ï¿½\0\1\2\3\4\5\6\7\x08 "                //"PART.  CASH     "      //CA_203 valore venduto cash parziale
+    /* MSP n. 142 */       "@B186§\0\1\2\3\4\5\6\7\x08 "                //"PART.  CASH     "      //CA_203 valore venduto cash parziale
                            "                ",                          //"CASH   \0\1\2\3\4\5\6\7\x08",
 
-    /* MSP n. 143 */	   "@B187ï¿½\0\1\2\3\4\5\6\7\x08 "                //"N.TOT. SEL. CASH"      //CA_202 num.vendite per cassa storico
+    /* MSP n. 143 */	   "@B187§\0\1\2\3\4\5\6\7\x08 "                //"N.TOT. SEL. CASH"      //CA_202 num.vendite per cassa storico
                            "                ",                          //"       \0\1\2\3\4\5\6\7\x08",
 
-    /* MSP n. 144*/        "@B188ï¿½\0\1\2\3\4\5\6\7\x08 "                //"N.PART.SEL. CASH"	   //CA_204 num. vendite per cassa parziale
+    /* MSP n. 144*/        "@B188§\0\1\2\3\4\5\6\7\x08 "                //"N.PART.SEL. CASH"	   //CA_204 num. vendite per cassa parziale
                            "                ",                          //"       \0\1\2\3\4\5\6\7\x08",
 
-    /* MSP n. 145 */       "@B189ï¿½\0\1\2\3\4\5\6\7\x08 "                //"TOTAL  CASH-BOX "      //CA_305 valore della  cassa storico
+    /* MSP n. 145 */       "@B189§\0\1\2\3\4\5\6\7\x08 "                //"TOTAL  CASH-BOX "      //CA_305 valore della  cassa storico
                            "                ",                          //"       \0\1\2\3\4\5\6\7\x08",
 
-    /* MSP n. 146 */       "@B190ï¿½\0\1\2\3\4\5\6\7\x08 "                //"PART.  CASH-BOX "      //CA_301 valore della  cassa parziale
+    /* MSP n. 146 */       "@B190§\0\1\2\3\4\5\6\7\x08 "                //"PART.  CASH-BOX "      //CA_301 valore della  cassa parziale
                            "                ",                          //"       \0\1\2\3\4\5\6\7\x08",
     #ifdef COMPILO_DB_CASHLESS
-    /* MSP n. 147 */       "@B191ï¿½\x0Cï¿½\0\1\2\3\4\5\6\7"                 //"TOTAL SEL. CARD\x0C"      //DA_202  num. vendite per carta storico
+    /* MSP n. 147 */       "@B191§\x0C§\0\1\2\3\4\5\6\7"                 //"TOTAL SEL. CARD\x0C"      //DA_202  num. vendite per carta storico
                            "\x08               ",                      //"       \0\1\2\3\4\5\6\7\x08",
 
-    /* MSP n. 148 */       "@B192ï¿½\x0Cï¿½\0\1\2\3\4\5\6\7"                 //"PART. SEL. CARD\x0C"      //DA_204	  num. vendite per carta parziale
+    /* MSP n. 148 */       "@B192§\x0C§\0\1\2\3\4\5\6\7"                 //"PART. SEL. CARD\x0C"      //DA_204	  num. vendite per carta parziale
                            "\x08               ",                      //"       \0\1\2\3\4\5\6\7\x08",
     #else
-    /* MSP n. 147 */       "@B193ï¿½\0\1\2\3\4\5\6\7\x08 "                //"TOTAL  SEL. CARD"      //DA_202  num. vendite per carta storico
+    /* MSP n. 147 */       "@B193§\0\1\2\3\4\5\6\7\x08 "                //"TOTAL  SEL. CARD"      //DA_202  num. vendite per carta storico
                            "                ",                          //"       \0\1\2\3\4\5\6\7\x08",
 
-    /* MSP n. 148 */       "@B194ï¿½\0\1\2\3\4\5\6\7\x08 "                //"PART.  SEL. CARD"      //DA_204	  num. vendite per carta parziale
+    /* MSP n. 148 */       "@B194§\0\1\2\3\4\5\6\7\x08 "                //"PART.  SEL. CARD"      //DA_204	  num. vendite per carta parziale
                            "                ",                          //"       \0\1\2\3\4\5\6\7\x08",
     #endif
     /* MSP n.149 */        "@B195           "                           //"Ejection tubes  "
                            "                ",                          //"b. :4-5-7-8-9-10",
 
-    /* MSP n.150 */        "@B196ï¿½\x08         "                        //"escrow enable   "
+    /* MSP n.150 */        "@B196§\x08         "                        //"escrow enable   "
                            "                ",                          //"0=enab. 1=dis. \x08",
 
-    /* MSP n.151 */        "@B197ï¿½\1\2\3\4\5\6\7\x08  "                 //"credit max      "
+    /* MSP n.151 */        "@B197§\1\2\3\4\5\6\7\x08  "                 //"credit max      "
                            "                ",                          //"        \1\2\3\4\5\6\7\x08",
 
-    /* MSP n.152 */        "@B198ï¿½\1\2\3\4\5\6\7\x08  "                 //"rest  max       "
+    /* MSP n.152 */        "@B198§\1\2\3\4\5\6\7\x08  "                 //"rest  max       "
                            "                ",                          //"        \1\2\3\4\5\6\7\x08",
 
-    /* MSP n.153 */        "@B199ï¿½\x08         "                        //"Sell type       "
+    /* MSP n.153 */        "@B199§\x08         "                        //"Sell type       "
                            "                ",                          //"0=sing. 1=mult.\x08",
 
-    /* MSP n.154 */        "@B200ï¿½\1\2\3\4\5\6\7\x08  "                 //"Token value     "
+    /* MSP n.154 */        "@B200§\1\2\3\4\5\6\7\x08  "                 //"Token value     "
                            "                ",                          //"        \1\2\3\4\5\6\7\x08",
 
-    /* MSP n.155 */        "@B201ï¿½\x0Aï¿½\x08       "                     //"coin rest   \x0A  \x08"
+    /* MSP n.155 */        "@B201§\x0A§\x08       "                     //"coin rest   \x0A  \x08"
                            "                ",                          //" 0=acc. 1=disab.",
 
-    /* MSP n.156 */        "@B202ï¿½\x0Aï¿½\x08       "                     //"coin no rest \x0A \x08"
+    /* MSP n.156 */        "@B202§\x0A§\x08       "                     //"coin no rest \x0A \x08"
                            "                ",                          //" 0=acc. 1=disab.",
 
-    /* MSP n.157 */        "@B203ï¿½\1\2\3\4\5\6\7\x08  "                 //"MDB tubes value "
+    /* MSP n.157 */        "@B203§\1\2\3\4\5\6\7\x08  "                 //"MDB tubes value "
                            "                ",                          //"        \1\2\3\4\5\6\7\x08",
 
-    /* MSP n.158 */        "@B204ï¿½\x08         "                        //"Bill validator  "
+    /* MSP n.158 */        "@B204§\x08         "                        //"Bill validator  "
                            "                ",                          //"enab=  0;1;2  =\x08",
 
     /* MSP n.159 */        "@B205           "                           //"PROGRAMMING-----"
@@ -1527,21 +1527,21 @@ const u8 __far ML_MSAP_1[MAX_MSAP][32] = {
 
 #ifdef BUSINESS_LINE
 	#if !defined(MODELLO_EC) && defined(MODELLO_ESPRESSO)
-    /* MSP n.  166 */      "@B214ï¿½\x08         "                        //"boiler  cc:     "                   
+    /* MSP n.  166 */      "@B214§\x08         "                        //"boiler  cc:     "                   
                            "                ",                          //"0=400   1=800  \x08",                       
     #else
     /* MSP n.  166 */      "@B215           "                           //"not used        "
                            "                ",                          //"                ",
     #endif
 #else
-    /* MSP n.  166 */      "@B349ï¿½\x08         " 						//"POWER ADJ. PUMP "
+    /* MSP n.  166 */      "@B349§\x08         " 						//"POWER ADJ. PUMP "
                            "                ",							//"0=NO 1=YES     \x08",
 #endif	
 
-    /* MSP n.  167 */      "@B216ï¿½\6\7\x08       "                      //"quick menu      "		/* @AS Issue_#1598: limited access to quick menï¿½ functionalities */
+    /* MSP n.  167 */      "@B216§\6\7\x08       "                      //"quick menu      "		/* @AS Issue_#1598: limited access to quick menù functionalities */
                            "                ",                          //"access code  \6\7\x08",
     #ifdef ABIL_CAPPUCCINATORE
-    /* MSP n.  168 */      "@B217ï¿½\6\7ï¿½\x08      "                      //"EV air          "
+    /* MSP n.  168 */      "@B217§\6\7§\x08      "                      //"EV air          "
                            "                ",                          //"Fresh-milk  \6\7.\x08",
     #else
     /* MSP n.  168 */      "@B218           "							 //"not used        "
@@ -1550,10 +1550,10 @@ const u8 __far ML_MSAP_1[MAX_MSAP][32] = {
     /* MSP n.  169 */      "@B219           "                           //"TUNING          "
                            "                ",                          //"MOTORS          ",
 
-    /* MSP n. 170  */      "@B220ï¿½\5\6\7\x08      "                     //"Calibrate Coffee"            	         
+    /* MSP n. 170  */      "@B220§\5\6\7\x08      "                     //"Calibrate Coffee"            	         
                            "                ",                          //"Push PROG   \5\6\7\x08",
     #ifdef ABIL_LATTE_MACCHIATO
-    /* MSP n.  171 */      "@B221ï¿½\x08         "                        //"LM Milk water   "		//EV virtuale     
+    /* MSP n.  171 */      "@B221§\x08         "                        //"LM Milk water   "		//EV virtuale     
                            "                ",                          //"Number=        \x08",
     #else
     /* MSP n.  171 */      "@B222           "                           //"not used        "
@@ -1563,39 +1563,39 @@ const u8 __far ML_MSAP_1[MAX_MSAP][32] = {
     /* MSP n.  172 */      "@B223           "                           //" uninstallation "
                            "                ",                          //"   10=START     ",
 
-    /* MSP n.  173 */      "@B224ï¿½\6\7\x08\x09      "                      //"   TEMPERATURE  "
+    /* MSP n.  173 */      "@B224§\6\7\x08\x09      "                      //"   TEMPERATURE  "
                            "                ",                          //"Espresso     \6\7\x08",        
     #else
     /* MSP n.  172 */      "@B225           "                           //"not used        "
                            "                ",                          //"                ",
 
-    /* MSP n.  173 */      "@B226ï¿½\6\7\x08\x09      "                      //"   TEMPERATURE  "
+    /* MSP n.  173 */      "@B226§\6\7\x08\x09      "                      //"   TEMPERATURE  "
                            "                ",                          //"boiler       \6\7\x08",
     #endif
 
-    /* MSP n.  174 */      "@B227ï¿½\6\7\x08       "                      //"X8 Clousure     "
+    /* MSP n.  174 */      "@B227§\6\7\x08       "                      //"X8 Clousure     "
                            "                ",                          //"brewer      \6\7\x08%"   
 
-    /* MSP n.  175 */      "@B228ï¿½\6\7\x08\x09      "                      //"   TEMPERATURE  "
+    /* MSP n.  175 */      "@B228§\6\7\x08\x09      "                      //"   TEMPERATURE  "
                            "                ",                          //"Latte Mac.   \6\7\x08",        
 
-    /* MSP n.  176 */      "@B229ï¿½\0\1\2\3\4\5\6\7\x08 "                 //"code   ID 101   "
+    /* MSP n.  176 */      "@B229§\0\1\2\3\4\5\6\7\x08 "                 //"code   ID 101   "
                            "                ",                          //"       \0\1\2\3\4\5\6\7\x08",
 
-    /* MSP n.  177 */      "@B230ï¿½\0\1\2\3\4\5\6\7\x08 "                 //"code   ID 104   "
+    /* MSP n.  177 */      "@B230§\0\1\2\3\4\5\6\7\x08 "                 //"code   ID 104   "
                            "                ",                          //"       \0\1\2\3\4\5\6\7\x08",
 
-    /* MSP n.  178 */      "@B231ï¿½\0\1\2\3\4\5\6\7\x08 "                 //"code   ID 106   "
+    /* MSP n.  178 */      "@B231§\0\1\2\3\4\5\6\7\x08 "                 //"code   ID 106   "
                            "                ",                          //"       \0\1\2\3\4\5\6\7\x08",
 
-    /* MSP n.  179 */      "@B232ï¿½\6\7\x08       "                      //"address VIDTS   "
+    /* MSP n.  179 */      "@B232§\6\7\x08       "                      //"address VIDTS   "
                            "                ",                          //"             \6\7\x08",
     #ifdef  UPD_PROG_EVADTS
-    /* MSP n.  180 */      "@B233ï¿½\0\1\2\3\4\5\6\7\x08\x09"                //"Protocol        "
+    /* MSP n.  180 */      "@B233§\0\1\2\3\4\5\6\7\x08\x09"                //"Protocol        "
                            "\x0A\x0B\x0C\x0D\x0E\x0F          ",     //"\0\1\2\3\4\5\6\7\x08\x09\x0A\x0B\x0C\x0D\x0E\x0F",
     #else
     #ifdef SELECT_TYPE_DATA_AUDIT
-    /* MSP n.  180 */      "@B234ï¿½\x08         "                        //"DataAudit 0=TMON"
+    /* MSP n.  180 */      "@B234§\x08         "                        //"DataAudit 0=TMON"
                            "                ",                          //"1=DDCMP 2=DIAG \x08",
     #else
     /* MSP n.  180 */      "@B235           "							//"not  used       "
@@ -1605,7 +1605,7 @@ const u8 __far ML_MSAP_1[MAX_MSAP][32] = {
     /* MSP n.  181 */      "@B236           "                           //"PROGRAMMING-----"
                            "                ",                          //"-ID. MACHINE    ",
     #ifdef SUMMERTIME
-    /* MSP n. 182 */       "@B237ï¿½\x08         "                        //"Summer Time     "
+    /* MSP n. 182 */       "@B237§\x08         "                        //"Summer Time     "
                            "                ",                          //"1=yes          \x08",
     #else
     /* MSP n. 182 */       "@B238           "							 //"not used        "
@@ -1614,16 +1614,16 @@ const u8 __far ML_MSAP_1[MAX_MSAP][32] = {
     /* MSP n. 183 */       "@B239           "							//"DRIP FILTER     "
                            "                ",                          //"                "                      
 
-    /* MSP n. 184 */       "@B240ï¿½\7\x08        "                   	//"X9 wait time 3  "
+    /* MSP n. 184 */       "@B240§\7\x08        "                   	//"X9 wait time 3  "
                            "                ",                          //"last cof. \7\x08 min",                     
 
-    /* MSP n. 185 */       "@B241ï¿½\6\7\x08       "                      //"X10 min cof. qty"
+    /* MSP n. 185 */       "@B241§\6\7\x08       "                      //"X10 min cof. qty"
                            "                ",                          //"to engage \6\7\x08 cc",
 
-    /* MSP n. 186 */       "@B242ï¿½\6\7\x08       "                      //"A1 PWM Variflex "
+    /* MSP n. 186 */       "@B242§\6\7\x08       "                      //"A1 PWM Variflex "
                            "                ",                          //"move        \6\7\x08%",
 
-    /* MSP n. 187 */       "@B243ï¿½\6\7ï¿½\x08      "                      //"A2 Pump On time "
+    /* MSP n. 187 */       "@B243§\6\7§\x08      "                      //"A2 Pump On time "
                            "                ",                          //"         \6\7.\x08[s]"
                 #ifdef COMP_PREZZO_ECO_BIC
     #ifdef EASY_PRESEL
@@ -1634,19 +1634,19 @@ const u8 __far ML_MSAP_1[MAX_MSAP][32] = {
                            "                ",                          //"    BIG CUP     ",
     #endif
     #ifdef ABILITAZIONE_SENSORE_CAFFE
-    /* MSP n.  189 */      "@B246ï¿½\x08         "                        //" Coffee Sensor  "
+    /* MSP n.  189 */      "@B246§\x08         "                        //" Coffee Sensor  "
                            "                ",                          //" 1=Enable      \x08",
     #else											
     /* MSP n.  189 */      "@B247           "                           //"not used        "
                            "                ",                          //"                ",           					   
     #endif
-    /* MSP n. 190 */       "@B248ï¿½\7\x08        "                       //"WATER           "
+    /* MSP n. 190 */       "@B248§\7\x08        "                       //"WATER           "
                            "                ",                          //"percent    +\7\x08 %",
 
-    /* MSP n. 191 */       "@B249ï¿½\7\x08        "                     //"+ or   -  PRICE "   
+    /* MSP n. 191 */       "@B249§\7\x08        "                     //"+ or   -  PRICE "   
                            "                ",                          //"0=+  1=-      \7\x08",
 
-    /* MSP n. 192 */       "@B250ï¿½\7\x08        "                       //"PRODUCT         "
+    /* MSP n. 192 */       "@B250§\7\x08        "                       //"PRODUCT         "
                            "                ",                          //"percent    +\7\x08 %",
                 #else
     /* MSP n.  188 */      "@B251           "                           //"not used        "
@@ -1660,10 +1660,10 @@ const u8 __far ML_MSAP_1[MAX_MSAP][32] = {
     /* MSP n.  192 */      "@B255           "                           //"not used        "
                            "                ",                          //"                ",
                 #endif                     
-    /* MSP n. 193 */       "@B256ï¿½\7\x08        "                     //"PREINFUSION     "
+    /* MSP n. 193 */       "@B256§\7\x08        "                     //"PREINFUSION     "
                            "                ",                          //"0=no   sec.:\7\x08  ",
 
-    /* MSP n. 194 */       "@B257ï¿½\7\x08        "                     //"JUG             "
+    /* MSP n. 194 */       "@B257§\7\x08        "                     //"JUG             "
                            "                ",                          //"0=no        n:\7\x08",
 
     /* MSP n. 195 */       "@B258           "                           //"preselection    "
@@ -1672,48 +1672,48 @@ const u8 __far ML_MSAP_1[MAX_MSAP][32] = {
     /* MSP n.  196 */      "@B259           "                           //"preselection    "
                            "                ",                          //"LONG            ",
 
-    /* MSP n. 197 */       "@B260ï¿½\7\x08        "                       //"water           "
+    /* MSP n. 197 */       "@B260§\7\x08        "                       //"water           "
                            "                ",                          //"LONG       +\7\x08 %",
         #ifdef DAL_HAPPY_HOUR
-    /* MSP n. 198 */       "@B261ï¿½\5\6\7\x08      "                     //"number of selec."
+    /* MSP n. 198 */       "@B261§\5\6\7\x08      "                     //"number of selec."
                            "                ",                          //"Bingo       \5\6\7\x08",
 
-    /* MSP n. 199 */       "@B262ï¿½\x08         "                        //"price with card "
+    /* MSP n. 199 */       "@B262§\x08         "                        //"price with card "
                            "                ",                          //"1=price happy  \x08",
         #else
             #ifdef COMPILO_DATI_STANDARD
-    /* MSP n. 198 */       "@B263ï¿½\0\1\2\3\4\5\6\7  "                   //"push <PROG> to  "
+    /* MSP n. 198 */       "@B263§\0\1\2\3\4\5\6\7  "                   //"push <PROG> to  "
                            "                ",                          //"load:   \0\1\2\3\4\5\6\7",
             #else
-    /* MSP n. 198 */       "@B264ï¿½\x08         "                        //"Default sugar   "
+    /* MSP n. 198 */       "@B264§\x08         "                        //"Default sugar   "
                            "                ",                          //"LED:0-5       =\x08",
             #endif
     /* MSP n. 199 */       "@B265           "							//"not used        "
                            "                ",                          //"               \x08",
         #endif
-    /* MSP n. 200*/        "@B266ï¿½\6\7ï¿½\x08      "                      //"A3 Pump OFF time"
+    /* MSP n. 200*/        "@B266§\6\7§\x08      "                      //"A3 Pump OFF time"
                            "                ",                          //"         \6\7.\x08[s]",
 
-    /* MSP n. 201*/        "@B267ï¿½\7\x08        "                       //"A5 pressure     " 
+    /* MSP n. 201*/        "@B267§\7\x08        "                       //"A5 pressure     " 
                            "                ",                          //"number        \7\x08",
 
     /* MSP n. 202*/        "@B268           "                           //"PROGRAMMING-----"
                            "                ",                          //"-MDB USD--------",
         #ifdef TRE_USD
-    /* MSP n.  203*/       "@B269ï¿½\x0F         "                        //"PROGR. MDB USD \x0F"
+    /* MSP n.  203*/       "@B269§\x0F         "                        //"PROGR. MDB USD \x0F"
                            "                ",                          //"  SEL. 4        ",
         #else
     /* MSP n.  203*/       "@B270           "                           //"PROGR. MDB USD  "
                            "                ",                          //"  SEL. 4        ",
        #endif
 
-    /* MSP n.  204 */      "@B271ï¿½\x0A\x0Bï¿½\3\4\5\6\7\x08 "             //"Calibr. motor \x0A\x0B"
+    /* MSP n.  204 */      "@B271§\x0A\x0B§\3\4\5\6\7\x08 "             //"Calibr. motor \x0A\x0B"
                            "                ",                          //"gr/sec    \3\4\5\6\7\x08",
 
-    /* MSP n. 205 */       "@B272ï¿½\x0A\x0Bï¿½\0\1\2\3\4\5\6"               //"product \x0A\x0B used "
+    /* MSP n. 205 */       "@B272§\x0A\x0B§\0\1\2\3\4\5\6"               //"product \x0A\x0B used "
                            "\7\x08              ",                     //"part.g.\0\1\2\3\4\5\6\7\x08",
 
-    /* MSP n. 206 */       "@B273ï¿½\x0A\x0Bï¿½\0\1\2\3\4\5\6"               //"product \x0A\x0B used "
+    /* MSP n. 206 */       "@B273§\x0A\x0B§\0\1\2\3\4\5\6"               //"product \x0A\x0B used "
                            "\7\x08              ",                     //"Tot. g.\0\1\2\3\4\5\6\7\x08",
 
     /* MSP n. 207 */       "@B274           "                           //"CALIBRATION-----"
@@ -1725,7 +1725,7 @@ const u8 __far ML_MSAP_1[MAX_MSAP][32] = {
     /* MSP n.  209 */      "@B276           "                           //"   TEST MOTOR   "
                            "                ",                          //"Absorption  sel4",
     #ifdef MODELLO_ESPRESSO
-    /* MSP n. 210 */       "@B277ï¿½\x09\x0Aï¿½\4ï¿½\6\7\x08  "               //"tun. grinder  \x09\x0A"  // sull ï¿½espresso  non cï¿½eï¿½
+    /* MSP n. 210 */       "@B277§\x09\x0A§\4§\6\7\x08  "               //"tun. grinder  \x09\x0A"  // sull ´espresso  non c´e´
                            "                ",                          //"         \4 \6\7\x08 %",
     #endif
     #ifdef MODELLO_SOLUBILE
@@ -1733,76 +1733,76 @@ const u8 __far ML_MSAP_1[MAX_MSAP][32] = {
                            "                ",                          //"                ",
     #endif
     #ifdef ABILITO_RESET_DECONTATORE_FILTRO
-    /* MSP n. 211 */       "@B279ï¿½\x08         "                        //"activ.H2o filter"//Frei
+    /* MSP n. 211 */       "@B279§\x08         "                        //"activ.H2o filter"//Frei
                            "                ",                          //"Reset  0=no    \x08",
     #else
     /* MSP n. 211 */       "@B280           "                           //"not used        "
                            "                ",                          //"                ",
     #endif
-    /* MSP n.  212 */      "@B281ï¿½\6\7\x08       "                      //"A6 water after  " 
+    /* MSP n.  212 */      "@B281§\6\7\x08       "                      //"A6 water after  " 
                            "                ",                          //"coffee   \6\7\x08[ml]",
 
     #ifdef CUSTOMER_NESTLE
-    /* MSP n.  213 */      "@B282ï¿½\6\7\x08       "                      //"A7 chamber      "
+    /* MSP n.  213 */      "@B282§\6\7\x08       "                      //"A7 chamber      "
                            "                ",                          //"aperture    \6\7\x08%",                       
     #else
-    /* MSP n.  213 */      "@B303ï¿½\6\7\x08       "                      //"A7 chamber      "
+    /* MSP n.  213 */      "@B303§\6\7\x08       "                      //"A7 chamber      "
                            "                ",                          //"aperture    \6\7\x08%",                      
     #endif	
 
-    /* MSP n.  214 */      "@B283ï¿½\x08         "                        //"DA rotation     "  // "first install.  " //spostato in user 105
+    /* MSP n.  214 */      "@B283§\x08         "                        //"DA rotation     "  // "first install.  " //spostato in user 105
                            "                ",                          //"0=auto 1=man.  \x08", //"starts automat. ",
 
-    /* MSP n.  215 */      "@B284ï¿½\6\7\x08       "           			//"Set preheating  "                //"                "  spostato in user 107
+    /* MSP n.  215 */      "@B284§\6\7\x08       "           			//"Set preheating  "                //"                "  spostato in user 107
                            "                ",         					//"selection \6\7\x08   ",                 //"autom. reset    ",
 
-    /* MSP n.  216 */      "@B285ï¿½\x08         "                           //"                "   //messaggio vuoto st030310
+    /* MSP n.  216 */      "@B285§\x08         "                           //"                "   //messaggio vuoto st030310
                            "                ",                          //"                ",  
 
     #ifdef VARIGRIND_PRESENCE
-    /* MSP n. 217 */       "@B286ï¿½\0\1\2\3\4\5\6\7\x08\x09"                //"granulometry    "  // sull ï¿½espresso  non cï¿½eï¿½
+    /* MSP n. 217 */       "@B286§\0\1\2\3\4\5\6\7\x08\x09"                //"granulometry    "  // sull ´espresso  non c´e´
                            "\x0A\x0B\x0C\x0D\x0E\x0F          ",     //"\0\1\2\3\4\5\6\7\x08\x09\x0A\x0B\x0C\x0D\x0E\x0F", 
     #else 
     /* MSP n. 217 */       "@B287           "                           //"not used        "
                            "                ",                          //"                ",
     #endif 
-    /* MSP n.  218 */      "@B288ï¿½\x08         "                        //"pricehold query "
+    /* MSP n.  218 */      "@B288§\x08         "                        //"pricehold query "
                            "                ",                          //"no=0 yes=1     \x08",
 
-    /* MSP n.  219 */      "@B289ï¿½\x08         "                  		//"Side water pump "
+    /* MSP n.  219 */      "@B289§\x08         "                  		//"Side water pump "
                            "                ",                  		//" 0-4           \x08",
     #ifdef ENABLE_BREWER_VARIFLEX
-    /* MSP n.  220*/       "@B290ï¿½\7\x08        "                       //"Brewer pressure "
+    /* MSP n.  220*/       "@B290§\7\x08        "                       //"Brewer pressure "
                            "                ",                          //"0=max 10=min. \7\x08",
     #else
-    /* MSP n. 220*/        "@B291ï¿½\x08         "                        //"Double coffee   "
+    /* MSP n. 220*/        "@B291§\x08         "                        //"Double coffee   "
                            "                ",                          //"0=no 1=yes     \x08",
     #endif
     #ifdef ABILITA_PRESENZA_VASCHETTA
-    /* MSP n. 221 */       "@B292ï¿½\x08         "                        //"driptray        "
+    /* MSP n. 221 */       "@B292§\x08         "                        //"driptray        "
                            "                ",                          //"identif. yes=1-\x08",
     #else
     /* MSP n.  221 */      "@B293           "                           //"not used        "
                            "                ",                          //"                ",
     #endif
     #ifdef PROGRAMMABLE_PRESEL_MSG
-    /* MSP n.  222*/       "@B294ï¿½\0\1\2\3\4\5\6\7  "                   //"Preselection    "
+    /* MSP n.  222*/       "@B294§\0\1\2\3\4\5\6\7  "                   //"Preselection    "
                            "                ",                          //"name:   \0\1\2\3\4\5\6\7",
     #else
     /* MSP n.  222 */      "@B295           "                           //"not used        "
                            "                ",                          //"                ",
     #endif
 
-    /* MSP n.  223 */      "@B296ï¿½\x08         "                        //"Cup size        "
+    /* MSP n.  223 */      "@B296§\x08         "                        //"Cup size        "
                            "                ",							//"               \x08",
 
-    /* MSP n.  224 */      "@B297ï¿½\6\7\x08       "                       //"vend payment    " // messaggio libero/utilizzabile
+    /* MSP n.  224 */      "@B297§\6\7\x08       "                       //"vend payment    " // messaggio libero/utilizzabile
                            "                ",                          //"timeout  \7\x08 sec.",                        
     #ifdef ABIL_CAPPUCCINATORE
-    /* MSP n. 225 */       "@B298ï¿½\6\7ï¿½\x08      "                      //"ev fresh milk   "
+    /* MSP n. 225 */       "@B298§\6\7§\x08      "                      //"ev fresh milk   "
                            "                ",                          //"delay       \6\7.\x08",
 
-    /* MSP n. 226 */       "@B299ï¿½\6\7ï¿½\x08      "                      //"ev air fresh    "
+    /* MSP n. 226 */       "@B299§\6\7§\x08      "                      //"ev air fresh    "
                            "                ",                          //"milk delay  \6\7.\x08",                      
     #else
     /* MSP n.  225 */      "@B300           "                           //"   not  used    "
@@ -1812,14 +1812,14 @@ const u8 __far ML_MSAP_1[MAX_MSAP][32] = {
                            "                ",                          //"                ",
     #endif
 
-    /* MSP n.  227*/       "@B302ï¿½^         "                           //"PROGRAMMING ----"
+    /* MSP n.  227*/       "@B302§^         "                           //"PROGRAMMING ----"
                            "                ",                          //"  VARIGRIND ^   ",
 
     /* MSP n.  228*/       "@B304           "                           //"PROGRAMMING ----"
                            "                ",                          //"- MILKER    ----",
     #ifdef MODELLO_DOPPIO
     #ifdef DISABILITA_BICC   
-    /* MSP n. 229 */       "@B305ï¿½\x08         "                        //"dispensing cup  "
+    /* MSP n. 229 */       "@B305§\x08         "                        //"dispensing cup  "
                            "                ",                          //"0=yes 1=no     \x08",  
     #else
     /* MSP n. 229 */       "@B306           "                           //"   not  used    "
@@ -1832,13 +1832,13 @@ const u8 __far ML_MSAP_1[MAX_MSAP][32] = {
     /* MSP n.230  */   	   "@B308           "                           //"PROGRAMMING ----"
                            "                ",                          //"  VARIGRIND 2   ",
 
-    /* MSP n.231  */   	   "@B309ï¿½^ï¿½)ï¿½\4\5\6\7\x08 "                    //"PRESEL. NUM ^)  "
+    /* MSP n.231  */   	   "@B309§^§)§\4\5\6\7\x08 "                    //"PRESEL. NUM ^)  "
                            "                ",                          //"           \4\5\6\7\x08",
 
-    /* MSP n.232  */   	   "@B310ï¿½\0\1\2\3\4\5\6\7\x08\x09"                //"Verified data   "
+    /* MSP n.232  */   	   "@B310§\0\1\2\3\4\5\6\7\x08\x09"                //"Verified data   "
                            "\x0A\x0B\x0C\x0D\x0E\x0F          ",           //"\0\1\2\3\4\5\6\7\x08\x09\x0A\x0B\x0C\x0D\x0E\x0F",         // 	"         <4>=yes",
 
-    /* MSP n.  233 */      "@B311ï¿½\x08         "                        //"Water Flush mode"  // messaggio libero/utilizzabile
+    /* MSP n.  233 */      "@B311§\x08         "                        //"Water Flush mode"  // messaggio libero/utilizzabile
                            "                ",                          //"1=ON 0=OFF \x08 ",
 
     /* MSP n.  234 */      "@B312           "                           //"available       "  // messaggio libero/utilizzabile
@@ -1850,7 +1850,7 @@ const u8 __far ML_MSAP_1[MAX_MSAP][32] = {
     /* MSP n.  236 */      "@B314           "                           //"PROGRAMMING ----"
                            "                ",                          //"RFID BLACK LIST ",
 
-    /* MSP n.  237 */      "@B315ï¿½\x09\x0Aï¿½\5\6\7\x08   "               //"block card \x09\x0A   "
+    /* MSP n.  237 */      "@B315§\x09\x0A§\5\6\7\x08   "               //"block card \x09\x0A   "
                            "                ",                          //"number      \5\6\7\x08",
     #ifdef  MODELLO_DOPPIO
     /* MSP n. 238*/        "@B316           "                           //"TEST CUP STATION"
@@ -1871,7 +1871,7 @@ const u8 __far ML_MSAP_1[MAX_MSAP][32] = {
                            "                ",                          //"                ",
 #endif
 
-    /* MSP n. 240 */       "@B321ï¿½\6\7\x08\x09      "                      //"   TEMPERATURE  "
+    /* MSP n. 240 */       "@B321§\6\7\x08\x09      "                      //"   TEMPERATURE  "
                            "                ",                          //"Temp. EV4    \6\7\x08",
 
     /* MSP n. 241 */       "@B322           "							//"Preselection    " 
@@ -1884,45 +1884,45 @@ const u8 __far ML_MSAP_1[MAX_MSAP][32] = {
     /* MSP n. 243 */       "@B325           "						    //"not used        " //"Time cleaning   "
                            "                ",							//"                ",//"rhMM1.v+  \5\6:\7\x08 ",   // nome commerciale MILK module
 #else
-    /* MSP n. 243 */       "@B326ï¿½\5\6ï¿½\7\x08     "                     //"Time cleaning   "
+    /* MSP n. 243 */       "@B326§\5\6§\7\x08     "                     //"Time cleaning   "
                            "                ",                          //"MILK Mod.  \5\6:\7\x08",
 #endif 
 
-    /* MSP n. 244*/        "@B327ï¿½\x08         "                        //"F.Milk  Topping-"
+    /* MSP n. 244*/        "@B327§\x08         "                        //"F.Milk  Topping-"
                            "                ",                          //"switch  yes=1- \x08",
 
-    /* MSP n. 245*/        "@B328ï¿½\5\6\7\x08      "                     //"Calibrate Cof  2"            	         
+    /* MSP n. 245*/        "@B328§\5\6\7\x08      "                     //"Calibrate Cof  2"            	         
                            "                ",                          //"Push PROG   \5\6\7\x08",
 
-    /* MSP n. 246*/        "@B329ï¿½\6\7\x08ï¿½\x0A\x0B\x0C   "             //"cup sens.thresh."            	         
+    /* MSP n. 246*/        "@B329§\6\7\x08§\x0A\x0B\x0C   "             //"cup sens.thresh."            	         
                            "                ",                          //"0=dis  \6\7\x08 - \x0A\x0B\x0C",
 
-    /* MSP n. 247*/        "@B330ï¿½\5\6\7\x08      "                     //"  Set Free Vend "            	         
+    /* MSP n. 247*/        "@B330§\5\6\7\x08      "                     //"  Set Free Vend "            	         
                            "                ",                          //"Ins hours   \5\6\7\x08",
 
-    /* MSP n. 248*/        "@B331ï¿½\x08         "                        //"Enable dataaudit"
+    /* MSP n. 248*/        "@B331§\x08         "                        //"Enable dataaudit"
                            "                ",                          //"before  1=yes  \x08",
 
-    /* MSP n. 249 */       "@B332ï¿½\4ï¿½\6\7\x08     "                     //"Scaling   Factor"
+    /* MSP n. 249 */       "@B332§\4§\6\7\x08     "                     //"Scaling   Factor"
                            "                ",                          //"          \4 \6\7\x08 %",
 
     /* MSP n. 250 */       "@B333           "                           //"TEST STIRRER    "
                            "                ",                          //"sel 4           ",
 
-    /* MSP n. 251 */       "@B334ï¿½\x08         "                        //" Security Level "
+    /* MSP n. 251 */       "@B334§\x08         "                        //" Security Level "
                            "                ",                          //"level 1-4      \x08",
 
-    /* MSP n. 252 */       "@B335ï¿½\5\6\7\x08      "         			//"Calibrate Cof  3"
+    /* MSP n. 252 */       "@B335§\5\6\7\x08      "         			//"Calibrate Cof  3"
                            "                ",                      	//"Push PROG   \5\6\7\x08",
 
-    /* MSP n. 253 */       "@B336ï¿½\5\6\7\x08      "                     //"Calibrate Cof  4"
+    /* MSP n. 253 */       "@B336§\5\6\7\x08      "                     //"Calibrate Cof  4"
                            "                ",                          //"Push PROG   \5\6\7\x08",
 
-    /* MSP n. 254 */       "@B337ï¿½\x08         "                        //"coffee repeat	  "
+    /* MSP n. 254 */       "@B337§\x08         "                        //"coffee repeat	  "
                            "                ",                          //"0=disabled     \x08",
 
-    /* MSP n. 255 */        "@B338ï¿½\0\1\2\3\4\5\6\7\x08\x09"
-                            "\x0A\x0B\x0C\x0D\x0E\x0F          ",
+    /* MSP n. 255 */       "@B338§\0\1\2\3\4\5\6\7\x08\x09"
+                           "\x0A\x0B\x0C\x0D\x0E\x0F          ",
 };
 
 const u8 __far ML_MS_NOME_SELEZ_1[MAX_NOME_SELEZ][16] = {
@@ -1993,7 +1993,7 @@ const u8 __far ML_MS_NOME_PRESEL_1[MAX_NOME_PRESEL][16] = {
 };
 #else
 
-const u8 __far ML_MS_NOME_PRESEL_1[MAX_NOME_PRESEL][7] = { //@FT controllare l'excel per il multilingua perchï¿½ si e' disallineato
+const u8 __far ML_MS_NOME_PRESEL_1[MAX_NOME_PRESEL][7] = { //@FT controllare l'excel per il multilingua perchè si e' disallineato
     /* 00 */      	  "@D014  ",                                //"DECAF. ",//st- presel per + 10 selezioni dirette  (sel 11-20) ( presel Nr 0 - mes 162 ) / ( presel 0 + 7 = sel 31-40 )  servomat     
     /* 01 */          "@D015  ",                                //"BARLEY ",          
     /* 02 */          "@D016  ",                                //"NO CUP ",         
@@ -2015,13 +2015,13 @@ const u8 __far ML_MS_NOME_PRESEL_1[MAX_NOME_PRESEL][7] = { //@FT controllare l'e
 #endif
 
 const u8 __far ML_MSAP_PAR_MAINTENANCE[MAX_PAR_MAINTENANCE][32] = {
-    /* n. 0 */       	"@E001ï¿½\x0A\x0B\x0C\x0D\x0Eï¿½\4\5\6\7"			//"water filter cnt"  // ex 129 MSP
+    /* n. 0 */       	"@E001§\x0A\x0B\x0C\x0D\x0E§\4\5\6\7"			//"water filter cnt"  // ex 129 MSP
                         "\x08               ",							//"[\x0A\x0B\x0C\x0D\x0E]    \4\5\6\7\x08",
     #ifdef MODELLO_ESPRESSO
-    /* n. 1 */    		"@E002ï¿½\x0A\x0B\x0C\x0D\x0Eï¿½\4\5\6\7"			//"dec. cof. brewer"  // ex 130 MSP
+    /* n. 1 */    		"@E002§\x0A\x0B\x0C\x0D\x0E§\4\5\6\7"			//"dec. cof. brewer"  // ex 130 MSP
                         "\x08               ",							//"[\x0A\x0B\x0C\x0D\x0E]    \4\5\6\7\x08",
 
-    /* n. 2 */    		"@E003ï¿½\x0A\x0B\x0C\x0D\x0Eï¿½\4\5\6\7"			//"dec. cof.grounds"  // ex 131 MSP
+    /* n. 2 */    		"@E003§\x0A\x0B\x0C\x0D\x0E§\4\5\6\7"			//"dec. cof.grounds"  // ex 131 MSP
                         "\x08               ",							//"[\x0A\x0B\x0C\x0D\x0E]    \4\5\6\7\x08",
     #else 
     /* n. 1 */    		"@E004           "								//"not used        "  // ex 130 MSP
@@ -2031,19 +2031,19 @@ const u8 __far ML_MSAP_PAR_MAINTENANCE[MAX_PAR_MAINTENANCE][32] = {
                         "                ",								//"                ",
     #endif  
 
-    /* n. 3 */        	"@E006ï¿½\x0A\x0B\x0C\x0D\x0Eï¿½\4\5\6\7"			//"Blocking counter"  // ex 252 MSP
+    /* n. 3 */        	"@E006§\x0A\x0B\x0C\x0D\x0E§\4\5\6\7"			//"Blocking counter"  // ex 252 MSP
                         "\x08               ",							//"[\x0A\x0B\x0C\x0D\x0E]    \4\5\6\7\x08",
 
-    /* n. 4 */        	"@E007ï¿½\7\x08        "			//"Perc. threshold "  // ex 253 MSP
+    /* n. 4 */        	"@E007§\7\x08        "			//"Perc. threshold "  // ex 253 MSP
                         "                ",							//"0=disabled    \7\x08",
 
-    /* n. 5 */        	"@E008ï¿½\6\7\x08       "							//"insert code     "  // ex 1 MSP
+    /* n. 5 */        	"@E008§\6\7\x08       "							//"insert code     "  // ex 1 MSP
                         "                ",								//"             \6\7\x08",
 
-    /* n. 6 */        	"@E009ï¿½\x09\x0A\x0B\x0C\x0D\x0Eï¿½\4\5\6"			//"Mainten. counter"  // ex 252 MSP
+    /* n. 6 */        	"@E009§\x09\x0A\x0B\x0C\x0D\x0E§\4\5\6"			//"Mainten. counter"  // ex 252 MSP
                         "\7\x08              ",							//"[\x09\x0A\x0B\x0C\x0D\x0E]  \4\5\6\7\x08\x30",
 
-    /* n. 7 */        	"@E010ï¿½\4\5\6\7\x08     "						//"Maint. threshold"  // ex 252 MSP
+    /* n. 7 */        	"@E010§\4\5\6\7\x08     "						//"Maint. threshold"  // ex 252 MSP
                         "                ",								//"          \4\5\6\7\x08\x30",
 
 };
@@ -2113,17 +2113,17 @@ const u8 __far  ML_MSG_LAV_GRUPPO[MAX_LAV_GRUPPO][32] = {
     /* MSA n. 1  */   "@M002           "                                 //"2/16 Put tablet "      //put pastille    
                       "                ",                                //" push Start=10  ",     //and push  P8   
 
-    /* MSA n. 2  */   "@M003ï¿½\3ï¿½\4ï¿½\0ï¿½\1\2  "                            //"\3/16 tab. diss.\4"       //P3 to continue  
+    /* MSA n. 2  */   "@M003§\3§\4§\0§\1\2  "                            //"\3/16 tab. diss.\4"       //P3 to continue  
                       "                ",                                //"wait    min \0:\1\2",//rinsing     //"3=weiter    \0:\1\2",//rinsing    (la tassini non vuole 3=weiter)
 #else
     /* MSA n. 1  */   "@M004           "                                 //"Put pastille and"      //put pastille    
                       "                ",                                //"push   P10=START",     //and push  P8   
 
-    /* MSA n. 2  */   "@M005ï¿½\0ï¿½\1\2      "                              //"tab dissolve    "       //P3 to continue  
+    /* MSA n. 2  */   "@M005§\0§\1\2      "                              //"tab dissolve    "       //P3 to continue  
                       "                ",                                //"    min  \0:\1\2   ",//rinsing     //"3=weiter    \0:\1\2",//rinsing    (la tassini non vuole 3=weiter)
 #endif 
 
-    /* MSA n. 3  */   "@M006ï¿½\2\3\4       "                              //"Cleaning brewer "      //cleaning        
+    /* MSA n. 3  */   "@M006§\2\3\4       "                              //"Cleaning brewer "      //cleaning        
                       "                ",                                //"6 X          \2\3\4",
 
     /* MSA n. 4  */   "@M007           "                                 //"wait please     "      // wait  please   
@@ -2152,10 +2152,10 @@ const u8 __far  ML_MSG_LAV_GRUPPO[MAX_LAV_GRUPPO][32] = {
     /* MSA n. 7  */   "@M011           "                                 //"                "      //clear screen 
                       "                ",                                //"                ",
 
-    /* MSA n. 8  */   "@M012           "                                 //"13/16 Skip final" 	//richiesta per il caffï¿½ di pulizia al termine del lavaggio sanitario
+    /* MSA n. 8  */   "@M012           "                                 //"13/16 Skip final" 	//richiesta per il caffè di pulizia al termine del lavaggio sanitario
                       "                ",                                // "coffee YES=1    ",
 
-    /* MSA n. 9  */   "@M013ï¿½\4\5ï¿½\x08      "							 //"\4\5/16 Rep. clean"
+    /* MSA n. 9  */   "@M013§\4\5§\x08      "							 //"\4\5/16 Rep. clean"
                       "                ", 								 //"\x08/2 YES=10 NO=ot",
 
     /* MSA n. 10  */  "@M014           "								//"10/16 Man. brush"
@@ -2167,7 +2167,7 @@ const u8 __far  ML_MSG_LAV_GRUPPO[MAX_LAV_GRUPPO][32] = {
     /* MSA n. 12  */  "@M016           "      							//"5/16 2nd diss.  "
                       "                ",			     				//cycle will start",
 
-    /* MSA n. 13  */  "@M017ï¿½\4\5ï¿½\0\1\2ï¿½\x09\x0A\x0B"	     	 		//"\4\5/16 \0\1\2 Clean."
+    /* MSA n. 13  */  "@M017§\4\5§\0\1\2§\x09\x0A\x0B"	     	 		//"\4\5/16 \0\1\2 Clean."
                       "                ",      							//"   active \x09\x0A\x0B   ",
 
     /* MSA n. 14  */  "@M018           "	      						//"9/16  Brewer in "
@@ -2176,73 +2176,73 @@ const u8 __far  ML_MSG_LAV_GRUPPO[MAX_LAV_GRUPPO][32] = {
     /* MSA n. 15  */  "@M019           "      							//"16/16 Brew. Cle."
                       "                ",      							//"Done.    10=Exit",
 
-    /* MSA n. 16  */  "@M020ï¿½\4\5\6\7\x08ï¿½\0   "      					//"\4\5\6\7\x08 Mixer \0   "
+    /* MSA n. 16  */  "@M020§\4\5\6\7\x08§\0   "      					//"\4\5\6\7\x08 Mixer \0   "
                       "                ",     							//"rinsing         ",
 
-    /* MSA n. 17  */  "@M021ï¿½\4\5\6\7\x08     "      					//"\4\5\6\7\x08 Brewer    "
+    /* MSA n. 17  */  "@M021§\4\5\6\7\x08     "      					//"\4\5\6\7\x08 Brewer    "
                       "                ",     							//"Rinsing         ",
 
     /* MSA n. 18  */  "@M022           "      							//"Start procedure?"
                       "                ",      							//"   YES=10 NO=8  ",
 
-    /* MSA n. 19  */  "@M023ï¿½\4\5ï¿½\0\1\2    "     						//"\4\5/16 \0\1\2 Clean."
+    /* MSA n. 19  */  "@M023§\4\5§\0\1\2    "     						//"\4\5/16 \0\1\2 Clean."
                       "                ",     							//"   wait please  ",
 
     /* MSA n. 20  */  "@M024           "     							//"14/16 Coffee    "
                       "                ",     							//"delivery        ",
 
-    /* MSA n. 21  */  "@M025ï¿½\1ï¿½\2\3      "     						//"\1/\2\3 emptying   "
+    /* MSA n. 21  */  "@M025§\1§\2\3      "     						//"\1/\2\3 emptying   "
                       "                ",     							//"in progress     ",
 
-    /* MSA n. 22  */  "@M026ï¿½\1ï¿½\2\3      "     						//"\1/\2\3 conn. desc."
+    /* MSA n. 22  */  "@M026§\1§\2\3      "     						//"\1/\2\3 conn. desc."
                       "                ",     							//"solution   OK=10",
 
-    /* MSA n. 23  */  "@M027ï¿½\1ï¿½\2\3      "     						//"\1/\2\3 fill. desc."
+    /* MSA n. 23  */  "@M027§\1§\2\3      "     						//"\1/\2\3 fill. desc."
                       "                ",     							//"sol. in progress",
 
-    /* MSA n. 24  */  "@M028ï¿½\0\1ï¿½\2\3     "     						//"\0\1/\2\3 water     " 
+    /* MSA n. 24  */  "@M028§\0\1§\2\3     "     						//"\0\1/\2\3 water     " 
                       "                ",     							//"flows?    YES=10",
 
-    /* MSA n. 25  */  "@M029ï¿½\0\1ï¿½\2\3     "     						//"\0\1/\2\3  descaling"
+    /* MSA n. 25  */  "@M029§\0\1§\2\3     "     						//"\0\1/\2\3  descaling"
                       "                ",     							//"solution filling",
 
-    /* MSA n. 26  */  "@M030ï¿½\1ï¿½\2\3ï¿½\4ï¿½\5\6 "     						//"\1/\2\3  solution  "
+    /* MSA n. 26  */  "@M030§\1§\2\3§\4§\5\6 "     						//"\1/\2\3  solution  "
                       "                ",     							//"action=>min \4:\5\6",
 
-    /* MSA n. 27  */  "@M031ï¿½\0\1ï¿½\2\3ï¿½\4ï¿½\5 "     						//"\0\1/\2\3 desc. sol."
+    /* MSA n. 27  */  "@M031§\0\1§\2\3§\4§\5 "     						//"\0\1/\2\3 desc. sol."
                       "                ",     							//"draining \4/\5    ",
 
-    /* MSA n. 28  */  "@M032ï¿½\0\1ï¿½\2\3     "     						//"\0\1/\2\3 result?   "
+    /* MSA n. 28  */  "@M032§\0\1§\2\3     "     						//"\0\1/\2\3 result?   "
                       "                ",     							//"OK=10   NO=OTHER",
 
-    /* MSA n. 29  */  "@M033ï¿½\0\1ï¿½\2\3     "     						//"\0\1/\2\3 connect   "
+    /* MSA n. 29  */  "@M033§\0\1§\2\3     "     						//"\0\1/\2\3 connect   "
                       "                ",     							//"water      OK=10",
 
-    /* MSA n. 30  */  "@M034ï¿½\0\1ï¿½\2\3     "     						//"\0\1/\2\3 filling   "
+    /* MSA n. 30  */  "@M034§\0\1§\2\3     "     						//"\0\1/\2\3 filling   "
                       "                ",     							//"water in progr. ",
 
-    /* MSA n. 31  */  "@M035ï¿½\0\1ï¿½\2\3     "     						//"\0\1/\2\3 rinsing   "
+    /* MSA n. 31  */  "@M035§\0\1§\2\3     "     						//"\0\1/\2\3 rinsing   "
                       "                ",     							//"with water      ",
 
-    /* MSA n. 32  */  "@M036ï¿½\0\1ï¿½\2\3     "     						//"\0\1/\2\3 disp. and " 
+    /* MSA n. 32  */  "@M036§\0\1§\2\3     "     						//"\0\1/\2\3 disp. and " 
                       "                ",     							//"test water  Y=10",
 
-    /* MSA n. 33  */  "@M037ï¿½\0\1ï¿½\2\3     "     						//"\0\1/\2\3 catch     "
+    /* MSA n. 33  */  "@M037§\0\1§\2\3     "     						//"\0\1/\2\3 catch     "
                       "                ",     							//"water to test   ",
 
-    /* MSA n. 34  */  "@M038ï¿½\0\1ï¿½\2\3     "     						//"\0\1/\2\3 descaling "
+    /* MSA n. 34  */  "@M038§\0\1§\2\3     "     						//"\0\1/\2\3 descaling "
                       "                ",     							//"done. EXIT=10   ",
 
-    /* MSA n. 35  */  "@M039ï¿½\0\1ï¿½\2\3     "     						//"\0\1/\2\3 open      "
+    /* MSA n. 35  */  "@M039§\0\1§\2\3     "     						//"\0\1/\2\3 open      "
                       "                ",     							//"boiler tap Y=10 ",
 
-    /* MSA n. 36  */  "@M040ï¿½\0\1ï¿½\2\3     "     						//"\0\1/\2\3 close     "
+    /* MSA n. 36  */  "@M040§\0\1§\2\3     "     						//"\0\1/\2\3 close     "
                       "                ",     							//"boiler tap Y=10 ",
 
     /* MSA n. 37 */   "@M041           "   								//"  auto rinsing  "
                       "                ",     							//"   in progress  ",
 
-    /* MSA n. 38 */   "@M042ï¿½\0         "   								//" Periodic rinse "
+    /* MSA n. 38 */   "@M042§\0         "   								//" Periodic rinse "
                       "                ",     							//"  in \0 seconds  "
 };
 
@@ -2253,26 +2253,26 @@ const u8 __far ML_MES_ERRORI_AGGIUNTI[MAX_MES_ERRORI_AGGIUNTI][32] = {
                        "                ",                                //"                ",
      #ifdef CUSTOMER_NESTLE
     /*  n. 1   */      "@N002           "                                 //"           drain"  " Veuillez vider "  //OFF 3  = 
-                       "                ",                                //"drip tray       ", "bac rï¿½cupï¿½ration",
+                       "                ",                                //"drip tray       ", "bac récupération",
     /*  n. 2   */      "@N003           "                                 //"  out of service"  "    Hors Service" //OFF 6a / 6b  = 
                        "                ",                                //"NO WATER        ", "pas d'eau       ", 
-    /*  n. 3   */      "@N004           "                                 //" Water flow too "  "Dï¿½bit d'eau trop" //OFF 7  = 
+    /*  n. 3   */      "@N004           "                                 //" Water flow too "  "Débit d'eau trop" //OFF 7  = 
                        "                ",                                //"low in H.circuit", "faible circuit.H",
-    /*  n. 4   */      "@N005           "                                 //"           CHECK"	"       CONTRï¿½LER" //OFF 8 / 8b = 
+    /*  n. 4   */      "@N005           "                                 //"           CHECK"	"       CONTRÔLER" //OFF 8 / 8b = 
                        "                ",                                //"BREWER          ",	"BREWER          ", 											
-    /*  n. 5   */      "@N006           "                                 //" REFILL COFFEE  "  "REMPLIR LE CAFï¿½ " //OFF 9a / 9d  = 
+    /*  n. 5   */      "@N006           "                                 //" REFILL COFFEE  "  "REMPLIR LE CAFÉ " //OFF 9a / 9d  = 
                        "                ",                                //"                ", "                ",
    #else
     /*  n. 1   */      "@N007           "                                 //"           drain"  "Vider le bac des"   //OFF 3  =   
-                       "                ",                                //"drip tray       ", "eaux usï¿½es      ",
+                       "                ",                                //"drip tray       ", "eaux usées      ",
     /*  n. 2   */      "@N008           "                                 //"  out of service"  "  Hors Service  "
                        "                ",                                //"NO WATER        ", "manque d'eau    ", 
     /*  n. 3   */      "@N009           "                                 //" Water flow too "  "Infusion trop   "   //OFF 7  =  
                        "                ",                                //"low in H.circuit", "longue          ",
-    /*  n. 4   */      "@N010           "                                 //"           CHECK"	"   Contrï¿½ler le "	 //OFF 8 / 8b =  
-                       "                ",                                //"BREWER          ",	"groupe ï¿½ cafï¿½   ",											
-    /*  n. 5   */      "@N011           "                                 //" REFILL COFFEE  "  "Contrï¿½ler bac   "  
-                       "                ",                                //"                ", "cafï¿½ et moulin  ",
+    /*  n. 4   */      "@N010           "                                 //"           CHECK"	"   Contrôler le "	 //OFF 8 / 8b =  
+                       "                ",                                //"BREWER          ",	"groupe à café   ",											
+    /*  n. 5   */      "@N011           "                                 //" REFILL COFFEE  "  "Contrôler bac   "  
+                       "                ",                                //"                ", "café et moulin  ",
   #endif
     /*  n. 6   */      "@N012           "                                 //"                "
                        "                ",                                //"                ",
@@ -2284,53 +2284,53 @@ const u8 __far ML_MES_ERRORI_AGGIUNTI[MAX_MES_ERRORI_AGGIUNTI][32] = {
 const u8 __far  ML_MSAP_ParGrEspresso[MAX_ParGrEspresso][32] = {
 
 #ifdef ENABLE_BREWER_VARIFLEX
-    /* MSA n. 0  */    "@P001ï¿½\6\7\x08       "                            //"BREWER SIZE     "  			
+    /* MSA n. 0  */    "@P001§\6\7\x08       "                            //"BREWER SIZE     "  			
                        "                ",                                //"0=36   1=45  \6\7\x08",		
 #else
-    /* MSA n. 0  */    "@P002ï¿½\6\7\x08       "                            //"BREWER SIZE     "  				//"BREWER DIAMETER "
+    /* MSA n. 0  */    "@P002§\6\7\x08       "                            //"BREWER SIZE     "  				//"BREWER DIAMETER "
                        "                ",                                //"0=36   1=40  \6\7\x08",
 #endif 
-    /* MSA n. 1 */     "@P003ï¿½\7\x08        "                             //"BREWER POSITION "
+    /* MSA n. 1 */     "@P003§\7\x08        "                             //"BREWER POSITION "
                        "                ",                                //"0=CLOSE 1=OP. \7\x08",
 #ifdef ENABLE_BREWER_VARIFLEX
-    /* MSA n. 2  */    "@P004ï¿½\x08         "                              //"AUTOM.ADJUSTMENT" 
+    /* MSA n. 2  */    "@P004§\x08         "                              //"AUTOM.ADJUSTMENT" 
                        "                ",                                //"F.TUNING  1=yes\x08", 
-    /* MSA n. 3  */    "@P005ï¿½\6ï¿½\7\x08      "                            //"    ENCODER     "
+    /* MSA n. 3  */    "@P005§\6§\7\x08      "                            //"    ENCODER     "
                        "                ",								  //"IMPULSE/GR. \6.\7\x08",
 #else
-    /* MSA n. 2  */    "@P006ï¿½\6\7\x08       "                              //"  OFF9  Grinder "
+    /* MSA n. 2  */    "@P006§\6\7\x08       "                              //"  OFF9  Grinder "
                        "                ",                                //"  Speed \6\7\x08     ",
     /* MSA n. 3  */    "@P007           "                            //"    NOT USED    "
                         "                ",    							  //"                ",
 #endif 
-    /* MSA n. 4  */    "@P008ï¿½\6\7\x08       "                            //"  TAB DISSOLVE  "          		//st tempo scioglimento pastiglia  provvisorio
+    /* MSA n. 4  */    "@P008§\6\7\x08       "                            //"  TAB DISSOLVE  "          		//st tempo scioglimento pastiglia  provvisorio
                        "                ",                                //"PAUSE  SEC.  \6\7\x08",
-    /* MSA n. 5  */    "@P009ï¿½\6ï¿½\7\x08      "                            //"ENCODER  GRIND 2"          		//"imp. per grammo "
+    /* MSA n. 5  */    "@P009§\6§\7\x08      "                            //"ENCODER  GRIND 2"          		//"imp. per grammo "
                        "                ",                                //"IMPULSE/GR. \6.\7\x08", 		//"#3.75#      \6.\7\x08",
-    /* MSA n. 6  */    "@P010ï¿½\x08         "                              //"GRINDER FUNCTION"          		//Modalitï¿½ funzionamento macina:
+    /* MSA n. 6  */    "@P010§\x08         "                              //"GRINDER FUNCTION"          		//Modalità funzionamento macina:
                        "                ",                                //"IM EN/GR 1=yes \x08", 			//0--> GR/SEC 1--> IMP/GR
     /* MSA n. 7  */    "@P011           "                                 //"    NOT USED    "          		//Non usato
                        "                ",                                //"                ",
-    /* MSA n. 8  */    "@P012ï¿½\x08         "                              //"GRIND 2 FUNCTION"          		//Modalitï¿½ funzionamento seconda macina:
+    /* MSA n. 8  */    "@P012§\x08         "                              //"GRIND 2 FUNCTION"          		//Modalità funzionamento seconda macina:
                        "                ",                                //"IM EN/GR 1=yes \x08", 			//0--> GR/SEC 1--> IMP/GR
 #ifdef ENABLE_BREWER_VARIFLEX
-    /* MSA n. 9 */     "@P013ï¿½\x08         "                              //"DELIVERY   PHASE"          		//Anticipa fine erogazione:
+    /* MSA n. 9 */     "@P013§\x08         "                              //"DELIVERY   PHASE"          		//Anticipa fine erogazione:
                        "                ",                                //"FASTER   1=yes \x08", 			//0--> NO 1--> SI
 #else /* gruppo micro */
     /* MSA n. 9  */    "@P014           "          						  //Non usato
                        "                ",
 #endif // ENABLE_BREWER_VARIFLEX
-    /* MSA n. 10  */   "@P015ï¿½\6ï¿½\7\x08      "							  //"ENCODER  GRIND 3"       
+    /* MSA n. 10  */   "@P015§\6§\7\x08      "							  //"ENCODER  GRIND 3"       
                        "                ",   							  //"IMPULSE/GR. \6.\7\x08",
-    /* MSA n. 11  */   "@P016ï¿½\x08         "							  //"GRIND 3 FUNCTION"
+    /* MSA n. 11  */   "@P016§\x08         "							  //"GRIND 3 FUNCTION"
                        "                ",								  //"IM EN/GR 1=yes \x08",
-    /* MSA n. 12  */   "@P017ï¿½\6ï¿½\7\x08      "							  //"ENCODER  GRIND 4"
+    /* MSA n. 12  */   "@P017§\6§\7\x08      "							  //"ENCODER  GRIND 4"
                        "                ",							  	  //"IMPULSE/GR. \6.\7\x08",
-    /* MSA n. 13  */   "@P018ï¿½\x08         "							  //"GRIND 4 FUNCTION"
+    /* MSA n. 13  */   "@P018§\x08         "							  //"GRIND 4 FUNCTION"
                        "                ",							  	  //"IM EN/GR 1=yes \x08",
-    /* MSA n. 14  */   "@P019ï¿½\x08         "							  //"RESET GROUP IN  "
+    /* MSA n. 14  */   "@P019§\x08         "							  //"RESET GROUP IN  "
                        "                ",							  	  //"ERROR    1=yes \x08",
-    /* MSA n. 15  */   "@P020ï¿½\7\x08        "							  //"RINSE AFTER DOWN" 
+    /* MSA n. 15  */   "@P020§\7\x08        "							  //"RINSE AFTER DOWN" 
                        "                ",							  	  //"TIME 0=NO \7\x08HOUR",
 };
 
@@ -2340,19 +2340,19 @@ const u8 __far  ML_MSAP_ParGrEspresso[MAX_ParGrEspresso][32] = {
 
 const u8 __far  ML_MSAP_PAR_MACINA_MOT[MAX_PAR_MACINA_MOT][32] = {
 
-    /* MSP n. 0  */     "@Q001ï¿½^ï¿½\6\7\x08     "   						//   "p. grinder ^:\6\7\x08"
+    /* MSP n. 0  */     "@Q001§^§\6\7\x08     "   						//   "p. grinder ^:\6\7\x08"
                         "                ",  							//	 " 4=open  5=close",
-    /* MSP n. 1  */     "@Q002ï¿½^ï¿½\7\x08      "							//   "sel.rif. grind.^"
+    /* MSP n. 1  */     "@Q002§^§\7\x08      "							//   "sel.rif. grind.^"
                         "                ",  							//   "PROG=save     \7\x08",
-    /* MSP n. 2  */     "@Q003ï¿½^ï¿½\x08       "							//   "Habil.reg.gran.^"
+    /* MSP n. 2  */     "@Q003§^§\x08       "							//   "Habil.reg.gran.^"
                         "                ",  							//   "1=yes 2=test   \x08",
-    /* MSP n. 3  */     "@Q004ï¿½^ï¿½\5\6ï¿½\7\x08   "						//   "Referring flux.^"
+    /* MSP n. 3  */     "@Q004§^§\5\6§\7\x08   "						//   "Referring flux.^"
                         "                ",  							//   "cc/second  \5\6.\7\x08",
-    /* MSP n. 4  */     "@Q005ï¿½^ï¿½\5\6\7\x08    "						//   "number samplings"
+    /* MSP n. 4  */     "@Q005§^§\5\6\7\x08    "						//   "number samplings"
                         "                ",  							//   "grinder ^   \5\6\7\x08",
-    /* MSP n. 5  */     "@Q006ï¿½^ï¿½\6\7\x08     "							//   "Referring posit."
+    /* MSP n. 5  */     "@Q006§^§\6\7\x08     "							//   "Referring posit."
                         "                ",
-    /* MSP n. 6  */     "@Q007ï¿½^ï¿½\6\7\x08     "							//   "Referring posit."
+    /* MSP n. 6  */     "@Q007§^§\6\7\x08     "							//   "Referring posit."
                         "                ",
 };
 
@@ -2371,58 +2371,58 @@ const u8 __far ML_MS_TIPO_GRANULOMETRIA[MAX_TIPO_GRANULOMETRIA][16] =			//ezio 1
 
 const u8 __far  ML_MSAP_CAPPUCCINATORE[MAX_CAPPUCCINATORE][32] = {
 
-    /* MSP n. 0 */     "@S001ï¿½\6\7\x08       "                            //"   TEMPERATURE  "
+    /* MSP n. 0 */     "@S001§\6\7\x08       "                            //"   TEMPERATURE  "
                        "                ",                                //"steam        \6\7\x08",
 
-    /* MSP n. 1 */     "@S002ï¿½\6\7\x08       "                            //"Rinsing period  "//periodo risciacq
+    /* MSP n. 1 */     "@S002§\6\7\x08       "                            //"Rinsing period  "//periodo risciacq
                        "                ",                                //" min.        \6\7\x08",//"minuti       \6\7\x08",
 
-    /* MSP n. 2 */     "@S003ï¿½\x08         "                              //"Rinse MILK MOD  "//risciacquo
+    /* MSP n. 2 */     "@S003§\x08         "                              //"Rinse MILK MOD  "//risciacquo
                        "                ",                                //"   1=enable    \x08",//"1=abil.        \x08",
 
-    /* MSP n. 3 */     "@S004ï¿½\6\7ï¿½\x08      "                            //"Rinse MILK MOD  "//rit. risciacquo.
+    /* MSP n. 3 */     "@S004§\6\7§\x08      "                            //"Rinse MILK MOD  "//rit. risciacquo.
                        "                ",                                //"delay  sec:\6\7.\x08 ",//"secondi:   \6\7.\x08",
 
-    /* MSP n. 4 */     "@S005ï¿½\x08         "                              //"  Milk Sensor   "         //"rins. fresh milk"//tempo risciacquo
+    /* MSP n. 4 */     "@S005§\x08         "                              //"  Milk Sensor   "         //"rins. fresh milk"//tempo risciacquo
                        "                ",                                //"1=Enable       \x08",     //"time   sec:\6\7.\x08 ",//"secondi:   \6\7.\x08",
 
 
-    /* MSP n. 5 */      "@S006ï¿½\x08         "                             // " Clean User Msg "			// Richiesta Risciaquo Utente durante check iniziale
-                        "                ",                               //"1=Enable       \x08",
+    /* MSP n. 5 */     "@S006§\x08         "                             // " Clean User Msg "			// Richiesta Risciaquo Utente durante check iniziale
+                       "                ",                               //"1=Enable       \x08",
 
-    /* MSP n. 6 */      "@S007ï¿½\4\5ï¿½\6\7ï¿½\x08\x09ï¿½\x0A"                             // "Next Milk Clean "			//Mostra l'ora del prossimo lavaggio
-                        "\x0Bï¿½\x0C\x0D            ",                               //"\4\5:\6\7 \x08\x09-\x0A\x0B-20\x0C\x0D",
+    /* MSP n. 6 */     "@S007§\4\5§\6\7§\x08\x09§\x0A"                             // "Next Milk Clean "			//Mostra l'ora del prossimo lavaggio
+                       "\x0B§\x0C\x0D            ",                               //"\4\5:\6\7 \x08\x09-\x0A\x0B-20\x0C\x0D",
 
-    /* MSP n. 7*/       "@S046ï¿½\x08         "                             //" Mlk. Wash Type "
-                        "                ",                               // " 0=24h  1=30h  \x08",
+    /* MSP n. 7*/      "@S046§\x08         "                             //" Mlk. Wash Type "
+                       "                ",                               // " 0=24h  1=30h  \x08",
 
 
 };
 #else   	
 const u8 __far  ML_MSAP_CAPPUCCINATORE[MAX_CAPPUCCINATORE][32] = {
 
-    /* MSP n. 0 */     "@S008ï¿½\6\7\x08       "  	//"   TEMPERATURE  "
+    /* MSP n. 0 */     "@S008§\6\7\x08       "  	//"   TEMPERATURE  "
                        "                ",  	//"steam        \6\7\x08",
 
-    /* MSP n. 1 */     "@S009ï¿½\6\7\x08       "  //"HDE delay after "
+    /* MSP n. 1 */     "@S009§\6\7\x08       "  //"HDE delay after "
                        "                ", 		//"drink min.   \6\7\x08",
 
 #ifdef CUSTOMER_NESTLE    
     /* MSP n. 2 */     "@S010           "          //"not used        "
                        "                ",      //"HDE  1=Enable  \x08", 
 #else
-    /* MSP n. 2 */     "@S045ï¿½\x08         "      //2964 //"Cleaning period:"      //"not used        "     //"Hidrody.Emptying" 
+    /* MSP n. 2 */     "@S045§\x08         "      //2964 //"Cleaning period:"      //"not used        "     //"Hidrody.Emptying" 
                        "                ",      //2964 //"0=24H 1=48-72H \x08", //"                ",    //"HDE  1=Enable  \x08", 
 #endif
 
-    /* MSP n. 3 */     "@S011ï¿½\x08         "  	//"Fridge Position:"				//#2614 ex "Conducibility   "
+    /* MSP n. 3 */     "@S011§\x08         "  	//"Fridge Position:"				//#2614 ex "Conducibility   "
                        "                ",  	//"0=SIDE 5=BOTT. \x08",			//#5614 ex "Sensor 1=Enab. \x08",//"Sensor 1=Enab. \x08",
 
-    /* MSP n. 4 */     "@S012ï¿½\x08         " 	//"  Check Milk    "
+    /* MSP n. 4 */     "@S012§\x08         " 	//"  Check Milk    "
                        "                ",  	//"presence 1=yes \x08",
 
 #ifdef MODELLO_TS
-    /* MSP n. 5 */     "@S048ï¿½\x08         "    //" Clean Msg Start"
+    /* MSP n. 5 */     "@S048§\x08         "    //" Clean Msg Start"
                        "                ",      //"1=Enable       \x08"
 #else
 
@@ -2430,110 +2430,110 @@ const u8 __far  ML_MSAP_CAPPUCCINATORE[MAX_CAPPUCCINATORE][32] = {
                        "                ",  	//"                ",    //"1=Enable       \x08", 
 #endif
 
-    /* MSP n. 6 */     "@S014ï¿½\x08         "  	//"Ignore tank sens"	 //"not used        " //"Clean TimeUpdate"			//Aggiornamento automatico dell'ora per il lavaggio
+    /* MSP n. 6 */     "@S014§\x08         "  	//"Ignore tank sens"	 //"not used        " //"Clean TimeUpdate"			//Aggiornamento automatico dell'ora per il lavaggio
                        "                ",     	//"clean/hde      \x08", //"                ",//"1=Enable       \x08",		//"1=abil.        \x08",
 
-    /* MSP n. 7 */     "@S015ï¿½\x08         " 	//"Check Waste tank"
+    /* MSP n. 7 */     "@S015§\x08         " 	//"Check Waste tank"
                        "                ",  	//"1=Enable       \x08",
 
-    /* MSP n. 8 */     "@S016ï¿½\6\7\x08       "  //"Hot Classic Foam"
+    /* MSP n. 8 */     "@S016§\6\7\x08       "  //"Hot Classic Foam"
                        "                ",  	//"air        \6\7\x08 %",
 
-    /* MSP n. 9 */     "@S017ï¿½\6\7\x08       "  //"Hot Classic Foam"
+    /* MSP n. 9 */     "@S017§\6\7\x08       "  //"Hot Classic Foam"
                        "                ",  	//"sped pump  \6\7\x08 %",
 
         #ifdef ABIL_SENSORE_PRESSIONE							 
-    /* MSP n. 10 */   "@S018ï¿½\6ï¿½\7\x08      "   //"Hot Classic Foam"
+    /* MSP n. 10 */    "@S018§\6§\7\x08      "   //"Hot Classic Foam"
                        "                ",  	//"pres. 0=dis.\6.\7\x08",
         #else
     /* MSP n. 10 */    "@S019           "  		//"not used        "
                        "                ",  	//"                ",
         #endif		
 
-    /* MSP n.11 */     "@S020ï¿½\6\7\x08       "  //"Hot Fluffy Foam "
+    /* MSP n.11 */     "@S020§\6\7\x08       "  //"Hot Fluffy Foam "
                        "                ",  	//"air        \6\7\x08 %",
 
-    /* MSP n.12 */     "@S021ï¿½\6\7\x08       "  //"Hot Fluffy Foam "
+    /* MSP n.12 */     "@S021§\6\7\x08       "  //"Hot Fluffy Foam "
                        "                ",  	//"sped pump  \6\7\x08 %",
 
         #ifdef ABIL_SENSORE_PRESSIONE							 
-    /* MSP n.13 */     "@S022ï¿½\6ï¿½\7\x08      "  //"Hot Fluffy Foam "
+    /* MSP n.13 */     "@S022§\6§\7\x08      "  //"Hot Fluffy Foam "
                        "                ",  	//"pres. 0=dis.\6.\7\x08",
         #else
     /* MSP n.13 */     "@S023           " 		//"not used        "
                        "                ",  	//"                ",
         #endif		
-    /* MSP n.14 */     "@S024ï¿½\6\7\x08       "  //"Hot Barista Foam"
+    /* MSP n.14 */     "@S024§\6\7\x08       "  //"Hot Barista Foam"
                        "                ",  	//"air        \6\7\x08 %",
 
-    /* MSP n.15 */     "@S025ï¿½\6\7\x08       "  //"Hot Barista Foam"
+    /* MSP n.15 */     "@S025§\6\7\x08       "  //"Hot Barista Foam"
                        "                ",  	//"sped pump  \6\7\x08 %",
 
         #ifdef ABIL_SENSORE_PRESSIONE							 
-    /* MSP n.16 */     "@S026ï¿½\6ï¿½\7\x08      "  //"Hot Barista Foam"
+    /* MSP n.16 */     "@S026§\6§\7\x08      "  //"Hot Barista Foam"
                        "                ",  	//"pres. 0=dis.\6.\7\x08",
         #else
     /* MSP n.16 */     "@S027           "  		//"not used        "
                        "                ",  	//"                ",
         #endif		
 
-    /* MSP n.17 */     "@S028ï¿½\6\7\x08       "  //"Cold ClassicFoam"
+    /* MSP n.17 */     "@S028§\6\7\x08       "  //"Cold ClassicFoam"
                        "                ",  	//"air        \6\7\x08 %",
 
-    /* MSP n.18 */     "@S029ï¿½\6\7\x08       "	//"  "Cold ClassicFoam"
+    /* MSP n.18 */     "@S029§\6\7\x08       "	//"  "Cold ClassicFoam"
                        "                ",  	//"sped pump  \6\7\x08 %",
 
         #ifdef ABIL_SENSORE_PRESSIONE							 
-    /* MSP n.19 */     "@S030ï¿½\6ï¿½\7\x08      "  //"Cold ClassicFoam"
+    /* MSP n.19 */     "@S030§\6§\7\x08      "  //"Cold ClassicFoam"
                        "                ",  	//"pres. 0=dis.\6.\7\x08",
         #else
     /* MSP n.19 */     "@S031           "  		//"not used        "
                        "                ",  	//"                ",
         #endif		
 
-    /* MSP n.20 */     "@S032ï¿½\6\7\x08       "  //"Cold Fluffy Foam"
+    /* MSP n.20 */     "@S032§\6\7\x08       "  //"Cold Fluffy Foam"
                        "                ", 		//"air        \6\7\x08 %",
 
-    /* MSP n.21 */     "@S033ï¿½\6\7\x08       "  //"Cold Fluffy Foam"
+    /* MSP n.21 */     "@S033§\6\7\x08       "  //"Cold Fluffy Foam"
                        "                ",   	//"sped pump  \6\7\x08 %",
 
         #ifdef ABIL_SENSORE_PRESSIONE							 
-    /* MSP n.22 */     "@S034ï¿½\6ï¿½\7\x08      "  //"Cold Fluffy Foam"
+    /* MSP n.22 */     "@S034§\6§\7\x08      "  //"Cold Fluffy Foam"
                        "                ",  	//"pres. 0=dis.\6.\7\x08",
         #else
     /* MSP n.22 */     "@S035           "  		//"not used        "
                        "                ",  	//"                ",
         #endif		
 
-    /* MSP n.23 */     "@S036ï¿½\6\7\x08       "  //"Cold BaristaFoam"
+    /* MSP n.23 */     "@S036§\6\7\x08       "  //"Cold BaristaFoam"
                        "                ",  	//"air        \6\7\x08 %",
 
-    /* MSP n.24 */     "@S037ï¿½\6\7\x08       "  //"Cold BaristaFoam"
+    /* MSP n.24 */     "@S037§\6\7\x08       "  //"Cold BaristaFoam"
                        "                ",  	//"sped pump  \6\7\x08 %",
 
         #ifdef ABIL_SENSORE_PRESSIONE							 
-    /* MSP n.25 */     "@S038ï¿½\6ï¿½\7\x08      "  //"Cold BaristaFoam"
+    /* MSP n.25 */     "@S038§\6§\7\x08      "  //"Cold BaristaFoam"
                        "                ",  	//"pres. 0=dis.\6.\7\x08",
         #else
     /* MSP n.25 */     "@S039           " 		//"not used        "
                        "                ",  	//"                ",
         #endif	
-    /* MSP n.26 */     "@S040ï¿½\6\7\x08       "  //"Deter.dissolving"
+    /* MSP n.26 */     "@S040§\6\7\x08       "  //"Deter.dissolving"
                        "                ",  	//"Seconds:     \6\7\x08",
 
-    /* MSP n.27 */     "@S041ï¿½\x08         "	// "Check Tank Milk "
+    /* MSP n.27 */     "@S041§\x08         "	// "Check Tank Milk "
                        "                ", 		// "Temper. 1=yes  \x08",							   
 
-    /* MSP n.28 */     "@S042ï¿½\6\7\x08       "  //"Hot No Foam     "
+    /* MSP n.28 */     "@S042§\6\7\x08       "  //"Hot No Foam     "
                        "                ",  	//"sped pump  \6\7\x08 %",
 
-    /* MSP n.29 */     "@S043ï¿½\6\7\x08       "  //"Cold No Foam    "
+    /* MSP n.29 */     "@S043§\6\7\x08       "  //"Cold No Foam    "
                        "                ",  	//"sped pump  \6\7\x08 %",		
 
-    /* MSP n.30 */     "@S044ï¿½\4ï¿½\6\7\x08     " //"Tuning milk pump"
+    /* MSP n.30 */     "@S044§\4§\6\7\x08     " //"Tuning milk pump"
                        "                ",      //"+/- 30%: \4 \6\7\x08 %",     
 
-    /* MSP n.31 */     "@S047ï¿½\x08         "    //"Auto rins. mode "
+    /* MSP n.31 */     "@S047§\x08         "    //"Auto rins. mode "
                        "                ",      //"0=Dflt 1=HDE   \x08",
 
 };
@@ -2553,7 +2553,7 @@ const u8 __far ML_MS_MODULI_EST[MAX_MSG_SLAVE][32] =
     /* MSP n. 0 */  "@Z001           "          	// "        use the "
                     "                ",         	// "dispensed cup   "                 
 
-    /* MSP n. 1 */  "@Z002ï¿½\7\x08        "     		// "Place your cup  "
+    /* MSP n. 1 */  "@Z002§\7\x08        "     		// "Place your cup  "
                     "                ",         	// "within \7\x08 sec.  "
 
     /* MSA n. 2 */  "@Z003           "          	//"Deter./tank cup "				//#4660
@@ -2562,13 +2562,13 @@ const u8 __far ML_MS_MODULI_EST[MAX_MSG_SLAVE][32] =
     /* MSA n. 3 */  "@Z004           "          	//"put syrup tube  "				//#4660
                     "                ",          	//"bottl>tank 10=ok",				//#4660		
 
-    /* MSA n. 4 */  "@Z005ï¿½\0\1ï¿½\2\3     "      	//"\0\1/\2\3  H2O fill." 			//#4660
+    /* MSA n. 4 */  "@Z005§\0\1§\2\3     "      	//"\0\1/\2\3  H2O fill." 			//#4660
                     "                ",          	//"in tank with det",				//#4660	
 
     /* MSA n. 5 */  "@Z006           "          	//"Clean Tank under"				//#4660
                     "                ",          	//"cup stat.  10=ok",				//#4660	
 
-	/* MSA n. 6 */  "@Z007ï¿½\0\1ï¿½\2\3     "         	//"\0\1/\2\3 SYRUP "				//#4660	
+	/* MSA n. 6 */  "@Z007§\0\1§\2\3     "         	//"\0\1/\2\3 SYRUP "				//#4660	
                     "                ",          	//"Cleanig End     ",				//#4660	
 
     /* MSA n. 7 */  "@Z008           "          	//"Hot H2O filling "			    //#4660
@@ -2577,13 +2577,13 @@ const u8 __far ML_MS_MODULI_EST[MAX_MSG_SLAVE][32] =
     /* MSA n. 8 */  "@Z009           "          	//"Water/Clen.Sol. "				//#4660
                     "                ",          	//"through syr.tube",				//#4660	
 
-    /* MSA n. 9 */  "@Z010ï¿½\0ï¿½\1ï¿½\2     "          	//"  Inst module   "			
+    /* MSA n. 9 */  "@Z010§\0§\1§\2     "          	//"  Inst module   "			
                     "                ",          	//" version  \0.\1.\2 "				
 
-    /* MSA n. 10 */  "@Z011ï¿½\0ï¿½\1ï¿½\2     "          //"  Syrup module  "			
+    /* MSA n. 10 */  "@Z011§\0§\1§\2     "          //"  Syrup module  "			
                     "                ",          	//" version  \0.\1.\2 "	
 
-    /* MSA n. 11 */ "@Z012ï¿½\4\5\6\7\x08ï¿½\0   "      //"\4\5\6\7\x08 Mixer \0   "
+    /* MSA n. 11 */ "@Z012§\4\5\6\7\x08§\0   "      //"\4\5\6\7\x08 Mixer \0   "
                     "                ",     		//"rinsing         ",
 };
 

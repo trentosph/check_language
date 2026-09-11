@@ -950,27 +950,51 @@ def main(argv: Optional[list[str]] = None) -> int:
         action="store_true",
         help="Fallisce anche in presenza di soli warning",
     )
+    parser.add_argument(
+        "--report",
+        type=Path,
+        default=None,
+        help="Percorso del report .txt (default: <root>/check_language_report.txt)",
+    )
+    parser.add_argument(
+        "--no-report",
+        action="store_true",
+        help="Non scrivere il file di report",
+    )
     args = parser.parse_args(argv)
 
     root = args.root or find_repo_root(Path(__file__).parent)
     lang_def = root / "LANG_DEF.h"
     gb_path = root / "MES_LARHEA_GB.c"
     ml_path = root / "MES_LARHEA_ML.c"
+    report_path = args.report or (root / "check_language_report.txt")
+
+    lines: list[str] = []
+
+    def out(msg: str = "") -> None:
+        """Stampa a console e accumula per il file di report."""
+        print(msg)
+        lines.append(msg)
 
     missing = [p for p in (lang_def, gb_path, ml_path) if not p.exists()]
     if missing:
         for p in missing:
-            print(f"[ERROR] file mancante: {p}", file=sys.stderr)
+            msg = f"[ERROR] file mancante: {p}"
+            print(msg, file=sys.stderr)
+            lines.append(msg)
+        if not args.no_report:
+            _write_report(report_path, lines, failed=True)
         return 1
 
-    print(f"Root: {root}")
-    print(f"File: {lang_def.name}, {gb_path.name}, {ml_path.name}\n")
+    out(f"Root: {root}")
+    out(f"File: {lang_def.name}, {gb_path.name}, {ml_path.name}")
+    out()
 
     macros = parse_lang_def(lang_def)
-    print(f"Macro MAX_* ({len(macros)}):")
+    out(f"Macro MAX_* ({len(macros)}):")
     for k in sorted(macros):
-        print(f"  {k} = {macros[k]}")
-    print()
+        out(f"  {k} = {macros[k]}")
+    out()
 
     issues: list[Issue] = []
     gb_arrays = analyze_file(gb_path, macros, issues)
@@ -981,19 +1005,44 @@ def main(argv: Optional[list[str]] = None) -> int:
     warnings = [i for i in issues if i.severity == "warning"]
 
     for i in issues:
-        print(i.format())
+        out(i.format())
 
-    print()
-    print(
+    out()
+    out(
         f"Riepilogo: {len(errors)} errori, {len(warnings)} warning "
         f"(array GB={len(gb_arrays)}, ML={len(ml_arrays)})"
     )
 
-    if errors or (args.warnings_as_errors and warnings):
-        print("FAIL")
-        return 1
-    print("OK")
-    return 0
+    failed = bool(errors or (args.warnings_as_errors and warnings))
+    out("FAIL" if failed else "OK")
+
+    if not args.no_report:
+        _write_report(report_path, lines, failed=failed)
+        print(f"\nReport scritto in: {report_path}")
+
+    return 1 if failed else 0
+
+
+def _write_report(path: Path, lines: list[str], failed: bool) -> None:
+    """
+    Scrive check_language_report.txt nella root del progetto.
+    Così in SourceTree/Explorer si aprono gli errori senza rilanciare a mano il tool.
+    """
+    from datetime import datetime, timezone
+
+    header = [
+        "=== check_language report ===",
+        f"Data (UTC): {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S')}",
+        f"Esito: {'FAIL' if failed else 'OK'}",
+        "",
+        "Nota: questo file elenca gli errori delle tabelle MES_LARHEA (dimensioni/allineamento).",
+        "Se SourceTree rifiuta il push con GH013 / 'pull request' / 'status check',",
+        "quello e' il ruleset GitHub (serve una PR), non necessariamente un errore di questo elenco.",
+        "",
+        "----------",
+        "",
+    ]
+    path.write_text("\n".join(header + lines) + "\n", encoding="utf-8", errors="replace")
 
 
 if __name__ == "__main__":

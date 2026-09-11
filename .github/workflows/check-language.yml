@@ -2,6 +2,7 @@
 #
 # Blocca push/PR se dimensionamento o allineamento non sono coerenti
 # con LANG_DEF.h. Solo Python standard library (nessuna dipendenza pip).
+# Pubblica anche check_language_report.txt come artifact scaricabile.
 
 name: check-language
 
@@ -10,7 +11,6 @@ on:
     branches: [main, master]
   pull_request:
     branches: [main, master]
-  # Permette di rilanciare a mano da Actions → "Run workflow"
   workflow_dispatch:
 
 jobs:
@@ -27,5 +27,21 @@ jobs:
           python-version: "3.12"
 
       - name: Run language array checker
-        # Exit code != 0 → job rosso → con branch protection il push/merge è bloccato
+        # Scrive check_language_report.txt; exit != 0 → job rosso
+        id: check
         run: python tools/check_language_arrays.py
+        continue-on-error: true
+
+      - name: Upload error report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: check-language-report
+          path: check_language_report.txt
+          if-no-files-found: warn
+
+      - name: Fail job if checker failed
+        if: steps.check.outcome == 'failure'
+        run: |
+          echo "Checker fallito. Scarica l'artifact 'check-language-report' oppure apri check_language_report.txt nei log."
+          exit 1

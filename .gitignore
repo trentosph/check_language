@@ -1,0 +1,7 @@
+# Report generato dal checker (si ricrea a ogni run)
+check_language_report.txt
+
+# Cache Python
+tools/__pycache__/
+__pycache__/
+*.pyc

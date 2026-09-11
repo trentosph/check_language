@@ -1,15 +1,28 @@
 #!/bin/sh
-# Pre-push hook locale: esegue il checker prima di ogni `git push`.
-# Installazione (da root repo):
-#   cp tools/pre-push.sample .git/hooks/pre-push
-#   oppure su Windows (Git Bash): cp tools/pre-push.sample .git/hooks/pre-push && chmod +x .git/hooks/pre-push
+# Pre-push hook: esegue il checker e scrive check_language_report.txt
+# PRIMA di contattare GitHub. Se ci sono errori, il push viene bloccato in locale.
 #
-# Nota: i hook locali NON sono versionati in modo automatico per tutti i clone;
-# la protezione ufficiale resta GitHub Actions + branch protection / ruleset.
+# Installazione (da root repo, una sola volta):
+#   Windows PowerShell:
+#     Copy-Item tools\pre-push.sample .git\hooks\pre-push -Force
+#   Git Bash:
+#     cp tools/pre-push.sample .git/hooks/pre-push && chmod +x .git/hooks/pre-push
 
-set -e
 ROOT="$(git rev-parse --show-toplevel)"
-cd "$ROOT"
+cd "$ROOT" || exit 1
+
 echo "[pre-push] Eseguo check tabelle MES_LARHEA..."
+echo "[pre-push] Report: $ROOT/check_language_report.txt"
+
+# Non usiamo set -e: vogliamo comunque lasciare il report anche in caso di FAIL
 python tools/check_language_arrays.py
+status=$?
+
+if [ "$status" -ne 0 ]; then
+  echo ""
+  echo "[pre-push] PUSH BLOCCATO: apri check_language_report.txt per i dettagli."
+  exit "$status"
+fi
+
 echo "[pre-push] OK"
+exit 0

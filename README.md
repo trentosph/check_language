@@ -32,22 +32,27 @@ python tools/check_language_arrays.py
 
 Exit code `0` = OK, `1` = errori (il push/CI deve fallire).
 
+A ogni esecuzione scrive anche **`check_language_report.txt`** nella root del progetto (elenco errori apribile da Explorer/SourceTree senza rileggere il terminale).
+
 Opzioni utili:
 
 ```bash
 python tools/check_language_arrays.py --warnings-as-errors
 python tools/check_language_arrays.py --root .
+python tools/check_language_arrays.py --no-report
 ```
 
-### Hook pre-push (opzionale, solo sulla tua macchina)
+### Hook pre-push (consigliato con SourceTree)
 
-```bash
-cp tools/pre-push.sample .git/hooks/pre-push
-# Git Bash / Linux / macOS:
-chmod +x .git/hooks/pre-push
+All’avvio di ogni Push, Git esegue il checker e aggiorna `check_language_report.txt`. Se ci sono errori, il push si ferma **in locale**.
+
+```powershell
+Copy-Item tools\pre-push.sample .git\hooks\pre-push -Force
 ```
 
-Su Windows con PowerShell, se `python` non è nel PATH del hook, usa il percorso completo a `python.exe` dentro lo script.
+Su Git Bash: `chmod +x .git/hooks/pre-push`.
+
+Su GitHub Actions il report è anche scaricabile come artifact **check-language-report**.
 
 ---
 

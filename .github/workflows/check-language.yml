@@ -5,8 +5,11 @@
 # @Xnnn verso MES_LARHEA_ML.c. Solo Python stdlib (nessuna dipendenza pip).
 # Pubblica anche check_language_report.txt come artifact scaricabile.
 #
-# Se i controlli sono OK su push a main/master, genera i .lng in MSG/
-# (CSV → LNG) e li committa sul branch se diversi.
+# Generazione .lng (CSV → LNG) solo se i controlli sono OK e:
+#   - workflow_dispatch (sempre), oppure
+#   - push su main/master con modifiche a LANG_DEF.h, MES_LARHEA_GB.c,
+#     MES_LARHEA_ML.c o a file .csv in MSG/
+# Sulle PR i check girano sempre; i .lng non vengono generati.
 
 name: check-language
 
@@ -28,6 +31,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
+          # Storia completa: serve a confrontare il push con github.event.before
+          fetch-depth: 0
           # Serve token con write per eventuale commit dei .lng
           token: ${{ secrets.GITHUB_TOKEN }}
 
@@ -56,22 +61,69 @@ jobs:
           echo "Checker fallito. Scarica l'artifact 'check-language-report' oppure apri check_language_report.txt nei log."
           exit 1
 
-      # Solo dopo check OK: conversione CSV lingua → .lng in MSG/
+      # Decide se generare i .lng (dopo check OK: questo step non gira se il job è già fallito)
+      - name: Decide LNG generation
+        id: lng
+        run: |
+          set -euo pipefail
+
+          # Lancio manuale: forza sempre la rigenerazione
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "Trigger: workflow_dispatch → genera .lng"
+            echo "should_generate=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          # Solo push su main/master: sulle PR non generiamo
+          if [ "${{ github.event_name }}" != "push" ]; then
+            echo "Trigger: ${{ github.event_name }} → salta generazione .lng"
+            echo "should_generate=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          BEFORE="${{ github.event.before }}"
+          SHA="${{ github.sha }}"
+          # File che (ora o in futuro) influenzano i messaggi / .lng
+          PATHS=(LANG_DEF.h MES_LARHEA_GB.c MES_LARHEA_ML.c)
+          # Solo CSV in MSG/ (pathspec quotato: niente espansione shell post-checkout)
+          CSV_PATHSPEC='MSG/*.csv'
+
+          if [ "$BEFORE" = "0000000000000000000000000000000000000000" ]; then
+            # Primo push del branch: considera i path presenti nel commit
+            CHANGED=$(git ls-tree -r --name-only "$SHA" -- "${PATHS[@]}" MSG | grep -E '(^LANG_DEF\.h$|^MES_LARHEA_GB\.c$|^MES_LARHEA_ML\.c$|^MSG/.*\.csv$)' || true)
+          else
+            CHANGED=$(git diff --name-only "$BEFORE" "$SHA" -- "${PATHS[@]}" "$CSV_PATHSPEC" || true)
+          fi
+
+          if [ -n "$CHANGED" ]; then
+            echo "File rilevanti modificati:"
+            echo "$CHANGED"
+            echo "should_generate=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "Nessuna modifica a LANG_DEF.h / MES_LARHEA_*.c / MSG/*.csv → salta .lng"
+            echo "should_generate=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      # Solo dopo check OK e se i file sorgente/CSV sono cambiati (o dispatch)
       - name: Convert CSV to LNG
         id: convert
+        if: steps.lng.outputs.should_generate == 'true'
         run: python tools/convert_csv_to_lng.py
 
       - name: Upload LNG files
+        if: steps.lng.outputs.should_generate == 'true'
         uses: actions/upload-artifact@v4
         with:
           name: msg-lng-files
           path: MSG/*.lng
           if-no-files-found: warn
 
-      # Su push (non PR): se i .lng sono cambiati, commit + push sul branch
+      # Push o dispatch: se i .lng sono cambiati, commit + push sul branch
       # [skip ci] evita un nuovo giro del workflow solo per i binari .lng
       - name: Commit and push updated LNG files
-        if: github.event_name == 'push'
+        if: |
+          steps.lng.outputs.should_generate == 'true' &&
+          (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"

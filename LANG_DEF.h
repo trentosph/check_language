@@ -45,6 +45,6 @@
 #define MAX_CAPPUCCINATORE		32  // Messaggi da 32 caratteri
 #endif //#ifndef CAPPUCCINATORE_INDUX
 #define MAX_TIPO_PALETTA		4	// Messaggi da 16 caratteri
-#define MAX_MSG_SLAVE			30
+#define MAX_MSG_SLAVE			12
 
 #endif //_LANG_DEF_

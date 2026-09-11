@@ -2553,7 +2553,7 @@ const u8 __far ML_MS_MODULI_EST[MAX_MSG_SLAVE][32] =
     /* MSP n. 0 */  "@Z001           "          	// "        use the "
                     "                ",         	// "dispensed cup   "                 
 
-    /* MSP n. 1 */  "@Z002�\7\x08      "     		// "Place your cup  "
+    /* MSP n. 1 */  "@Z002�\7\x08        "     		// "Place your cup  "
                     "                ",         	// "within \7\x08 sec.  "
 
     /* MSA n. 2 */  "@Z003           "          	//"Deter./tank cup "				//#4660

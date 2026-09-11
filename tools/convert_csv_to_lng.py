@@ -10,7 +10,7 @@ I file ML di riferimento non vengono convertiti.
 Formato .lng:
   - blocchi di 36 caratteri (code unit UTF-16) per messaggio
   - ogni blocco = MSG_ROW_1 + "\\n" + MSG_ROW_2, paddato con spazi a 36
-  - encoding UTF-16 Big Endian con BOM (come Encoding.BigEndianUnicode .NET)
+  - encoding UTF-16 Big Endian senza BOM (come i .lng del MultiLanguage Tool)
 
 Uso:
   python tools/convert_csv_to_lng.py
@@ -26,9 +26,6 @@ from typing import Optional
 
 # Lunghezza fissa di ogni messaggio nel .lng (LEN_MSG_BIN nel tool originale)
 LEN_MSG_BIN = 36
-
-# BOM UTF-16 BE (FE FF): StreamWriter/BigEndianUnicode .NET lo scrive sul file
-UTF16_BE_BOM = b"\xfe\xff"
 
 
 def find_repo_root(start: Path) -> Path:
@@ -57,12 +54,17 @@ def row_to_lng_block(row1: str, row2: str) -> str:
 
 def csv_table_to_lng_bytes(rows: list[tuple[str, str]]) -> bytes:
     """
-    Concatena tutti i blocchi messaggio e li codifica UTF-16 BE + BOM.
+    Concatena tutti i blocchi messaggio e li codifica UTF-16 BE senza BOM.
+
+    Contesto: i .lng prodotti dal MultiLanguage Tool originale partono
+    subito con i code unit (es. 00 6C = 'l'), senza prefisso FE FF.
+    Aggiungere il BOM faceva file più lunghi di 2 byte e non binariamente
+    compatibili col firmware / con i file di riferimento.
 
     rows: elenco (MSG_ROW_1, MSG_ROW_2) già parsati dal CSV.
     """
     final = "".join(row_to_lng_block(r1, r2) for r1, r2 in rows)
-    return UTF16_BE_BOM + final.encode("utf-16-be")
+    return final.encode("utf-16-be")
 
 
 def lng_output_name(lang: str, table: str) -> str:
@@ -119,7 +121,7 @@ def main(argv: Optional[list[str]] = None) -> int:
     parser = argparse.ArgumentParser(
         description=(
             "Converte i CSV lingua in MSG/ in file .lng "
-            "(UTF-16 BE, blocchi da 36 caratteri)"
+            "(UTF-16 BE senza BOM, blocchi da 36 caratteri)"
         ),
     )
     parser.add_argument("--root", type=Path, default=None)
